@@ -16,14 +16,6 @@ Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview 
 
 ## Install
 
-**Note:** Remove this paragraph if you are building a public package
-This package is custom built for [Spatie](https://spatie.be) projects and is therefore not registered on packagist. 
-In order to install it via composer you must specify this extra repository in `composer.json`:
-
-```json
-"repositories": [ { "type": "composer", "url": "https://satis.spatie.be/" } ]
-```
-
 You can install the package via composer:
 ``` bash
 $ composer require spatie/:package_name
@@ -56,7 +48,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Jolita Grazyte](https://github.com/JolitaGrazyte)
 - [All Contributors](../../contributors)
 
 ## About Spatie

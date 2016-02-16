@@ -1,16 +1,16 @@
 {
-    "name": "spatie/:package_name",
-    "description": ":package_description",
+    "name": "spatie/laravel-rss",
+    "description": "Generates Rss Feed",
     "keywords": [
         "spatie",
-        ":package_name"
+        "laravel-rss"
     ],
-    "homepage": "https://github.com/spatie/:package_name",
+    "homepage": "https://github.com/spatie/laravel-rss",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Jolita Grazyte",
+            "email": "jolita@spatie.be",
             "homepage": "https://spatie.be",
             "role": "Developer"
         }
