@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace Spatie\LaravelRss;
 
-class SkeletonClass
+class RssClass
 {
     /**
      * Create a new Skeleton Instance

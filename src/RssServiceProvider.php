@@ -1,18 +1,19 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace Spatie\Rss;
 
 use Illuminate\Support\ServiceProvider;
 
-class SkeletonServiceProvider extends ServiceProvider
+class RssServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
+
         $this->publishes([
-            __DIR__.'/../config/skeleton.php' => config_path('skeleton.php'),
+            __DIR__.'/../config/laravel-rss.php' => config_path('laravel-rss.php'),
         ], 'config');
 
         /*
@@ -29,6 +30,8 @@ class SkeletonServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'skeleton');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-rss');
+        include __DIR__.'/routes.php';
     }
+
 }
