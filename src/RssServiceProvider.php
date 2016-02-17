@@ -4,6 +4,7 @@ namespace Spatie\Rss;
 
 use Illuminate\Support\ServiceProvider;
 
+
 class RssServiceProvider extends ServiceProvider
 {
     /**
@@ -16,13 +17,25 @@ class RssServiceProvider extends ServiceProvider
             __DIR__.'/../config/laravel-rss.php' => config_path('laravel-rss.php'),
         ], 'config');
 
-        /*
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'skeleton');
+        $rssConfig = config('laravel-rss');
 
-        $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/skeleton'),
-        ], 'views');
-        */
+        foreach($rssConfig['feeds'] as $feed){
+
+            $this->app['router']->get($feed['url'], function() use ($feed){
+
+                return $this->app->make(Rss::class)->feed($feed);
+
+            });
+
+        }
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-rss');
+
+        /*
+                $this->publishes([
+                    __DIR__.'/../resources/views' => base_path('resources/views/vendor/skeleton'),
+                ], 'views');
+                */
     }
 
     /**
@@ -30,8 +43,10 @@ class RssServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-rss');
-        include __DIR__.'/routes.php';
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-rss.php', 'laravel-rss');
+
+        $this->app->singleton(Rss::class);
+
     }
 
 }
