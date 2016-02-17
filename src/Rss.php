@@ -20,7 +20,7 @@ class Rss
 
         $items = explode('@', $feed['items']);
 
-        $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function($item){
+        $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function(RssItem $item){
 
             return $item->getFeedData();
         });
