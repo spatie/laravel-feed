@@ -24,6 +24,7 @@ class Rss
 
             return $item->getFeedData();
         });
+        dd($data);
 
         $data['meta'] = $feed['meta'];
 

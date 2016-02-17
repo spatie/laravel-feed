@@ -2,7 +2,7 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <link href="http://blender.192.168.10.10.xip.io/nl/feed">
+    <link href="http://blender.192.168.10.10.xip.io/nl/feed"></link>
     <title>
         News
     </title>
