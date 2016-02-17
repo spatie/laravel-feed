@@ -2,14 +2,6 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <link href="http://blender.192.168.10.10.xip.io/nl/feed">
-    <title>
-        News
-    </title>
-    <updated>
-        {{ \Carbon\Carbon::now()->toATOMString() }}
-    </updated>
-
     @foreach($meta as $key => $metaItem)
         @if($key == 'link')
             <{{ $key }} href="{{ $metaItem }}"></{{ $key }}>
@@ -41,4 +33,4 @@
 
     @endforeach
 
-</feed>
+    </feed>
