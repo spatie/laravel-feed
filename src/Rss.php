@@ -20,7 +20,11 @@ class Rss
 
         $items = explode('@', $feed['items']);
 
-        $data['newsItems'] = $this->app->make($items[0])->getAllOnline();
+        $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function($item){
+
+            return $item->getFeedData();
+        });
+
         $data['meta'] = $feed['meta'];
 
         return Response::view('laravel-rss::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);

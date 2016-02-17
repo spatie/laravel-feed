@@ -2,13 +2,13 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    {{--<link href="http://blender.192.168.10.10.xip.io/nl/feed">--}}
-    {{--<title>--}}
-        {{--News--}}
-    {{--</title>--}}
-    {{--<updated>--}}
-        {{--{{ \Carbon\Carbon::now()->toATOMString() }}--}}
-    {{--</updated>--}}
+    <link href="http://blender.192.168.10.10.xip.io/nl/feed">
+    <title>
+        News
+    </title>
+    <updated>
+        {{ \Carbon\Carbon::now()->toATOMString() }}
+    </updated>
 
     @foreach($meta as $key => $metaItem)
         @if($key == 'link')
@@ -19,22 +19,22 @@
 
     @endforeach
 
-    @foreach( $newsItems as $newsItem)
+    @foreach( $items as $item)
 
         <entry>
             <title>
-                {{ $newsItem->name }}
+                {{ $item['title'] }}
             </title>
-            <link>{{ action('Front\NewsItemController@detail', [$newsItem->url]) }}</link>
+            <link>{{ $item['link'] }}</link>
 
             <id>
-                {{ $newsItem->id }}
+                {{ $item['id'] }}
             </id>
             <summary>
-                {{ $newsItem->present()->excerpt }}
+                {{ $item['summary'] }}
             </summary>
             <updated>
-                {{ $newsItem->updated_at }}
+                {{ $item['updated'] }}
             </updated>
 
         </entry>
