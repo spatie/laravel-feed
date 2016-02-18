@@ -28,13 +28,14 @@ Next up, the service provider must be registered:
 
 ];
 ```
+
 Next, you must publish the config file:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\Rss\RssServiceProvider"
 ```
 
-This is the contents of the published file laravel-rss.php:
+This is the content of the published file laravel-rss.php:
 You must change it to fit your needs.
 
 ```php
@@ -42,7 +43,7 @@ return [
 
 'feeds' => [
         [
-            'items' => '',  // Fill in the class with a method that returns a collection of items that must come in the feed. Ie: 'App\Repositories\NewsItemRepository@getAllOnline'
+            'items' => '',  // Fill in the class with a method that returns a collection of items that must come in the feed. e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
             'url'   => '',  // feed url, on which the feeds would be shown
 
             'meta'  => [
@@ -60,9 +61,25 @@ return [
 
 ## Usage
 
+The model that would have feeds must implement RssItem interface and have a method called getFeedData that would return array with the specific values as shown in the example here below:
+e.g.:
 ``` php
 
+  class NewsItem extends ModuleModel implements RssItem
+  {
+    ...
 
+     public function getFeedData()
+        {
+            return [
+                'title'     => $this->name,
+                'id'        => $this->id,
+                'updated'   => $this->updated_at,
+                'summary'   => $this->present()->excerpt,
+                'link'       => action('Front\NewsItemController@detail', [$this->url]),
+            ];
+        }
+  }
 
 ```
 
