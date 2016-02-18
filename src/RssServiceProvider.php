@@ -30,6 +30,9 @@ class RssServiceProvider extends ServiceProvider
         $this->app->singleton(Rss::class);
     }
 
+    /**
+     * Gets feeds routes and generates feeds
+     */
     public function getFeeds()
     {
         foreach (config('laravel-rss.feeds') as $feed) {
