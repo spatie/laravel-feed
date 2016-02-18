@@ -7,9 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-rss.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-rss)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-rss.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-rss)
 
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+This package generates rss feeds for any of the models that has a feed data.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -20,11 +18,52 @@ You can install the package via composer:
 $ composer require spatie/laravel-rss
 ```
 
+Next up, the service provider must be registered:
+
+```php
+// Laravel5: config/app.php
+'providers' => [
+    ...
+    Spatie\Rss\RssServiceProvider::class,
+
+];
+```
+Next, you must publish the config file:
+
+```bash
+php artisan vendor:publish --provider="Spatie\Rss\RssServiceProvider"
+```
+
+This is the contents of the published file laravel-rss.php:
+You must change it to fit your needs.
+
+```php
+return [
+
+'feeds' => [
+        [
+            'items' => '',  // Fill in the class with a method that returns a collection of items that must come in the feed. Ie: 'App\Repositories\NewsItemRepository@getAllOnline'
+            'url'   => '',  // feed url, on which the feeds would be shown
+
+            'meta'  => [
+                'link'          => '',
+                'title'         => '',
+                'updated'       => \Carbon\Carbon::now()->toATOMString(),
+                'description'   => '',
+            ]
+
+        ],
+    ],
+
+];
+```
+
 ## Usage
 
 ``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+
+
+
 ```
 
 ## Changelog
