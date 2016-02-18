@@ -31,7 +31,7 @@ class RssServiceProvider extends ServiceProvider
     }
 
     /**
-     * Gets feeds routes and generates feeds
+     * Gets feeds routes and generates feeds.
      */
     public function getFeeds()
     {

@@ -17,6 +17,7 @@ class Rss
 
     public function feed($feed) : HttpResponse
     {
+        $data = [];
         $items = explode('@', $feed['items']);
 
         $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function (RssItem $item) {
