@@ -2,61 +2,46 @@
 
 namespace Spatie\Rss\Test;
 
-
-use XMLReader;
-
 class RssTest extends TestCase
 {
     /**
      * @test
-    */
+     */
     public function it_registers_route()
     {
         $this->assertEquals(200, $this->call('GET', '/en/myfeed')->getStatusCode());
         $this->assertEquals(200, $this->call('GET', '/nl/myfeed')->getStatusCode());
-
     }
 
     /**
      * @test
      */
-    public function feed_has_valid_xml()
+    public function feed_has_all_models()
     {
-
-        $reader = new XMLReader();
-
-
-
-        $reader->XML($this->call('GET', '/en/myfeed')->getContent());
-
-        $reader->setParserProperty(XMLReader::VALIDATE, true);
-        $reader->read();
-//        die($this->call('GET', '/en/myfeed')->getContent());
-        $this->assertTrue($reader->isValid());
-
+        $content = $this->call('GET', '/en/myfeed')->getContent();
+        $this->assertEquals(5, substr_count($content, '<entry>'));
     }
 
     /**
      * @test
+     * @dataProvider  provider_feed_has_meta
      */
-    public function feed_has_all_models(){
-
+    public function feed_has_meta($stringToCheck)
+    {
+        $content = $this->call('GET', '/en/myfeed')->getContent();
+        $this->assertTrue(str_contains($content, $stringToCheck));
     }
 
     /**
-     * @test
+     * @dataProvider
      */
-    public function feed_has_meta(){
-        str_contains() '<link>...</link>'
+    public function provider_feed_has_meta() : array
+    {
+        return [
+            ['<description>...</description>'],
+            ['<link href="http://blender.192.168.10.10.xip.io/en/feed">'],
+            ['<updated>'],
+
+        ];
     }
-
-    /**
-     * @test
-     */
-    public function feed_works_if_no_models(){
-
-    }
-
-
-
 }

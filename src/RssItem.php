@@ -2,9 +2,7 @@
 
 namespace Spatie\Rss;
 
-
 interface RssItem
 {
-    public function getFeedData();
-
+    public function getFeedData() : array;
 }

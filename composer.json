@@ -22,7 +22,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "5.*",
-        "orchestra/testbench":"^3.0"
+        "orchestra/testbench":"^3.0",
+        "fungku/markup-validator-php":"0.2.1"
     },
     "autoload": {
         "psr-4": {
