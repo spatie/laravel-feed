@@ -17,26 +17,24 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             [
                 'items' => 'Spatie\Rss\Test\DummyRepository@getAllOnline',
 
-                'url' => '/en/myfeed',
+                'url' => '/feed1',
                 'meta' => [
-                    'link' => 'http://blender.192.168.10.10.xip.io/en/feed',
-                    'title' => 'News en',
+                    'link' => 'https://localhost/feed1',
+                    'title' => 'Feed 1',
                     'updated' => \Carbon\Carbon::now()->toATOMString(),
-                    'description' => '...',
-                    'irong' => 'ksngkrgn',
+                    'description' => 'This is feed 1 from the unit tests',
                 ],
 
             ],
             [
                 'items' => 'Spatie\Rss\Test\DummyRepository@getAllOnline',
 
-                'url' => '/nl/myfeed',
+                'url' => '/feed2',
                 'meta' => [
-                    'link' => 'http://blender.192.168.10.10.xip.io/nl/feed',
-                    'title' => 'News nl',
+                    'link' => 'https://localhost/feed1',
+                    'title' => 'Feed 1',
                     'updated' => \Carbon\Carbon::now()->toATOMString(),
-                    'description' => '...',
-                    'irong' => 'ksngkrgn',
+                    'description' => 'This is feed 2 from the unit tests',
                 ],
             ],
         ];

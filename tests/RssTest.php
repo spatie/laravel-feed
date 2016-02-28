@@ -7,20 +7,19 @@ class RssTest extends TestCase
     /** @test */
     public function it_registers_routes_where_feeds_will_be_available()
     {
-        $this->assertEquals(200, $this->call('GET', '/en/myfeed')->getStatusCode());
-        $this->assertEquals(200, $this->call('GET', '/nl/myfeed')->getStatusCode());
+        $this->assertEquals(200, $this->call('GET', '/feed1')->getStatusCode());
+        $this->assertEquals(200, $this->call('GET', '/feed2')->getStatusCode());
     }
 
     /** @test */
     public function a_feed_contains_meta_data()
     {
-        $content = $this->call('GET', '/en/myfeed')->getContent();
+        $content = $this->call('GET', '/feed1')->getContent();
 
         $metaData = [
-            '<description>...</description>',
-            '<link href="http://blender.192.168.10.10.xip.io/en/feed">',
+            '<description>This is feed 1 from the unit tests</description>',
+            '<link href="https://localhost/feed1">',
             '<updated>',
-
         ];
 
         foreach ($metaData as $metaDataItem) {
@@ -31,7 +30,7 @@ class RssTest extends TestCase
     /** @test */
     public function a_feed_contains_all_selected_models()
     {
-        $content = $this->call('GET', '/en/myfeed')->getContent();
+        $content = $this->call('GET', '/feed1')->getContent();
         $this->assertEquals(5, substr_count($content, '<entry>'));
     }
 }
