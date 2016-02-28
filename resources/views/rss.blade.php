@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     @foreach($meta as $key => $metaItem)
-        @if($key == 'link')
+        @if($key === 'link')
             <{{ $key }} href="{{ $metaItem }}"></{{ $key }}>
         @else
             <{{ $key }}>{{ $metaItem }}</{{ $key }}>
@@ -11,7 +11,7 @@
 
     @endforeach
 
-    @foreach( $items as $item)
+    @foreach($items as $item)
 
         <entry>
             <title>
@@ -22,9 +22,11 @@
             <id>
                 {{ $item['id'] }}
             </id>
+
             <summary>
                 {{ $item['summary'] }}
             </summary>
+
             <updated>
                 {{ $item['updated'] }}
             </updated>
