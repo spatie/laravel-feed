@@ -6,7 +6,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Response;
 
-class Rss
+class Feed
 {
     protected $app;
 
@@ -20,12 +20,17 @@ class Rss
         $data = [];
         $items = explode('@', $feed['items']);
 
-        $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function (RssItem $item) {
+        $data['items'] = $this->app->make($items[0])->getAllOnline()->map(function (FeedItem $item) {
 
             return $item->getFeedData();
         });
 
-        $data['meta'] = $feed['meta'];
+        $data['meta'] = [
+            'link' => $feed['url'],
+            'description' => $feed['description'],
+            'title' => $feed['title'],
+            'updated' => $feed['updated']
+        ];
 
         return Response::view('laravel-feed::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
     }

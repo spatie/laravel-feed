@@ -18,7 +18,7 @@ class FeedTest extends TestCase
 
         $metaData = [
             '<description>This is feed 1 from the unit tests</description>',
-            '<link href="https://localhost/feed1">',
+            '<link href="http://localhost/feed1">',
             '<updated>',
         ];
 

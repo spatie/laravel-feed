@@ -4,7 +4,7 @@ namespace Spatie\Feed;
 
 use Illuminate\Support\ServiceProvider;
 
-class RssServiceProvider extends ServiceProvider
+class FeedServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -27,7 +27,7 @@ class RssServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
 
-        $this->app->singleton(Rss::class);
+        $this->app->singleton(Feed::class);
     }
 
     /**
@@ -38,7 +38,7 @@ class RssServiceProvider extends ServiceProvider
         foreach (config('laravel-feed.feeds') as $feed) {
             $this->app['router']->get($feed['url'], function () use ($feed) {
 
-                return $this->app->make(Rss::class)->feed($feed);
+                return $this->app->make(Feed::class)->feed($feed);
 
             });
         }

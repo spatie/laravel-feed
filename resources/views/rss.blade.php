@@ -4,7 +4,7 @@
 
     @foreach($meta as $key => $metaItem)
         @if($key === 'link')
-            <{{ $key }} href="{{ $metaItem }}"></{{ $key }}>
+            <{{ $key }} href="{{ url($metaItem) }}"></{{ $key }}>
         @else
             <{{ $key }}>{{ $metaItem }}</{{ $key }}>
         @endif

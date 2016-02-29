@@ -2,40 +2,30 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\RssServiceProvider;
+use Spatie\Feed\FeedServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [RssServiceProvider::class];
+        return [FeedServiceProvider::class];
     }
-
     protected function getEnvironmentSetUp($app)
     {
         $feed = [
             [
-                'items' => 'Spatie\Rss\Test\DummyRepository@getAllOnline',
-
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAllOnline',
                 'url' => '/feed1',
-                'meta' => [
-                    'link' => 'https://localhost/feed1',
-                    'title' => 'Feed 1',
-                    'updated' => \Carbon\Carbon::now()->toATOMString(),
-                    'description' => 'This is feed 1 from the unit tests',
-                ],
-
+                'title' => 'Feed 1',
+                'description' => 'This is feed 1 from the unit tests',
+                'updated' => \Carbon\Carbon::now()->toATOMString(),
             ],
             [
-                'items' => 'Spatie\Rss\Test\DummyRepository@getAllOnline',
-
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAllOnline',
                 'url' => '/feed2',
-                'meta' => [
-                    'link' => 'https://localhost/feed1',
-                    'title' => 'Feed 1',
-                    'updated' => \Carbon\Carbon::now()->toATOMString(),
-                    'description' => 'This is feed 2 from the unit tests',
-                ],
+                'title' => 'Feed 2',
+                'description' => 'This is feed 2 from the unit tests',
+                'updated' => \Carbon\Carbon::now()->toATOMString(),
             ],
         ];
 
