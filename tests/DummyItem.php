@@ -10,37 +10,37 @@ class DummyItem implements FeedItem
     public function getFeedData() : array
     {
         return [
-            'title' => $this->getTitleForFeedItem(),
-            'id' => $this->getIdForFeedItem(),
-            'updated' => $this->getUpdatedForFeedItem(),
-            'summary' => $this->getSummaryForFeedItem(),
-            'link' => $this->getLinkForFeedItem(),
+            'title' => $this->getFeedItemTitle(),
+            'id' => $this->getFeedItemId(),
+            'updated' => $this->getFeedItemUpdated(),
+            'summary' => $this->getFeedItemSummary(),
+            'link' => $this->getFeedItemLink(),
         ];
     }
 
-    public function getIdForFeedItem()
+    public function getFeedItemId()
     {
         return 1;
     }
 
-    public function getTitleForFeedItem() : string
+    public function getFeedItemTitle() : string
     {
         return 'Ducimus ipsum consequatur vel libero debitis quis voluptatem.';
     }
 
-    public function getSummaryForFeedItem() : string
+    public function getFeedItemSummary() : string
     {
         return 'Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.';
     }
 
-    public function getUpdatedForFeedItem() : Carbon
+    public function getFeedItemUpdated() : Carbon
     {
-        return Carbon::create('2016','02','15', '11', '23','41');
+        return Carbon::now();
     }
 
-    public function getLinkForFeedItem() : string
+    public function getFeedItemLink() : string
     {
-        return 'http://blender.192.168.10.10.xip.io/nl/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem';
+        return 'http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem';
     }
 
 }

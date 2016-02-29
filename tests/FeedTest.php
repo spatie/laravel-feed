@@ -2,6 +2,7 @@
 
 namespace Spatie\Feed\Test;
 
+use Illuminate\Filesystem\Filesystem as File;
 class FeedTest extends TestCase
 {
     /** @test */
@@ -28,9 +29,30 @@ class FeedTest extends TestCase
     }
 
     /** @test */
+    public function a_feed_contains_xml_content()
+    {
+        $content = $this->call('GET', '/feed1')->getContent();
+        $file = 'tests/feeds.xml';
+        app(File::class)->put($file, $content);
+        $xml_reader = new \XMLReader();
+        $xml_reader->open($file);
+        $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
+        $this->assertTrue($xml_reader->isValid());
+    }
+
+    /** @test */
     public function a_feed_contains_all_selected_models()
     {
         $content = $this->call('GET', '/feed1')->getContent();
         $this->assertEquals(5, substr_count($content, '<entry>'));
+    }
+
+    /** @test */
+    public function a_feed_contains_a_expected_data()
+    {
+        $content = $this->call('GET', '/feed1')->getContent();
+        $file = 'tests/feeds.xml';
+        app(File::class)->put($file, $content);
+        app(File::class)->get($file);
     }
 }
