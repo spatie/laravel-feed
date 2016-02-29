@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Rss\Test;
+namespace Spatie\Feed\Test;
 
 class DummyRepository
 {

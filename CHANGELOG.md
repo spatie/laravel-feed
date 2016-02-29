@@ -1,6 +1,6 @@
 # Changelog
 
-All Notable changes to `laravel-rss` will be documented in this file
+All Notable changes to `laravel-feed` will be documented in this file
 
 ## NEXT - YYYY-MM-DD
 

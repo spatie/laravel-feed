@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Rss\Test;
+namespace Spatie\Feed\Test;
 
-use Spatie\Rss\RssItem;
+use Spatie\Feed\FeedItem;
 
-class DummyItem implements RssItem
+class DummyItem implements FeedItem
 {
     public function getFeedData() : array
     {

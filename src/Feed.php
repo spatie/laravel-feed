@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Rss;
+namespace Spatie\Feed;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Response as HttpResponse;
@@ -27,6 +27,6 @@ class Rss
 
         $data['meta'] = $feed['meta'];
 
-        return Response::view('laravel-rss::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
+        return Response::view('laravel-feed::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
     }
 }

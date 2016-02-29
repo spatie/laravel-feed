@@ -1,11 +1,11 @@
-# laravel-rss
+# laravel-feed
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-rss.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-rss)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-rss/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-rss)
+[![Build Status](https://img.shields.io/travis/spatie/laravel-feed/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-feed)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/xxxxxxxxx.svg?style=flat-square)](https://insight.sensiolabs.com/projects/xxxxxxxxx)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-rss.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-rss)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-rss.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-rss)
+[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
 This package generates rss feeds for any of the models that has a feed data.
 
@@ -15,7 +15,7 @@ Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview 
 
 You can install the package via composer:
 ``` bash
-$ composer require spatie/laravel-rss
+$ composer require spatie/laravel-feed
 ```
 
 Next up, the service provider must be registered:
@@ -35,7 +35,7 @@ Next, you must publish the config file:
 php artisan vendor:publish --provider="Spatie\Rss\RssServiceProvider"
 ```
 
-This is the content of the published file laravel-rss.php:
+This is the content of the published file laravel-feed.php:
 You must change it to fit your needs.
 
 ```php

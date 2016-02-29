@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Rss;
+namespace Spatie\Feed;
 
-interface RssItem
+interface FeedItem
 {
     public function getFeedData() : array;
 }

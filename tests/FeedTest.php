@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Rss\Test;
+namespace Spatie\Feed\Test;
 
-class RssTest extends TestCase
+class FeedTest extends TestCase
 {
     /** @test */
     public function it_registers_routes_where_feeds_will_be_available()

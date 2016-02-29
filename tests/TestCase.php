@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Rss\Test;
+namespace Spatie\Feed\Test;
 
-use Spatie\Rss\RssServiceProvider;
+use Spatie\Feed\RssServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -39,6 +39,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ],
         ];
 
-        $app['config']->set('laravel-rss.feeds', $feed);
+        $app['config']->set('laravel-feed.feeds', $feed);
     }
 }
