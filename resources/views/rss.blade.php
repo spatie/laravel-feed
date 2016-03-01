@@ -27,9 +27,7 @@
                 {{ $item['summary'] }}
             </summary>
 
-            <updated>
-                {{ $item['updated'] }}
-            </updated>
+            <updated>{{ $item['updated'] }}</updated>
 
         </entry>
 

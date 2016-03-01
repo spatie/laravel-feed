@@ -29,7 +29,7 @@ class Feed
             'link' => $feed['url'],
             'description' => $feed['description'],
             'title' => $feed['title'],
-            'updated' => $feed['updated']
+            'updated' => $feed['updated'],
         ];
 
         return Response::view('laravel-feed::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
