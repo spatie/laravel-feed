@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package generates rss feeds for any of the models that has a feed data.
+This package generates rss feeds for any of the chosen models. A model that should have a feed, must implement FeedItem and have all of the corresponding methods.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -21,10 +21,9 @@ $ composer require spatie/laravel-feed
 Next up, the service provider must be registered:
 
 ```php
-// Laravel5: config/app.php
 'providers' => [
     ...
-    Spatie\Rss\RssServiceProvider::class,
+    Spatie\Feed\FeedServiceProvider::class,
 
 ];
 ```
@@ -32,7 +31,7 @@ Next up, the service provider must be registered:
 Next, you must publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Rss\RssServiceProvider"
+php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider"
 ```
 
 This is the content of the published file laravel-feed.php:
@@ -43,16 +42,16 @@ return [
 
 'feeds' => [
         [
-            'items' => '',  // Fill in the class with a method that returns a collection of items that must come in the feed. e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
-            'url'   => '',  // feed url, on which the feeds would be shown
-
-            'meta'  => [
-                'link'          => '',
-                'title'         => '',
-                'updated'       => \Carbon\Carbon::now()->toATOMString(),
-                'description'   => '',
-            ]
-
+            /**
+            * Fill in for items a class with a method that returns a collection of items that you want in the feed.
+            */
+            'items' => '',  // e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
+            'url' => '',  // here goes a feed url, on which the feeds will be shown
+            'title' => '', // feed title in metadata
+            'description' => '', // feed description in metadata
+            'updated' => \Carbon\Carbon::now()->toAtomString()
+        
+            ],
         ],
     ],
 
@@ -61,26 +60,48 @@ return [
 
 ## Usage
 
-The model that would have feeds must implement RssItem interface and have a method called getFeedData that would return array with the specific values as shown in the example here below:
-e.g.:
+A model that would have feeds must implement FeedItem interface and have all corresponding methods:
+E.g.:
 ``` php
-
-  class NewsItem extends ModuleModel implements RssItem
-  {
+  class NewsItem extends ModuleModel implements FeedItem
+    {
     ...
-
-     public function getFeedData()
+        public function getFeedData() : array
         {
             return [
-                'title'     => $this->name,
-                'id'        => $this->id,
-                'updated'   => $this->updated_at,
-                'summary'   => $this->present()->excerpt,
-                'link'       => action('Front\NewsItemController@detail', [$this->url]),
+                'title' => $this->getFeedItemTitle(),
+                'id' => $this->getFeedItemId(),
+                'updated' => $this->getFeedItemUpdated(),
+                'summary' => $this->getFeedItemSummary(),
+                'link' => $this->getFeedItemLink(),
             ];
         }
-  }
-
+  
+        public function getFeedItemId()
+        {
+            return $this->id;
+        }
+  
+        public function getFeedItemTitle() : string
+        {
+            return $this->name;
+        }
+  
+        public function getFeedItemSummary() : string
+        {
+            return $this->present()->excerpt;
+        }
+  
+        public function getFeedItemUpdated() : Carbon
+        {
+            return $this->updated_at;
+        }
+  
+        public function getFeedItemLink() : string
+        {
+            return action('Front\NewsItemController@detail', [$this->url]);
+        }
+    }
 ```
 
 ## Changelog
