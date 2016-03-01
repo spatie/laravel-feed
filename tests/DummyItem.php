@@ -35,7 +35,7 @@ class DummyItem implements FeedItem
 
     public function getFeedItemUpdated() : Carbon
     {
-        return Carbon::create('2016', '02', '29', '16','06','18');
+        return Carbon::create('2016', '02', '29', '16', '06', '18');
     }
 
     public function getFeedItemLink() : string

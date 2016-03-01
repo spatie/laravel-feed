@@ -2,7 +2,6 @@
 
 namespace Spatie\Feed\Test;
 
-use Carbon\Carbon;
 use Illuminate\Filesystem\Filesystem as File;
 
 class FeedTest extends TestCase
@@ -57,13 +56,14 @@ class FeedTest extends TestCase
         $this->check_if_feed_has_expected_content($this->getContent());
     }
 
-    private function check_if_feed_has_expected_content($contents){
-       for($i = 0; $i < count($contents); ++$i){
-           $this->makeXmlFiles($i, $contents[$i]);
-           $saved_file = app(File::class)->get('tests/xml-files/feeds_'.$i.'.xml');
-           $file = app(File::class)->get('tests/feeds_'.$i.'.xml');
-           $this->assertEquals($file, $saved_file);
-       }
+    private function check_if_feed_has_expected_content($contents)
+    {
+        for ($i = 0; $i < count($contents); ++$i) {
+            $this->makeXmlFiles($i, $contents[$i]);
+            $saved_file = app(File::class)->get('tests/xml-files/feeds_'.$i.'.xml');
+            $file = app(File::class)->get('tests/feeds_'.$i.'.xml');
+            $this->assertEquals($file, $saved_file);
+        }
     }
     private function getMetaData()
     {
@@ -93,6 +93,7 @@ class FeedTest extends TestCase
     {
         $file = 'tests/feeds_'.$i.'.xml';
         app(File::class)->put($file, $content);
+
         return $file;
     }
 }
