@@ -35,6 +35,7 @@ php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider"
 ```
 
 This is the content of the published file laravel-feed.php:
+
 You must change it to fit your needs.
 
 ```php
@@ -61,7 +62,8 @@ return [
 ## Usage
 
 A model that would have feeds must implement FeedItem interface and have all corresponding methods:
-E.g.:
+
+e.g.:
 ``` php
   class NewsItem extends ModuleModel implements FeedItem
     {
