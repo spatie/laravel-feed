@@ -32,6 +32,6 @@ class Feed
             'updated' => $feed['updated'],
         ];
 
-        return Response::view('laravel-feed::rss', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
+        return Response::view('laravel-feed::feed', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
     }
 }
