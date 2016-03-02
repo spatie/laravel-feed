@@ -7,7 +7,6 @@
             <{{ $key }}>{{ $metaItem }}</{{ $key }}>
         @endif
     @endforeach
-    <updated></updated>
     @foreach($items as $item)
         <entry>
             <title>{{ $item['title'] }}</title>

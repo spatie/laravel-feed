@@ -3,8 +3,8 @@
                         <link href="http://localhost/feed2"></link>
                                 <description>This is feed 2 from the unit tests</description>
                                 <title>Feed 2</title>
-                <updated></updated>
-            <entry>
+                                <updated>2016-02-29 16:06:18</updated>
+                        <entry>
             <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
             <id>1</id>

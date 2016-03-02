@@ -25,16 +25,11 @@ class Feed
             return $item->getFeedData();
         });
 
-
-        collect($data['items'])->filter(function($item){
-            dd($item['updated']);
-        });
-
         $data['meta'] = [
             'link' => $feed['url'],
             'description' => $feed['description'],
             'title' => $feed['title'],
-//            'updated' =>
+            'updated' => collect($data['items'])->sortBy('updated')->last()['updated']->format('Y-m-d H:i:s')
         ];
 
         return Response::view(
