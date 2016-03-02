@@ -22,13 +22,12 @@ class Feed
         $method = $items[1];
 
         $data['items'] = $this->app->make($items[0])->$method()->map(function (FeedItem $item) {
-
             return $item->getFeedData();
         });
 
 
         collect($data['items'])->filter(function($item){
-//            dd($item['updated']);
+            dd($item['updated']);
         });
 
         $data['meta'] = [
