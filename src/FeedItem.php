@@ -8,6 +8,8 @@ interface FeedItem
 {
     public function getFeedData() : array;
 
+    public function getUpdated() : Carbon;
+
     public function getFeedItemTitle() : string;
 
     public function getFeedItemId();

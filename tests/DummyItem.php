@@ -18,6 +18,11 @@ class DummyItem implements FeedItem
         ];
     }
 
+    public function getUpdated() : Carbon
+    {
+        return Carbon::create('2016', '02', '29', '16', '06', '18');
+    }
+
     public function getFeedItemId()
     {
         return 1;
