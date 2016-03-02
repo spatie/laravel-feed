@@ -35,10 +35,10 @@ class FeedServiceProvider extends ServiceProvider
      */
     public function getFeeds()
     {
-        foreach (config('laravel-feed.feeds') as $feed) {
-            $this->app['router']->get($feed['url'], function () use ($feed) {
+        foreach (config('laravel-feed.feeds') as $feedConfiguration) {
+            $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
 
-                return $this->app->make(Feed::class)->feed($feed);
+                return $this->app->make(Feed::class)->getViewResponse($feedConfiguration);
 
             });
         }

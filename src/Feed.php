@@ -2,40 +2,47 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Response as HttpResponse;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Collection;
+use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class Feed
 {
-    protected $app;
-
-    public function __construct(Application $app)
+    public function getViewResponse(array $feedConfiguration) : HttpResponse
     {
-        $this->app = $app;
+        $feedContent = $this->getFeedContent($feedConfiguration);
+
+        return response($feedContent, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
     }
 
-    public function feed($feed) : HttpResponse
+    public function getFeedContent(array $feedConfiguration) : string
     {
-        $data = [];
-        $items = explode('@', $feed['items']);
-        $method = $items[1];
+        if (!str_contains($feedConfiguration['items'], '@')) {
+            throw InvalidConfiguration::delimiterNotPresent($feedConfiguration['items']);
+        }
 
-        $data['items'] = $this->app->make($items[0])->$method()->map(function (FeedItem $item) {
-            return $item->getFeedData();
-        });
+        list($class, $method) = explode('@', $feedConfiguration['items']);
 
-        $data['meta'] = [
-            'link' => $feed['url'],
-            'description' => $feed['description'],
-            'title' => $feed['title'],
-            'updated' => collect($data['items'])->sortBy('updated')->last()['updated']->format('Y-m-d H:i:s'),
+        $items = app($class)->$method();
+
+        $meta = [
+            'link' => $feedConfiguration['url'],
+            'description' => $feedConfiguration['description'],
+            'title' => $feedConfiguration['title'],
+            'updated' => $this->getLastUpdatedDate($items, 'Y-m-d H:i:s'),
         ];
 
-        return Response::view(
-            'laravel-feed::feed',
-            $data, 200,
-            ['Content-Type' => 'application/atom+xml; chartset=UTF-8']
-        );
+        return view('laravel-feed::feed', compact('meta', 'items'))->render();
+    }
+
+    protected function getLastUpdatedDate(Collection $items, string $format) : string
+    {
+        $lastItem = $items
+            ->sortBy(function (FeedItem $feedItem) {
+                return  $feedItem->getFeedItemUpdated()->format('YmdHis');
+            })
+            ->last();
+
+        return $lastItem->getFeedItemUpdated()->format($format);
     }
 }

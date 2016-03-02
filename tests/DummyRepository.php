@@ -4,7 +4,7 @@ namespace Spatie\Feed\Test;
 
 class DummyRepository
 {
-    public function getAllOnline()
+    public function getAll()
     {
         return collect([
             new DummyItem(),
@@ -12,7 +12,6 @@ class DummyRepository
             new DummyItem(),
             new DummyItem(),
             new DummyItem(),
-
         ]);
     }
 }

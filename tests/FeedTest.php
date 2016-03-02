@@ -2,91 +2,56 @@
 
 namespace Spatie\Feed\Test;
 
+use XMLReader;
+
 class FeedTest extends TestCase
 {
+    protected $feedNames = ['feed1', 'feed2'];
+
     /** @test */
     public function it_registers_routes_where_feeds_will_be_available()
     {
-        $this->assertEquals(200, $this->call('GET', '/feed1')->getStatusCode());
-        $this->assertEquals(200, $this->call('GET', '/feed2')->getStatusCode());
-    }
+        collect($this->feedNames)->each(function (string $feedName) {
 
-    /** @test */
-    public function a_feed_contains_meta_data()
-    {
-        $contents = $this->getContent();
-        $metaData = $this->getMetaData();
-        for ($i = 0; $i < count($contents); ++$i) {
-            foreach ($metaData[$i] as $metaDataItem) {
-                $this->assertContains($metaDataItem, $contents[$i]);
-            }
-        }
+            $this->assertEquals(200, $this->call('GET', "/{$feedName}")->getStatusCode());
+
+        });
     }
 
     /** @test */
     public function a_feed_contains_xml_content()
     {
-        $i = 0;
-        foreach ($this->getContent() as $content) {
-            $this->assertTrue($this->validateXml($i, $content));
-            ++$i;
-        }
-    }
+        collect($this->feedNames)->each(function (string $feedName) {
 
-    /** @test */
-    public function a_feed_contains_all_selected_models()
-    {
-        foreach ($this->getContent() as $content) {
-            $this->assertEquals(5, substr_count($content, '<entry>'));
-        }
+            $generatedFeedContent = $this->call('GET', "/{$feedName}")->getContent();
+
+            $this->assertTrue($this->validateXml($generatedFeedContent));
+
+        });
     }
 
     /** @test */
     public function all_feed_items_have_expected_data()
     {
-        $i = 0;
-        foreach ($this->getContent() as $content) {
-            $file = file_get_contents('tests/stubs/feeds_'.$i.'.xml');
-            if (is_null($file)) {
-                file_put_contents('tests/stubs/feeds_'.$i.'.xml', $content);
-            }
-            $this->assertEquals($file, $content);
-            ++$i;
-        }
+        collect($this->feedNames)->each(function (string $feedName) {
+
+            $stubContent = file_get_contents("tests/stubs/{$feedName}.xml");
+            $generatedFeedContent = $this->call('GET', "/{$feedName}")->getContent();
+
+            $this->assertEquals($stubContent, $generatedFeedContent);
+        });
     }
 
-    protected function getMetaData()
+    protected function validateXml(string $content) : bool
     {
-        return [
-            [
-                '<description>This is feed 1 from the unit tests</description>',
-                '<link href="http://localhost/feed1">',
-                '<updated>',
-            ],
-            [
-                '<description>This is feed 2 from the unit tests</description>',
-                '<link href="http://localhost/feed2">',
-                '<updated>',
-            ],
-        ];
-    }
+        $file = 'tests/temp/validate.xml';
 
-    protected function getContent()
-    {
-        return [
-            $this->call('GET', '/feed1')->getContent(),
-            $this->call('GET', '/feed2')->getContent(),
-        ];
-    }
-
-    protected function validateXml($i, $content)
-    {
-        $file = 'tests/temp/feeds_'.$i.'.xml';
         file_put_contents($file, $content);
-        $xml_reader = new \XMLReader();
-        $xml_reader->open($file);
-        $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
-        return $xml_reader->isValid();
 
+        $xmlReader = new XMLReader();
+        $xmlReader->open($file);
+        $xmlReader->setParserProperty($xmlReader::VALIDATE, true);
+
+        return $xmlReader->isValid();
     }
 }

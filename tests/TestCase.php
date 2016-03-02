@@ -2,10 +2,18 @@
 
 namespace Spatie\Feed\Test;
 
+use Carbon\Carbon;
 use Spatie\Feed\FeedServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        Carbon::setTestNow(Carbon::create(2016, 1, 1)->startOfDay());
+
+        parent::__construct($name, $data, $dataName);
+    }
+
     protected function getPackageProviders($app)
     {
         return [FeedServiceProvider::class];
@@ -14,18 +22,16 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $feed = [
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAllOnline',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1',
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
-                'updated' => \Carbon\Carbon::create('2016', '02', '29', '16', '06', '18')->toATOMString(),
             ],
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAllOnline',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed2',
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
-                'updated' => \Carbon\Carbon::create('2016', '02', '29', '16', '06', '18')->toATOMString(),
             ],
         ];
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+                        <link href="http://localhost/feed1"></link>
+                                <description>This is feed 1 from the unit tests</description>
+                                <title>Feed 1</title>
+                                <updated>2016-01-01 00:00:00</updated>
+                        <entry>
+            <title>feedItemTitle</title>
+            <link>https://localhost/news/testItem1</link>
+            <id>1</id>
+            <summary>
+                feedItemSummary
+            </summary>
+            <updated>2016-01-01 00:00:00</updated>
+        </entry>
+            <entry>
+            <title>feedItemTitle</title>
+            <link>https://localhost/news/testItem1</link>
+            <id>1</id>
+            <summary>
+                feedItemSummary
+            </summary>
+            <updated>2016-01-01 00:00:00</updated>
+        </entry>
+            <entry>
+            <title>feedItemTitle</title>
+            <link>https://localhost/news/testItem1</link>
+            <id>1</id>
+            <summary>
+                feedItemSummary
+            </summary>
+            <updated>2016-01-01 00:00:00</updated>
+        </entry>
+            <entry>
+            <title>feedItemTitle</title>
+            <link>https://localhost/news/testItem1</link>
+            <id>1</id>
+            <summary>
+                feedItemSummary
+            </summary>
+            <updated>2016-01-01 00:00:00</updated>
+        </entry>
+            <entry>
+            <title>feedItemTitle</title>
+            <link>https://localhost/news/testItem1</link>
+            <id>1</id>
+            <summary>
+                feedItemSummary
+            </summary>
+            <updated>2016-01-01 00:00:00</updated>
+        </entry>
+    </feed>

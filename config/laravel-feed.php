@@ -5,15 +5,20 @@ return [
     'feeds' => [
         [
             /*
-             * Fill in for items a class with a method that returns a collection of items
-             * that you want in the feed.
-             * e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
-             * For url fill in a url, on which the feeds will be shown.
+             * Here you can specify which class an method will return the items
+             * that should appeary in the feed. For example:
+             * 'App\Repositories\NewsItemRepository@getAllOnline'
              */
             'items' => '',
+
+            /*
+             * The feed will be available on this url
+             */
             'url' => '',
-            'title' => 'This is feed 1 from the unit tests',
-            'description' => 'This is feed 1 from the unit tests.',
+
+            'title' => 'My feed',
+            
+            'description' => 'Description of my feed',
         ],
     ],
 

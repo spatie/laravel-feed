@@ -9,13 +9,13 @@
     @endforeach
     @foreach($items as $item)
         <entry>
-            <title>{{ $item['title'] }}</title>
-            <link>{{ $item['link'] }}</link>
-            <id>{{ $item['id'] }}</id>
+            <title>{{ $item->getFeedItemTitle() }}</title>
+            <link>{{ $item->getFeedItemLink() }}</link>
+            <id>{{ $item->getFeedItemId() }}</id>
             <summary>
-                {{ $item['summary'] }}
+                {{ $item->getFeedItemSummary() }}
             </summary>
-            <updated>{{ $item['updated'] }}</updated>
+            <updated>{{ $item->getFeedItemUpdated() }}</updated>
         </entry>
     @endforeach
 </feed>
