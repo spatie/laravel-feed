@@ -86,8 +86,7 @@ class FeedTest extends TestCase
         $xml_reader = new \XMLReader();
         $xml_reader->open($file);
         $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
-
         return $xml_reader->isValid();
-        unlink($file);
+
     }
 }
