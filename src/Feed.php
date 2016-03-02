@@ -28,10 +28,13 @@ class Feed
         $data['meta'] = [
             'link' => $feed['url'],
             'description' => $feed['description'],
-            'title' => $feed['title'],
-            'updated' => $feed['updated'],
+            'title' => $feed['title']
         ];
 
-        return Response::view('laravel-feed::feed', $data, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
+        return Response::view(
+            'laravel-feed::feed',
+            $data, 200,
+            ['Content-Type' => 'application/atom+xml; chartset=UTF-8']
+        );
     }
 }

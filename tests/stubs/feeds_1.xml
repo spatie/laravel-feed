@@ -1,110 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <feed xmlns="http://www.w3.org/2005/Atom">
-
-                        <link href="http://localhost/feed1"></link>
-        
-                        <description>This is feed 1 from the unit tests</description>
-        
-                        <title>Feed 1</title>
-        
-                        <updated>2016-02-29T16:06:18+00:00</updated>
-        
-    
-    
-        <entry>
-            <title>
-                Ducimus ipsum consequatur vel libero debitis quis voluptatem.
-            </title>
+                        <link href="http://localhost/feed2"></link>
+                                <description>This is feed 2 from the unit tests</description>
+                                <title>Feed 2</title>
+                <updated></updated>
+            <entry>
+            <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
-
-            <id>
-                1
-            </id>
-
+            <id>1</id>
             <summary>
                 Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.
             </summary>
-
             <updated>2016-02-29 16:06:18</updated>
-
         </entry>
-
-    
-        <entry>
-            <title>
-                Ducimus ipsum consequatur vel libero debitis quis voluptatem.
-            </title>
+            <entry>
+            <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
-
-            <id>
-                1
-            </id>
-
+            <id>1</id>
             <summary>
                 Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.
             </summary>
-
             <updated>2016-02-29 16:06:18</updated>
-
         </entry>
-
-    
-        <entry>
-            <title>
-                Ducimus ipsum consequatur vel libero debitis quis voluptatem.
-            </title>
+            <entry>
+            <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
-
-            <id>
-                1
-            </id>
-
+            <id>1</id>
             <summary>
                 Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.
             </summary>
-
             <updated>2016-02-29 16:06:18</updated>
-
         </entry>
-
-    
-        <entry>
-            <title>
-                Ducimus ipsum consequatur vel libero debitis quis voluptatem.
-            </title>
+            <entry>
+            <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
-
-            <id>
-                1
-            </id>
-
+            <id>1</id>
             <summary>
                 Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.
             </summary>
-
             <updated>2016-02-29 16:06:18</updated>
-
         </entry>
-
-    
-        <entry>
-            <title>
-                Ducimus ipsum consequatur vel libero debitis quis voluptatem.
-            </title>
+            <entry>
+            <title>Ducimus ipsum consequatur vel libero debitis quis voluptatem.</title>
             <link>http://localhost/news/ducimus-ipsum-consequatur-vel-libero-debitis-quis-voluptatem</link>
-
-            <id>
-                1
-            </id>
-
+            <id>1</id>
             <summary>
                 Officia aliquid rem repudiandae ut sed voluptatem non. Fuga libero omnis atque quam error. Iure dolorum labore ducimus temporibus.
             </summary>
-
             <updated>2016-02-29 16:06:18</updated>
-
         </entry>
-
-    
     </feed>

@@ -2,8 +2,6 @@
 
 namespace Spatie\Feed\Test;
 
-use Illuminate\Filesystem\Filesystem as File;
-
 class FeedTest extends TestCase
 {
     /** @test */
@@ -28,17 +26,10 @@ class FeedTest extends TestCase
     /** @test */
     public function a_feed_contains_xml_content()
     {
-        $this->validate_xml($this->getContent());
-    }
-
-    private function validate_xml($contents)
-    {
-        for ($i = 0; $i < count($contents); ++$i) {
-            $file = $this->makeXmlFiles($i, $contents[$i]);
-            $xml_reader = new \XMLReader();
-            $xml_reader->open($file);
-            $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
-            $this->assertTrue($xml_reader->isValid());
+        $i=0;
+        foreach($this->getContent() as $content){
+            $this->assertTrue($this->validateXml($i, $content));
+            $i++;
         }
     }
 
@@ -53,19 +44,15 @@ class FeedTest extends TestCase
     /** @test */
     public function all_feed_items_have_expected_data()
     {
-        $this->check_if_feed_has_expected_content($this->getContent());
-    }
-
-    private function check_if_feed_has_expected_content($contents)
-    {
-        for ($i = 0; $i < count($contents); ++$i) {
-            $this->makeXmlFiles($i, $contents[$i]);
-            $saved_file = app(File::class)->get('tests/xml-files/feeds_'.$i.'.xml');
-            $file = app(File::class)->get('tests/feeds_'.$i.'.xml');
-            $this->assertEquals($file, $saved_file);
+        $i = 0;
+        foreach($this->getContent() as $content){
+            $this->assertEquals(file_get_contents('tests/stubs/feeds_' . $i . '.xml'), $content);
+            $i++;
         }
     }
-    private function getMetaData()
+
+
+    protected function getMetaData()
     {
         return [
             [
@@ -81,7 +68,7 @@ class FeedTest extends TestCase
         ];
     }
 
-    private function getContent()
+    protected function getContent()
     {
         return [
             $this->call('GET', '/feed1')->getContent(),
@@ -89,11 +76,14 @@ class FeedTest extends TestCase
         ];
     }
 
-    private function makeXmlFiles($i, $content)
+    protected function validateXml($i, $content)
     {
-        $file = 'tests/feeds_'.$i.'.xml';
-        app(File::class)->put($file, $content);
-
-        return $file;
+        $file = 'tests/temp/feeds_'.$i.'.xml';
+        file_put_contents($file, $content);
+        $xml_reader = new \XMLReader();
+        $xml_reader->open($file);
+        $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
+        unlink($file);
+        return $xml_reader->isValid();
     }
 }
