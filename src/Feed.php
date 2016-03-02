@@ -8,7 +8,7 @@ use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class Feed
 {
-    public function getViewResponse(array $feedConfiguration) : HttpResponse
+    public function getFeedResponse(array $feedConfiguration) : HttpResponse
     {
         $feedContent = $this->getFeedContent($feedConfiguration);
 
