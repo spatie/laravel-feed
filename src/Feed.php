@@ -28,7 +28,7 @@ class Feed
         $data['meta'] = [
             'link' => $feed['url'],
             'description' => $feed['description'],
-            'title' => $feed['title']
+            'title' => $feed['title'],
         ];
 
         return Response::view(

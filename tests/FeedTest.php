@@ -26,10 +26,10 @@ class FeedTest extends TestCase
     /** @test */
     public function a_feed_contains_xml_content()
     {
-        $i=0;
-        foreach($this->getContent() as $content){
+        $i = 0;
+        foreach ($this->getContent() as $content) {
             $this->assertTrue($this->validateXml($i, $content));
-            $i++;
+            ++$i;
         }
     }
 
@@ -45,12 +45,11 @@ class FeedTest extends TestCase
     public function all_feed_items_have_expected_data()
     {
         $i = 0;
-        foreach($this->getContent() as $content){
-            $this->assertEquals(file_get_contents('tests/stubs/feeds_' . $i . '.xml'), $content);
-            $i++;
+        foreach ($this->getContent() as $content) {
+            $this->assertEquals(file_get_contents('tests/stubs/feeds_'.$i.'.xml'), $content);
+            ++$i;
         }
     }
-
 
     protected function getMetaData()
     {
@@ -84,6 +83,7 @@ class FeedTest extends TestCase
         $xml_reader->open($file);
         $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
         unlink($file);
+
         return $xml_reader->isValid();
     }
 }

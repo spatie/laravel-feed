@@ -4,7 +4,7 @@ return [
 
     'feeds' => [
         [
-            /**
+            /*
              * Fill in for items a class with a method that returns a collection of items
              * that you want in the feed.
              * e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
