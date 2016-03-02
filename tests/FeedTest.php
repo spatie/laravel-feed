@@ -47,7 +47,7 @@ class FeedTest extends TestCase
         $i = 0;
         foreach ($this->getContent() as $content) {
             $file = file_get_contents('tests/stubs/feeds_'.$i.'.xml');
-            if(is_null($file)){
+            if (is_null($file)) {
                 file_put_contents('tests/stubs/feeds_'.$i.'.xml', $content);
             }
             $this->assertEquals($file, $content);
@@ -86,8 +86,8 @@ class FeedTest extends TestCase
         $xml_reader = new \XMLReader();
         $xml_reader->open($file);
         $xml_reader->setParserProperty($xml_reader::VALIDATE, true);
+
         return $xml_reader->isValid();
         unlink($file);
     }
-
 }

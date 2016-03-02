@@ -29,7 +29,7 @@ class Feed
             'link' => $feed['url'],
             'description' => $feed['description'],
             'title' => $feed['title'],
-            'updated' => collect($data['items'])->sortBy('updated')->last()['updated']->format('Y-m-d H:i:s')
+            'updated' => collect($data['items'])->sortBy('updated')->last()['updated']->format('Y-m-d H:i:s'),
         ];
 
         return Response::view(
