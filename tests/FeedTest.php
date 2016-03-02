@@ -9,7 +9,7 @@ class FeedTest extends TestCase
     protected $feedNames = ['feed1', 'feed2'];
 
     /** @test */
-    public function it_registers_routes_where_feeds_will_be_available()
+    public function all_feeds_are_available_on_their_registered_routes()
     {
         collect($this->feedNames)->each(function (string $feedName) {
 
@@ -19,7 +19,7 @@ class FeedTest extends TestCase
     }
 
     /** @test */
-    public function a_feed_contains_xml_content()
+    public function all_feeds_contain_valid_xml_content()
     {
         collect($this->feedNames)->each(function (string $feedName) {
 
