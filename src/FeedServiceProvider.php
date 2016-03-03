@@ -17,7 +17,7 @@ class FeedServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
 
-        $this->getFeeds();
+        $this->registerFeeds();
     }
 
     /**
@@ -33,14 +33,22 @@ class FeedServiceProvider extends ServiceProvider
     /**
      * Gets feeds routes and generates feeds.
      */
-    public function getFeeds()
+    protected function registerFeeds()
     {
-        foreach (config('laravel-feed.feeds') as $feedConfiguration) {
-            $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
+        collect(config('laravel-feed.feeds'))->each(function ($feedConfiguration) {
+            if (!$feedConfiguration['url']) {
+                return;
+            }
+            $this->registerRoute($feedConfiguration);
+        });
+    }
 
-                return $this->app->make(Feed::class)->getFeedResponse($feedConfiguration);
+    protected function registerRoute($feedConfiguration)
+    {
+        $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
 
-            });
-        }
+            return $this->app->make(Feed::class)->getFeedResponse($feedConfiguration);
+
+        });
     }
 }

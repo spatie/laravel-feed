@@ -37,7 +37,7 @@ class Feed
 
     protected function getLastUpdatedDate(Collection $items, string $format) : string
     {
-        if (! count($items)) {
+        if (!count($items)) {
             return '';
         }
 
