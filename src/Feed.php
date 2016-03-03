@@ -37,6 +37,10 @@ class Feed
 
     protected function getLastUpdatedDate(Collection $items, string $format) : string
     {
+        if (! count($items)) {
+            return '';
+        }
+
         $lastItem = $items
             ->sortBy(function (FeedItem $feedItem) {
                 return  $feedItem->getFeedItemUpdated()->format('YmdHis');
