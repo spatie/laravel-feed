@@ -15,7 +15,6 @@ class FeedServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
-            __DIR__.'/../config/feed-link.php' => config_path('feed-link    .php'),
         ], 'config');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
@@ -36,7 +35,7 @@ class FeedServiceProvider extends ServiceProvider
     }
 
     /**
-     * Gets feeds routes and generates feeds.
+     * Generates feeds.
      */
     protected function registerFeeds()
     {
@@ -48,6 +47,11 @@ class FeedServiceProvider extends ServiceProvider
         });
     }
 
+
+    /**
+     * Gets feeds routes.
+     * @param $feedConfiguration
+     */
     protected function registerRoute($feedConfiguration)
     {
         $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
@@ -57,6 +61,9 @@ class FeedServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * Generates autodiscovery links for feeds.
+     */
     public function bindFeedsLinks()
     {
         $this->app->make(Dispatcher::class)->listen("composing: laravel-feed::feed-links", function (View $view) {
