@@ -13,12 +13,18 @@
             "email": "jolita@spatie.be",
             "homepage": "https://spatie.be",
             "role": "Developer"
+        },
+        {
+            "name": "Freek Van der Herten",
+            "email": "freek@spatie.be",
+            "homepage": "https://spatie.be",
+            "role": "Developer"
         }
     ],
     "require": {
         "php" : "^7.0",
         "illuminate/support": "^5.2",
-        "nesbot/carbon": "~1.0",
+        "nesbot/carbon": "^1.0",
         "laracasts/utilities": "^2.1"
     },
     "require-dev": {

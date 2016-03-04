@@ -11,10 +11,10 @@ class FeedServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__ . '/../config/laravel-feed.php' => config_path('laravel-feed.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-feed');
 
         $this->registerFeeds();
 
@@ -23,14 +23,14 @@ class FeedServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
+        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-feed.php', 'laravel-feed');
 
         $this->app->singleton(Feed::class);
     }
 
     protected function registerFeeds()
     {
-        collect(config('laravel-feed.feeds'))->each(function ($feedConfiguration) {
+        collect(config('laravel-feed.feeds'))->each(function (array $feedConfiguration) {
             if (!$feedConfiguration['url']) {
                 return;
             }
@@ -50,8 +50,10 @@ class FeedServiceProvider extends ServiceProvider
 
     public function bindFeedLinks()
     {
-        $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) {
-            $view->with(['feeds' => config('laravel-feed.feeds')]);
-        });
+        $this->app
+            ->make(Dispatcher::class)
+            ->listen('composing: laravel-feed::feed-links', function (View $view) {
+                $view->with(['feeds' => config('laravel-feed.feeds')]);
+            });
     }
 }
