@@ -8,9 +8,6 @@ use Illuminate\View\View;
 
 class FeedServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
     public function boot()
     {
         $this->publishes([
@@ -24,9 +21,6 @@ class FeedServiceProvider extends ServiceProvider
         $this->bindFeedsLinks();
     }
 
-    /**
-     * Register the application services.
-     */
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
@@ -34,9 +28,6 @@ class FeedServiceProvider extends ServiceProvider
         $this->app->singleton(Feed::class);
     }
 
-    /**
-     * Generates feeds.
-     */
     protected function registerFeeds()
     {
         collect(config('laravel-feed.feeds'))->each(function ($feedConfiguration) {
@@ -47,12 +38,7 @@ class FeedServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Gets feeds routes.
-     *
-     * @param $feedConfiguration
-     */
-    protected function registerRoute($feedConfiguration)
+    protected function registerRoute(array $feedConfiguration)
     {
         $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
 
