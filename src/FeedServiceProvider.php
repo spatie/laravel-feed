@@ -3,6 +3,8 @@
 namespace Spatie\Feed;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Events\Dispatcher;
+use Illuminate\View\View;
 
 class FeedServiceProvider extends ServiceProvider
 {
@@ -13,11 +15,14 @@ class FeedServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__.'/../config/feed-link.php' => config_path('feed-link    .php'),
         ], 'config');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
 
         $this->registerFeeds();
+
+        $this->bindFeedsLinks();
     }
 
     /**
@@ -49,6 +54,13 @@ class FeedServiceProvider extends ServiceProvider
 
             return $this->app->make(Feed::class)->getFeedResponse($feedConfiguration);
 
+        });
+    }
+
+    public function bindFeedsLinks()
+    {
+        $this->app->make(Dispatcher::class)->listen("composing: laravel-feed::feed-links", function (View $view) {
+            $view->with(['feeds' => config('laravel-feed.feeds')]);
         });
     }
 }

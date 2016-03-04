@@ -18,7 +18,8 @@
     "require": {
         "php" : "^7.0",
         "illuminate/support": "^5.2",
-        "nesbot/carbon": "~1.0"
+        "nesbot/carbon": "~1.0",
+        "laracasts/utilities": "^2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "5.*",

@@ -42,6 +42,15 @@ class FeedTest extends TestCase
         });
     }
 
+    /** @test */
+    public function it_contains_feeds_links()
+    {
+        $generatedFeedContent = $this->call('GET', '/test-route')->getContent();
+        $stubContent = file_get_contents("tests/stubs/feeds-links.xml");
+
+        $this->assertEquals($stubContent, $generatedFeedContent);
+    }
+
     protected function validateXml(string $content) : bool
     {
         $file = 'tests/temp/validate.xml';
@@ -54,4 +63,6 @@ class FeedTest extends TestCase
 
         return $xmlReader->isValid();
     }
+
+
 }

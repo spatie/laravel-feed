@@ -12,6 +12,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         Carbon::setTestNow(Carbon::create(2016, 1, 1)->startOfDay());
 
         parent::__construct($name, $data, $dataName);
+
     }
 
     protected function getPackageProviders($app)
@@ -36,5 +37,16 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         ];
 
         $app['config']->set('laravel-feed.feeds', $feed);
+
+        $this->setUpRoutes($app);
+
+    }
+
+    protected function setUpRoutes($app)
+    {
+        $app['router']->get('/test-route', function () use ($app){
+            return $app['view']->make('laravel-feed::feed-links');
+        });
+
     }
 }
