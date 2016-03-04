@@ -11,10 +11,10 @@ class FeedServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-feed');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
 
         $this->registerFeeds();
 
@@ -23,7 +23,7 @@ class FeedServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-feed.php', 'laravel-feed');
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
 
         $this->app->singleton(Feed::class);
     }
@@ -47,7 +47,6 @@ class FeedServiceProvider extends ServiceProvider
             return $feed->getFeedResponse();
         });
     }
-
 
     public function bindFeedLinks()
     {
