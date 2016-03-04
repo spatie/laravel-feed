@@ -56,8 +56,9 @@ class FeedServiceProvider extends ServiceProvider
     {
         $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
 
-            return $this->app->make(Feed::class)->getFeedResponse($feedConfiguration);
+            $feed = new Feed($feedConfiguration);
 
+            return $feed->getFeedResponse();
         });
     }
 

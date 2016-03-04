@@ -8,27 +8,35 @@ use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class Feed
 {
-    public function getFeedResponse(array $feedConfiguration) : HttpResponse
+    /** @var array */
+    protected $feedConfiguration;
+
+    public function __construct(array $feedConfiguration)
     {
-        $feedContent = $this->getFeedContent($feedConfiguration);
+        $this->feedConfiguration = $feedConfiguration;
+
+        if (!str_contains($feedConfiguration['items'], '@')) {
+            throw InvalidConfiguration::delimiterNotPresent($feedConfiguration['items']);
+        }
+    }
+
+    public function getFeedResponse() : HttpResponse
+    {
+        $feedContent = $this->getFeedContent($this->feedConfiguration);
 
         return response($feedContent, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
     }
 
-    public function getFeedContent(array $feedConfiguration) : string
+    public function getFeedContent() : string
     {
-        if (!str_contains($feedConfiguration['items'], '@')) {
-            throw InvalidConfiguration::delimiterNotPresent($feedConfiguration['items']);
-        }
-
-        list($class, $method) = explode('@', $feedConfiguration['items']);
+        list($class, $method) = explode('@', $this->feedConfiguration['items']);
 
         $items = app($class)->$method();
 
         $meta = [
-            'link' => $feedConfiguration['url'],
-            'description' => $feedConfiguration['description'],
-            'title' => $feedConfiguration['title'],
+            'link' => $this->feedConfiguration['url'],
+            'description' => $this->feedConfiguration['description'],
+            'title' => $this->feedConfiguration['title'],
             'updated' => $this->getLastUpdatedDate($items, 'Y-m-d H:i:s'),
         ];
 
@@ -43,7 +51,7 @@ class Feed
 
         $lastItem = $items
             ->sortBy(function (FeedItem $feedItem) {
-                return  $feedItem->getFeedItemUpdated()->format('YmdHis');
+                return $feedItem->getFeedItemUpdated()->format('YmdHis');
             })
             ->last();
 

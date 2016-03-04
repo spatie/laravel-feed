@@ -2,6 +2,8 @@
 
 namespace Spatie\Feed\Test;
 
+use Spatie\Feed\Exceptions\InvalidConfiguration;
+use Spatie\Feed\Feed;
 use XMLReader;
 
 class FeedTest extends TestCase
@@ -43,12 +45,27 @@ class FeedTest extends TestCase
     }
 
     /** @test */
-    public function it_contains_feeds_links()
+    public function it_can_render_all_feed_links_via_a_view()
     {
-        $generatedFeedContent = $this->call('GET', '/test-route')->getContent();
+        $feedLinksHtml = $this->call('GET', '/test-route')->getContent();
         $stubContent = file_get_contents('tests/stubs/feeds-links.xml');
 
-        $this->assertEquals($stubContent, $generatedFeedContent);
+        $this->assertEquals($stubContent, $feedLinksHtml);
+    }
+
+    /** @test */
+    public function it_wil_throw_an_expection_if_the_items_config_is_not_filled_properly()
+    {
+        $this->expectException(InvalidConfiguration::class);
+
+        $feedConfig = [
+            'items' => 'invalid',
+            'url' => '/feed',
+            'title' => 'Title',
+            'description' => 'Description',
+        ];
+
+        new Feed($feedConfig);
     }
 
     protected function validateXml(string $content) : bool
