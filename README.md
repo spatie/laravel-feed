@@ -1,4 +1,4 @@
-# laravel-feed
+# Generate RSS feeds
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package generates rss feeds for any of the chosen models. A model that should have a feed, must implement FeedItem and have all of the corresponding methods.
+This package provides an easy way to generate rss feeds.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -41,30 +41,28 @@ You must change it to fit your needs.
 ```php
 return [
 
-'feeds' => [
+    'feeds' => [
         [
             /*
-            * Here you can specify which class and method will return the items
-            * that should appear in the feed. For example:
-            * 'App\Repositories\NewsItemRepository@getAllOnline'
-            */
+             * Here you can specify which class and method will return
+             * the items that should appear in the feed. For example:
+             * 'App\Repositories\NewsItemRepository@getAllOnline'
+             */
             'items' => '',
-            
+
             /*
-            * The feed will be available on this url
-            * If url is left empty it will do nothing
-            */
+             * The feed will be available on this url.
+             */
             'url' => '',
-            
+
             'title' => 'My feed',
-            
+
             'description' => 'Description of my feed',
-        
-            ],
         ],
     ],
 
 ];
+
 ```
 
 If you want your site to have a feed autodiscovery link, 
