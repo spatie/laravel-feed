@@ -46,7 +46,7 @@ class FeedTest extends TestCase
     public function it_contains_feeds_links()
     {
         $generatedFeedContent = $this->call('GET', '/test-route')->getContent();
-        $stubContent = file_get_contents("tests/stubs/feeds-links.xml");
+        $stubContent = file_get_contents('tests/stubs/feeds-links.xml');
 
         $this->assertEquals($stubContent, $generatedFeedContent);
     }
@@ -63,6 +63,4 @@ class FeedTest extends TestCase
 
         return $xmlReader->isValid();
     }
-
-
 }

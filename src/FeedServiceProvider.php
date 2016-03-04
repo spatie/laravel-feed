@@ -47,9 +47,9 @@ class FeedServiceProvider extends ServiceProvider
         });
     }
 
-
     /**
      * Gets feeds routes.
+     *
      * @param $feedConfiguration
      */
     protected function registerRoute($feedConfiguration)
@@ -66,7 +66,7 @@ class FeedServiceProvider extends ServiceProvider
      */
     public function bindFeedsLinks()
     {
-        $this->app->make(Dispatcher::class)->listen("composing: laravel-feed::feed-links", function (View $view) {
+        $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) {
             $view->with(['feeds' => config('laravel-feed.feeds')]);
         });
     }
