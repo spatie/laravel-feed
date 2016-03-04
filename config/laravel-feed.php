@@ -13,7 +13,7 @@ return [
 
             /*
              * The feed will be available on this url
-             * If the url is left empty it will do nothing
+             * If url is left empty it will do nothing
              */
             'url' => '',
 

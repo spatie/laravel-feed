@@ -43,16 +43,22 @@ return [
 
 'feeds' => [
         [
-             /**
-             * Fill in for items a class with a method that returns a collection of items
-             * that you want in the feed.
-             * e.g.: 'App\Repositories\NewsItemRepository@getAllOnline'
-             * For url fill in a url, on which the feeds will be shown.
-             */
-             'items' => '',
-             'url' => '', 
-             'title' => 'This is feed 1 from the unit tests',
-             'description' => 'This is feed 1 from the unit tests.',
+            /*
+            * Here you can specify which class and method will return the items
+            * that should appear in the feed. For example:
+            * 'App\Repositories\NewsItemRepository@getAllOnline'
+            */
+            'items' => '',
+            
+            /*
+            * The feed will be available on this url
+            * If url is left empty it will do nothing
+            */
+            'url' => '',
+            
+            'title' => 'My feed',
+            
+            'description' => 'Description of my feed',
         
             ],
         ],
@@ -61,51 +67,47 @@ return [
 ];
 ```
 
+If you want your site to have a feed autodiscovery link, 
+you must include the feeds-links view
+in your master layouts head section:
+ 
+```php
+ @include('laravel-feed::feeds-links')
+```
+
 ## Usage
 
 A model that would have feeds must implement FeedItem interface and have all corresponding methods:
 
 e.g.:
 ``` php
-  class NewsItem extends ModuleModel implements FeedItem
-    {
-    ...
-        public function getFeedData() : array
-        {
-            return [
-                'title' => $this->getFeedItemTitle(),
-                'id' => $this->getFeedItemId(),
-                'updated' => $this->getFeedItemUpdated(),
-                'summary' => $this->getFeedItemSummary(),
-                'link' => $this->getFeedItemLink(),
-            ];
-        }
+  class DummyItem implements FeedItem
+  {
+      public function getFeedItemId()
+      {
+          return 1;
+      }
   
-        public function getFeedItemId()
-        {
-            return $this->id;
-        }
+      public function getFeedItemTitle() : string
+      {
+          return 'feedItemTitle';
+      }
   
-        public function getFeedItemTitle() : string
-        {
-            return $this->name;
-        }
+      public function getFeedItemSummary() : string
+      {
+          return 'feedItemSummary';
+      }
   
-        public function getFeedItemSummary() : string
-        {
-            return $this->present()->excerpt;
-        }
+      public function getFeedItemUpdated() : Carbon
+      {
+          return Carbon::now();
+      }
   
-        public function getFeedItemUpdated() : Carbon
-        {
-            return $this->updated_at;
-        }
-  
-        public function getFeedItemLink() : string
-        {
-            return action('Front\NewsItemController@detail', [$this->url]);
-        }
-    }
+      public function getFeedItemLink() : string
+      {
+          return 'https://localhost/news/testItem1';
+      }
+  }
 ```
 
 ## Changelog
