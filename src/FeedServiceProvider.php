@@ -16,19 +16,17 @@ class FeedServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-feed');
 
-        $this->registerFeeds();
-
         $this->bindFeedLinks();
+
+        $this->registerFeedRoutes();
     }
 
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/laravel-feed.php', 'laravel-feed');
-
-        $this->app->singleton(Feed::class);
     }
 
-    protected function registerFeeds()
+    protected function registerFeedRoutes()
     {
         collect(config('laravel-feed.feeds'))->each(function (array $feedConfiguration) {
             if (!$feedConfiguration['url']) {
