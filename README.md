@@ -7,13 +7,16 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate rss feeds.
+This package provides an easy way to generate [rss feeds](http://www.whatisrss.com/). There's almost no coding for your part required.
+Just follow the installation instructions and provide some good values for the config file and you're
+good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Install
 
 You can install the package via composer:
+
 ``` bash
 $ composer require spatie/laravel-feed
 ```
@@ -35,8 +38,6 @@ php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider"
 ```
 
 This is the content of the published file laravel-feed.php:
-
-You must change it to fit your needs.
 
 ```php
 return [
@@ -65,9 +66,20 @@ return [
 
 ```
 
-If you want your site to have a feed autodiscovery link, 
-you must include the feeds-links view
-in your master layouts head section:
+Please note that you can register multiple feeds by having multiple items in the `feeds`-key.
+
+
+### Automatically generate feed links
+
+To discover a feed, feed readers are look for a tag in the head section of your html documents that looks like this: 
+
+
+```html
+<link rel="alternate" type="application/atom+xml" title="News" href="linkToYourFeed" />
+```
+
+You can put that link manually in your template, but this package can also automate that for you.
+Just put this include in the head section of your template.
  
 ```php
  @include('laravel-feed::feeds-links')
@@ -75,37 +87,82 @@ in your master layouts head section:
 
 ## Usage
 
-A model that would have feeds must implement FeedItem interface and have all corresponding methods:
+Image you have a model named `NewsItem` that contains records that you want to have displayed it the feed.
 
-e.g.:
+First you must implement `FeedItem` interface on that model. Here's an example.
+
 ``` php
-  class DummyItem implements FeedItem
-  {
-      public function getFeedItemId()
-      {
-          return 1;
-      }
-  
-      public function getFeedItemTitle() : string
-      {
-          return 'feedItemTitle';
-      }
-  
-      public function getFeedItemSummary() : string
-      {
-          return 'feedItemSummary';
-      }
-  
-      public function getFeedItemUpdated() : Carbon
-      {
-          return Carbon::now();
-      }
-  
-      public function getFeedItemLink() : string
-      {
-          return 'https://localhost/news/testItem1';
-      }
-  }
+class NewsItem implements FeedItem
+{
+    public function getFeedItemId()
+    {
+        return $this->id;
+    }
+
+    public function getFeedItemTitle() : string
+    {
+        return $this->title;
+    }
+
+    public function getFeedItemSummary() : string
+    {
+        return $this->text;
+    }
+
+    public function getFeedItemUpdated() : Carbon
+    {
+        return $this->last_updated;
+    }
+
+    public function getFeedItemLink() : string
+    {
+        return "https://mysite.com/news/{$this->url}";
+    }
+}
+```
+
+Next, you'll have to create a method that will return all the newsItems that must be displayed in 
+the feed. You can name that method anything you like and you can do any query you want.
+
+```php
+//in your NewsItem model
+
+public function getFeedItems()
+{
+   return NewsItem::all();
+}
+```
+
+And finally you have to put the name of your class and the url where you want the feed to rendered
+in the config file:
+
+```php
+//app/config/laravel-feed
+
+return [
+
+    'feeds' => [
+        [
+            /*
+             * Here you can specify which class and method will return
+             * the items that should appear in the feed. For example:
+             * 'App\Repositories\NewsItemRepository@getAllOnline'
+             */
+            'items' => 'App\NewsItem@getFeedItems',
+
+            /*
+             * The feed will be available on this url.
+             */
+            'url' => '/feed',
+
+            'title' => 'All newsitems on mysite.com',
+
+            'description' => 'Lorum ipsum Laravel is great bla bla bla',
+        ],
+    ],
+
+];
+
 ```
 
 ## Changelog
@@ -115,7 +172,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ composer test
+composer test
 ```
 
 ## Contributing
