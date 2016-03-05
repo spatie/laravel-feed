@@ -2,19 +2,6 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
-## NEXT - YYYY-MM-DD
+## 1.0.0 - 2016-03-05
 
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+- Initial release
