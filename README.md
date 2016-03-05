@@ -116,7 +116,7 @@ class NewsItem implements FeedItem
 
     public function getFeedItemLink() : string
     {
-        return "https://mysite.com/news/{$this->url}";
+        return action('NewsItemController@detail', [$this->url]);
     }
 }
 ```
