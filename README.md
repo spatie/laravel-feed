@@ -189,6 +189,9 @@ If you discover any security related issues, please email freek@spatie.be instea
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
 
+## PHP 7
+This package requires PHP 7, and we won't make a PHP 5 compatible version.  We have [good reasons to go PHP 7 only](https://murze.be/2016/01/why-we-are-requiring-php-7-for-our-new-packages/). 
+
 ## About Spatie
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
