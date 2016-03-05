@@ -82,7 +82,7 @@ You can put that link manually in your template, but this package can also autom
 Just put this include in the head section of your template.
  
 ```php
- @include('laravel-feed::feeds-links')
+ @include('laravel-feed::feed-links')
 ```
 
 ## Usage
