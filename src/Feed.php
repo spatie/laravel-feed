@@ -37,13 +37,13 @@ class Feed
             'link' => $this->feedConfiguration['url'],
             'description' => $this->feedConfiguration['description'],
             'title' => $this->feedConfiguration['title'],
-            'updated' => $this->getLastUpdatedDate($items, 'Y-m-d H:i:s'),
+            'updated' => $this->getLastUpdatedDate($items),
         ];
 
         return view('laravel-feed::feed', compact('meta', 'items'))->render();
     }
 
-    protected function getLastUpdatedDate(Collection $items, string $format) : string
+    protected function getLastUpdatedDate(Collection $items) : string
     {
         if (!count($items)) {
             return '';
@@ -55,6 +55,6 @@ class Feed
             })
             ->last();
 
-        return $lastItem->getFeedItemUpdated()->format($format);
+        return $lastItem->getFeedItemUpdated()->toAtomString();
     }
 }

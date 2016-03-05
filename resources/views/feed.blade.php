@@ -15,7 +15,7 @@
             <summary>
                 {{ $item->getFeedItemSummary() }}
             </summary>
-            <updated>{{ $item->getFeedItemUpdated() }}</updated>
+            <updated>{{ $item->getFeedItemUpdated()->toAtomString() }}</updated>
         </entry>
     @endforeach
 </feed>
