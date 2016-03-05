@@ -9,7 +9,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     public function __construct($name = null, array $data = [], $dataName = '')
     {
-        Carbon::setTestNow(Carbon::create(2016, 1, 1)->startOfDay());
+        Carbon::setTestNow(Carbon::create(2016, 1, 1)
+            ->setTimezone('Europe/Brussels')
+            ->startOfDay());
 
         parent::__construct($name, $data, $dataName);
     }
