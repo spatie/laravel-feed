@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate [rss feeds](http://www.whatisrss.com/). There's almost no coding for your part required.
+This package provides an easy way to generate [rss feeds](http://www.whatisrss.com/). There's almost no coding required on your part.
 Just follow the installation instructions and provide some good values for the config file and you're
 good to go.
 
