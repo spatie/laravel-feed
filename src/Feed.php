@@ -24,7 +24,7 @@ class Feed
     {
         $feedContent = $this->getFeedContent($this->feedConfiguration);
 
-        return response($feedContent, 200, ['Content-Type' => 'application/atom+xml; chartset=UTF-8']);
+        return response($feedContent, 200, ['Content-Type' => 'application/xml;charset=UTF-8']);
     }
 
     public function getFeedContent() : string
