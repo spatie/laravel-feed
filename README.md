@@ -67,6 +67,7 @@ return [
 ```
 
 Finally you must register the routes the feeds will be displayed on using the `feeds`-macro.
+It's best to put this macro before registering any other routes.
 
 ```php
 // in your routes file
