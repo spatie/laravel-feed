@@ -33,6 +33,7 @@ class FeedServiceProvider extends ServiceProvider
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
 
             foreach (config('laravel-feed.feeds') as $index => $feedConfiguration) {
+
                 $separator = (starts_with($feedConfiguration['url'], DIRECTORY_SEPARATOR) ? '' : DIRECTORY_SEPARATOR);
                 $fullUrl = $baseUrl.$separator.$feedConfiguration['url'];
 
@@ -57,7 +58,7 @@ class FeedServiceProvider extends ServiceProvider
         foreach (config('laravel-feed.feeds') as $index => $feedConfig) {
             $feeds[] = [
                 'title' => $feedConfig['title'],
-                'url' => $feedConfig['url'] = $this->app['url']->route("spatieLaravelFeed{$index}"),
+                'url' => $this->app['url']->route("spatieLaravelFeed{$index}"),
             ];
         }
 
