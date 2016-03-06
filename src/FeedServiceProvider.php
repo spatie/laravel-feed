@@ -11,38 +11,39 @@ class FeedServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-feed');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
 
         $this->bindFeedLinks();
-
-        $this->registerFeedRoutes();
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-feed.php', 'laravel-feed');
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
+
+        $this->registerRouteMacro();
     }
 
-    protected function registerFeedRoutes()
+    protected function registerRouteMacro()
     {
-        collect(config('laravel-feed.feeds'))->each(function (array $feedConfiguration) {
-            if (!$feedConfiguration['url']) {
-                return;
-            }
-            $this->registerRoute($feedConfiguration);
-        });
-    }
+        $router = $this->app['router'];
 
-    protected function registerRoute(array $feedConfiguration)
-    {
-        $this->app['router']->get($feedConfiguration['url'], function () use ($feedConfiguration) {
+        $router->macro('feeds', function ($baseUrl = '') use ($router) {
 
-            $feed = new Feed($feedConfiguration);
+            collect(config('laravel-feed.feeds'))->each(function (array $feedConfiguration) use ($router, $baseUrl) {
 
-            return $feed->getFeedResponse();
+                $router->get($feedConfiguration['url'], function () use ($router, $baseUrl, $feedConfiguration) {
+
+                    //TO DO: make this more robust
+                    $feedConfiguration['url'] = $baseUrl.$feedConfiguration['url'];
+
+                    $feed = new Feed($feedConfiguration);
+
+                    return $feed->getFeedResponse();
+                });
+            });
         });
     }
 

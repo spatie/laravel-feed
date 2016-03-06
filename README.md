@@ -66,6 +66,16 @@ return [
 
 ```
 
+Finally you must register the routes the feeds will be displayed on using the `feeds`-macro.
+
+```php
+// in your routes file
+Route::feeds();
+```
+
+You can pass a string as a first argument of the macro. The string will be used as a prefix for
+the value specified in the `url` key of the config file.
+
 Please note that you can register multiple feeds by having multiple items in the `feeds`-key.
 
 
