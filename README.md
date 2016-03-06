@@ -82,7 +82,7 @@ Please note that you can register multiple feeds by having multiple items in the
 
 ### Automatically generate feed links
 
-To discover a feed, feed readers are look for a tag in the head section of your html documents that looks like this: 
+To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this: 
 
 
 ```html
