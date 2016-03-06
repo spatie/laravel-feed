@@ -37,7 +37,7 @@ class FeedServiceProvider extends ServiceProvider
                 $router->get($feedConfiguration['url'], function () use ($router, $baseUrl, $feedConfiguration) {
 
                     //TO DO: make this more robust
-                    $feedConfiguration['url'] = $baseUrl.$feedConfiguration['url'];
+                    $feedConfiguration['url'] = $baseUrl.DIRECTORY_SEPARATOR.$feedConfiguration['url'];
 
                     $feed = new Feed($feedConfiguration);
 
