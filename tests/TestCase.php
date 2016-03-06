@@ -44,10 +44,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function setUpRoutes($app)
     {
+        $app['router']->feeds('feedBaseUrl');
+
         $app['router']->get('/test-route', function () use ($app) {
             return $app['view']->make('laravel-feed::feed-links');
         });
 
-        $app['router']->feeds();
+        ;
     }
 }

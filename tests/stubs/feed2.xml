@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-                        <link href="http://localhost/feed2"></link>
+                        <link href="http://localhost/feedBaseUrl/feed2"></link>
                                 <description>This is feed 2 from the unit tests</description>
                                 <title>Feed 2</title>
                                 <updated>2016-01-01T00:00:00+01:00</updated>

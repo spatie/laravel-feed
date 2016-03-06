@@ -11,48 +11,63 @@ class FeedServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__ . '/../config/laravel-feed.php' => config_path('laravel-feed.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-feed');
 
         $this->bindFeedLinks();
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
+        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-feed.php', 'laravel-feed');
 
         $this->registerRouteMacro();
     }
 
     protected function registerRouteMacro()
     {
+
         $router = $this->app['router'];
 
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
 
-            collect(config('laravel-feed.feeds'))->each(function (array $feedConfiguration) use ($router, $baseUrl) {
+            foreach (config('laravel-feed.feeds') as $index => $feedConfiguration) {
 
-                $router->get($feedConfiguration['url'], function () use ($router, $baseUrl, $feedConfiguration) {
+                $fullUrl = $baseUrl . $feedConfiguration['url'];
+
+                $router->get($fullUrl, ['as' => "spatieLaravelFeed{$index}", function () use ($router, $fullUrl, $feedConfiguration) {
 
                     //TO DO: make this more robust
-                    $feedConfiguration['url'] = $baseUrl.DIRECTORY_SEPARATOR.$feedConfiguration['url'];
+                    $feedConfiguration['url'] = $fullUrl;
 
                     $feed = new Feed($feedConfiguration);
 
                     return $feed->getFeedResponse();
-                });
-            });
+
+                }]);
+            }
+
         });
     }
 
     public function bindFeedLinks()
     {
+        $feeds = [];
+
+        foreach (config('laravel-feed.feeds') as $index => $feedConfig) {
+
+            $feeds[] = [
+                'title' => $feedConfig['title'],
+                'url' => $feedConfig['url'] = $this->app['url']->route("spatieLaravelFeed{$index}"),
+            ];
+        }
+
         $this->app
             ->make(Dispatcher::class)
-            ->listen('composing: laravel-feed::feed-links', function (View $view) {
-                $view->with(['feeds' => config('laravel-feed.feeds')]);
+            ->listen('composing: laravel-feed::feed-links', function (View $view) use ($feeds) {
+                $view->with(compact('feeds'));
             });
     }
 }

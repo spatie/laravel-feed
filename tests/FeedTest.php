@@ -15,7 +15,7 @@ class FeedTest extends TestCase
     {
         collect($this->feedNames)->each(function (string $feedName) {
 
-            $this->assertEquals(200, $this->call('GET', "/{$feedName}")->getStatusCode());
+            $this->assertEquals(200, $this->call('GET', "/feedBaseUrl/{$feedName}")->getStatusCode());
 
         });
     }
@@ -25,7 +25,7 @@ class FeedTest extends TestCase
     {
         collect($this->feedNames)->each(function (string $feedName) {
 
-            $generatedFeedContent = $this->call('GET', "/{$feedName}")->getContent();
+            $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
 
             $this->assertTrue($this->validateXml($generatedFeedContent));
 
@@ -38,7 +38,7 @@ class FeedTest extends TestCase
         collect($this->feedNames)->each(function (string $feedName) {
 
             $stubContent = file_get_contents("tests/stubs/{$feedName}.xml");
-            $generatedFeedContent = $this->call('GET', "/{$feedName}")->getContent();
+            $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
 
             $this->assertEquals($stubContent, $generatedFeedContent);
         });

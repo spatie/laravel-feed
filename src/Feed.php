@@ -40,8 +40,6 @@ class Feed
             'updated' => $this->getLastUpdatedDate($items),
         ];
 
-        base_path()
-
         return view('laravel-feed::feed', compact('meta', 'items'))->render();
     }
 
