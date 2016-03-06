@@ -37,7 +37,7 @@ class FeedServiceProvider extends ServiceProvider
                 $separator = (starts_with($feedConfiguration['url'], DIRECTORY_SEPARATOR) ? '' : DIRECTORY_SEPARATOR);
                 $fullUrl = $baseUrl.$separator.$feedConfiguration['url'];
 
-                $router->get($fullUrl, ['as' => "spatieLaravelFeed{$index}", function () use ($router, $fullUrl, $feedConfiguration) {
+                $router->get($fullUrl, ['as' => "spatieLaravelFeed{$index}", function () use ($fullUrl, $feedConfiguration) {
 
                     $feedConfiguration['url'] = $fullUrl;
 
