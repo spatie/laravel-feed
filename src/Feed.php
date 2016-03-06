@@ -22,9 +22,7 @@ class Feed
 
     public function getFeedResponse() : Response
     {
-        $feedContent = $this->getFeedContent($this->feedConfiguration);
-
-        return response($feedContent, 200, ['Content-Type' => 'application/xml;charset=UTF-8']);
+        return response($this->getFeedContent(), 200, ['Content-Type' => 'application/xml;charset=UTF-8']);
     }
 
     public function getFeedContent() : string
