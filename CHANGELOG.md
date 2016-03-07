@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.0.3 - 2016-03-07
+
+- Add compatibility with short php tags
+
 ## 1.0.2 - 2016-03-06
 
 - Fix the registration of feeds when using a catch all route
