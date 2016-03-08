@@ -31,6 +31,14 @@ Next up, the service provider must be registered:
 ];
 ```
 
+The, you must register the routes the feeds will be displayed on using the `feeds`-macro.
+It's best to put this macro before registering any other routes.
+
+```php
+// in your routes file
+Route::feeds();
+```
+
 Next, you must publish the config file:
 
 ```bash
@@ -64,14 +72,6 @@ return [
 
 ];
 
-```
-
-Finally you must register the routes the feeds will be displayed on using the `feeds`-macro.
-It's best to put this macro before registering any other routes.
-
-```php
-// in your routes file
-Route::feeds();
 ```
 
 You can pass a string as a first argument of the macro. The string will be used as a prefix for
