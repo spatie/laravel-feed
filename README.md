@@ -31,7 +31,7 @@ Next up, the service provider must be registered:
 ];
 ```
 
-The, you must register the routes the feeds will be displayed on using the `feeds`-macro.
+Then, you must register the routes the feeds will be displayed on using the `feeds`-macro.
 It's best to put this macro before registering any other routes.
 
 ```php
