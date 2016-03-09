@@ -2,7 +2,7 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
-## 1.0.4 - 2016-03-07
+## 1.0.4 - 2016-03-09
 
 - Fixed compatibility with short php tags
 
