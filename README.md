@@ -66,7 +66,6 @@ return [
 
             'title' => 'My feed',
 
-            'description' => 'Description of my feed',
         ],
     ],
 
@@ -129,6 +128,11 @@ class NewsItem implements FeedItem
     {
         return action('NewsItemController@detail', [$this->url]);
     }
+    
+    public function getFeedItemAuthor() : string
+    {
+        return $this->author;
+    }
 }
 ```
 
@@ -167,8 +171,6 @@ return [
             'url' => '/feed',
 
             'title' => 'All newsitems on mysite.com',
-
-            'description' => 'Lorum ipsum Laravel is great bla bla bla',
         ],
     ],
 
