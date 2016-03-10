@@ -31,4 +31,9 @@ class DummyItem implements FeedItem
     {
         return 'https://localhost/news/testItem1';
     }
+
+    public function getFeedItemAuthor() : string
+    {
+        return "feedItemAuthor";
+    }
 }

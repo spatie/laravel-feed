@@ -17,8 +17,6 @@ return [
             'url' => '',
 
             'title' => 'My feed',
-
-            'description' => 'Description of my feed',
         ],
     ],
 

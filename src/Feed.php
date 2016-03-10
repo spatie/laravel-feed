@@ -32,8 +32,8 @@ class Feed
         $items = app($class)->$method();
 
         $meta = [
-            'link' => $this->feedConfiguration['url'],
-            'description' => $this->feedConfiguration['description'],
+            'id' => url($this->feedConfiguration['url']),
+            'link' => url($this->feedConfiguration['url']),
             'title' => $this->feedConfiguration['title'],
             'updated' => $this->getLastUpdatedDate($items),
         ];

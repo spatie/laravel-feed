@@ -1,5 +1,7 @@
-<?php /* Using an echo tag here so the `<? ... ?>` won't get parsed as short tags */ ?>
-<?= '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL ?>
+<?=
+    /* Using an echo tag here so the `<? ... ?>` won't get parsed as short tags */
+    '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL
+?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     @foreach($meta as $key => $metaItem)
         @if($key === 'link')
@@ -11,8 +13,11 @@
     @foreach($items as $item)
         <entry>
             <title>{{ $item->getFeedItemTitle() }}</title>
-            <link>{{ $item->getFeedItemLink() }}</link>
-            <id>{{ $item->getFeedItemId() }}</id>
+            <link rel="alternate" href="{{ url($item->getFeedItemLink()) }}" />
+            <id>{{ url($item->getFeedItemId()) }}</id>
+            <author>
+                <name>{{ $item->getFeedItemAuthor() }}</name>
+            </author>
             <summary>
                 <![CDATA[{{ $item->getFeedItemSummary() }}]]>
             </summary>

@@ -62,7 +62,6 @@ class FeedTest extends TestCase
             'items' => 'invalid',
             'url' => '/feed',
             'title' => 'Title',
-            'description' => 'Description',
         ];
 
         new Feed($feedConfig);

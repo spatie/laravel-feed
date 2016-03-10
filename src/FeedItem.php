@@ -15,4 +15,6 @@ interface FeedItem
     public function getFeedItemSummary() : string;
 
     public function getFeedItemLink() : string;
+
+    public function getFeedItemAuthor() : string;
 }
