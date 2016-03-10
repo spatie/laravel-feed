@@ -11,7 +11,7 @@
             <author>
                 <name>feedItemAuthor</name>
             </author>
-            <summary>
+            <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
             <updated>2016-01-01T00:00:00+01:00</updated>
@@ -23,7 +23,7 @@
             <author>
                 <name>feedItemAuthor</name>
             </author>
-            <summary>
+            <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
             <updated>2016-01-01T00:00:00+01:00</updated>
@@ -35,7 +35,7 @@
             <author>
                 <name>feedItemAuthor</name>
             </author>
-            <summary>
+            <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
             <updated>2016-01-01T00:00:00+01:00</updated>
@@ -47,7 +47,7 @@
             <author>
                 <name>feedItemAuthor</name>
             </author>
-            <summary>
+            <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
             <updated>2016-01-01T00:00:00+01:00</updated>
@@ -59,7 +59,7 @@
             <author>
                 <name>feedItemAuthor</name>
             </author>
-            <summary>
+            <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
             <updated>2016-01-01T00:00:00+01:00</updated>
