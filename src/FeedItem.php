@@ -3,18 +3,12 @@
 namespace Spatie\Feed;
 
 use Carbon\Carbon;
-
 interface FeedItem
 {
     public function getFeedItemId();
-
-    public function getFeedItemTitle() : string;
-
-    public function getFeedItemUpdated() : Carbon;
-
-    public function getFeedItemSummary() : string;
-
-    public function getFeedItemLink() : string;
-
-    public function getFeedItemAuthor() : string;
+    public function getFeedItemTitle();
+    public function getFeedItemUpdated();
+    public function getFeedItemSummary();
+    public function getFeedItemLink();
+    public function getFeedItemAuthor();
 }
