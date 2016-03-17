@@ -34,6 +34,6 @@ class DummyItem implements FeedItem
 
     public function getFeedItemAuthor() : string
     {
-        return "feedItemAuthor";
+        return 'feedItemAuthor';
     }
 }

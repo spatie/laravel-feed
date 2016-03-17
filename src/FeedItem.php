@@ -2,7 +2,6 @@
 
 namespace Spatie\Feed;
 
-use Carbon\Carbon;
 interface FeedItem
 {
     public function getFeedItemId();
