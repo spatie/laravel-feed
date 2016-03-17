@@ -6,6 +6,10 @@ All Notable changes to `laravel-feed` will be documented in this file
 
 - Fixed compatibility with short php tags
 
+## 1.0.4 - 2016-03-17
+
+- Make output more atom compliant
+
 ## 1.0.3 - 2016-03-07
 
 - Add compatibility with short php tags
