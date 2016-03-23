@@ -39,6 +39,7 @@ class FeedTest extends TestCase
 
             $stubContent = file_get_contents("tests/stubs/{$feedName}.xml");
             $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
+//            file_put_contents("tests/stubs/{$feedName}.xml", $generatedFeedContent);
 
             $this->assertEquals($stubContent, $generatedFeedContent);
         });

@@ -5,11 +5,11 @@
                                 <title>Feed 1</title>
                                 <updated>2016-01-01T00:00:00+01:00</updated>
                         <entry>
-            <title>feedItemTitle</title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <title><![CDATA[feedItemTitle]]></title>
+            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
             <id>http://localhost/1</id>
             <author>
-                <name>feedItemAuthor</name>
+                <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -17,11 +17,11 @@
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
-            <title>feedItemTitle</title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <title><![CDATA[feedItemTitle]]></title>
+            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
             <id>http://localhost/1</id>
             <author>
-                <name>feedItemAuthor</name>
+                <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -29,11 +29,11 @@
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
-            <title>feedItemTitle</title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <title><![CDATA[feedItemTitle]]></title>
+            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
             <id>http://localhost/1</id>
             <author>
-                <name>feedItemAuthor</name>
+                <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -41,11 +41,11 @@
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
-            <title>feedItemTitle</title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <title><![CDATA[feedItemTitle]]></title>
+            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
             <id>http://localhost/1</id>
             <author>
-                <name>feedItemAuthor</name>
+                <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -53,11 +53,11 @@
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
-            <title>feedItemTitle</title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <title><![CDATA[feedItemTitle]]></title>
+            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
             <id>http://localhost/1</id>
             <author>
-                <name>feedItemAuthor</name>
+                <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
