@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.0.6 - 2016-03-17
+
+- Made improvements in the handling of special characters
+
 
 ## 1.0.5 - 2016-03-17
 
