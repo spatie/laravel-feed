@@ -13,7 +13,7 @@
     @foreach($items as $item)
         <entry>
             <title><![CDATA[{{ $item->getFeedItemTitle() }}]]></title>
-            <![CDATA[<link rel="alternate" href="{{ url($item->getFeedItemLink()) }}" />]]>
+            <link rel="alternate" href="{{ url($item->getFeedItemLink()) }}" />
             <id>{{ url($item->getFeedItemId()) }}</id>
             <author>
                 <name> <![CDATA[{{ $item->getFeedItemAuthor() }}]]></name>
