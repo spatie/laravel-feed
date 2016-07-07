@@ -6,7 +6,7 @@
                                 <updated>2016-01-01T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
@@ -18,7 +18,7 @@
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
@@ -30,7 +30,7 @@
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
@@ -42,7 +42,7 @@
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
@@ -54,7 +54,7 @@
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <![CDATA[<link rel="alternate" href="https://localhost/news/testItem1" />]]>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
