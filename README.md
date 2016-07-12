@@ -97,9 +97,9 @@ Just put this include in the head section of your template.
 
 ## Usage
 
-Image you have a model named `NewsItem` that contains records that you want to have displayed it the feed.
+Imagine you have a model named `NewsItem` that contains records that you want to have displayed in the feed.
 
-First you must implement `FeedItem` interface on that model. Here's an example.
+First you must implement the `FeedItem` interface on that model. Here's an example.
 
 ``` php
 class NewsItem implements FeedItem
