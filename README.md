@@ -39,6 +39,8 @@ Next up, the service provider must be registered:
 ];
 ```
 
+**Important note**: The provider must be registered **after** your application's route service provider (`App\Providers\RouteServiceProvider`)
+
 Then, you must register the routes the feeds will be displayed on using the `feeds`-macro.
 It's best to put this macro before registering any other routes.
 
