@@ -3,6 +3,8 @@
     "description": "Generates rss feed",
     "keywords": [
         "spatie",
+        "rss",
+        "laravel",
         "laravel-feed"
     ],
     "homepage": "https://github.com/spatie/laravel-feed",
