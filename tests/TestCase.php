@@ -20,19 +20,20 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [FeedServiceProvider::class];
     }
+
     protected function getEnvironmentSetUp($app)
     {
         $feed = [
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url' => '/feed1',
-                'title' => 'Feed 1',
+                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url'         => '/feed1',
+                'title'       => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
             ],
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url' => '/feed2',
-                'title' => 'Feed 2',
+                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url'         => '/feed2',
+                'title'       => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
             ],
         ];

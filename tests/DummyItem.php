@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\FeedItem;
 use Carbon\Carbon;
+use Spatie\Feed\FeedItem;
 
 class DummyItem implements FeedItem
 {
