@@ -5,6 +5,7 @@
 [![Build Status](https://img.shields.io/travis/spatie/laravel-feed/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-feed)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/2e3adb82-65db-4874-b1f9-ccea2cbe3d0b.svg?style=flat-square)](https://insight.sensiolabs.com/projects/2e3adb82-65db-4874-b1f9-ccea2cbe3d0b)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
+[![StyleCI](https://styleci.io/repos/51826021/shield)](https://styleci.io/repos/51826021)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
 This package provides an easy way to generate [rss feeds](http://www.whatisrss.com/). There's almost no coding required on your part.
