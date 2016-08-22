@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.0.8 - 2016-08-22
+- Fix for invalid route urls on Windows systems
+
 ## 1.0.7 - 2016-07-07
 - Removed `CDATA` wrappers that were outside of the `link` nodes
 
