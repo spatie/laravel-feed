@@ -14,9 +14,7 @@ class FeedTest extends TestCase
     public function all_feeds_are_available_on_their_registered_routes()
     {
         collect($this->feedNames)->each(function (string $feedName) {
-
             $this->assertEquals(200, $this->call('GET', "/feedBaseUrl/{$feedName}")->getStatusCode());
-
         });
     }
 
@@ -24,11 +22,9 @@ class FeedTest extends TestCase
     public function all_feeds_contain_valid_xml_content()
     {
         collect($this->feedNames)->each(function (string $feedName) {
-
             $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
 
             $this->assertTrue($this->validateXml($generatedFeedContent));
-
         });
     }
 
@@ -36,7 +32,6 @@ class FeedTest extends TestCase
     public function all_feed_items_have_expected_data()
     {
         collect($this->feedNames)->each(function (string $feedName) {
-
             $stubContent = file_get_contents("tests/stubs/{$feedName}.xml");
             $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
 //            file_put_contents("tests/stubs/{$feedName}.xml", $generatedFeedContent);
@@ -61,7 +56,7 @@ class FeedTest extends TestCase
 
         $feedConfig = [
             'items' => 'invalid',
-            'url' => '/feed',
+            'url'   => '/feed',
             'title' => 'Title',
         ];
 
