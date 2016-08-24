@@ -14,7 +14,7 @@ class Feed
     public function __construct(array $feedConfiguration)
     {
         $this->feedConfiguration = $feedConfiguration;
-        if (!str_contains($feedConfiguration['items'], '@')) {
+        if (! str_contains($feedConfiguration['items'], '@')) {
             throw InvalidConfiguration::delimiterNotPresent($feedConfiguration['items']);
         }
     }
@@ -37,7 +37,7 @@ class Feed
 
     protected function getLastUpdatedDate(Collection $items)
     {
-        if (!count($items)) {
+        if (! count($items)) {
             return '';
         }
 
