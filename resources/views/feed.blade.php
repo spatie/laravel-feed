@@ -19,7 +19,7 @@
                 <name> <![CDATA[{{ $item->getFeedItemAuthor() }}]]></name>
             </author>
             <summary type="html">
-                <![CDATA[{{ $item->getFeedItemSummary() }}]]>
+                <![CDATA[{!! $item->getFeedItemSummary() !!}]]>
             </summary>
             <updated>{{ $item->getFeedItemUpdated()->toAtomString() }}</updated>
         </entry>
