@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.0.9 - 2016-09-08
+
+- allow html tags in summary section
+
 ## 1.0.8 - 2016-08-22
 - Fix for invalid route urls on Windows systems
 
