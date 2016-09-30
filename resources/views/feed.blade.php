@@ -6,6 +6,8 @@
     @foreach($meta as $key => $metaItem)
         @if($key === 'link')
             <{{ $key }} href="{{ url($metaItem) }}"></{{ $key }}>
+        @elseif($key === 'title')
+            <{{ $key }}><![CDATA[{{ $metaItem }}]]></{{ $key }}>
         @else
             <{{ $key }}>{{ $metaItem }}</{{ $key }}>
         @endif
