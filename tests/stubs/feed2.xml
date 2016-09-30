@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
                         <id>http://localhost/feedBaseUrl/feed2</id>
                                 <link href="http://localhost/feedBaseUrl/feed2"></link>
-                                <title>Feed 2</title>
+                                <title><![CDATA[Feed 2]]></title>
                                 <updated>2016-01-01T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
