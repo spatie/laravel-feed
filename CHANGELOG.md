@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.0.10 - 2016-10-01
+
+- add `CDATA` to title
+
 ## 1.0.9 - 2016-09-08
 
 - allow html tags in summary section
