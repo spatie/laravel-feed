@@ -2,9 +2,9 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\Exceptions\InvalidConfiguration;
-use Spatie\Feed\Feed;
 use XMLReader;
+use Spatie\Feed\Feed;
+use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class FeedTest extends TestCase
 {
