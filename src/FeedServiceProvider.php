@@ -2,9 +2,9 @@
 
 namespace Spatie\Feed;
 
+use Illuminate\View\View;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
 
 class FeedServiceProvider extends ServiceProvider
 {
