@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
+## 1.1.10 - 2017-01-24
+
+- add support for Laravel 5.4
+
 ## 1.0.10 - 2016-10-01
 
 - add `CDATA` to title

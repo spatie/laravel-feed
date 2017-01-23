@@ -3,6 +3,8 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Foundation\Exceptions\Handler;
 use Spatie\Feed\FeedServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -14,6 +16,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ->startOfDay());
 
         parent::__construct($name, $data, $dataName);
+
+
     }
 
     protected function getPackageProviders($app)
@@ -39,6 +43,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         ];
 
         $app['config']->set('laravel-feed.feeds', $feed);
+
+        $app['config']->set('app.debug', true);
 
         $this->setUpRoutes($app);
     }

@@ -16,6 +16,8 @@ class FeedTest extends TestCase
         collect($this->feedNames)->each(function (string $feedName) {
             $this->assertEquals(200, $this->call('GET', "/feedBaseUrl/{$feedName}")->getStatusCode());
         });
+
+
     }
 
     /** @test */
