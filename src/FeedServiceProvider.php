@@ -3,9 +3,9 @@
 namespace Spatie\Feed;
 
 use Illuminate\View\View;
+use Spatie\Feed\Helpers\Path;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Feed\Helpers\Path;
 
 class FeedServiceProvider extends ServiceProvider
 {
