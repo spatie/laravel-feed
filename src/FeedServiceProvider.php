@@ -44,11 +44,10 @@ class FeedServiceProvider extends ServiceProvider
     public function bindFeedLinks()
     {
         $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) {
-
             $feeds = collect(config('laravel-feed.feeds'))->map(function ($feedConfig, $index) {
                 return [
                     'title' => $feedConfig['title'],
-                    'url' => $this->app['url']->route("spatieLaravelFeed{$index}")
+                    'url' => $this->app['url']->route("spatieLaravelFeed{$index}"),
                 ];
             });
 
