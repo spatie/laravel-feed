@@ -3,8 +3,6 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
-use Exception;
-use Illuminate\Foundation\Exceptions\Handler;
 use Spatie\Feed\FeedServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -16,8 +14,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ->startOfDay());
 
         parent::__construct($name, $data, $dataName);
-
-
     }
 
     protected function getPackageProviders($app)
