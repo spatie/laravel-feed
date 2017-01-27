@@ -2,9 +2,9 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\Exceptions\InvalidConfiguration;
-use Spatie\Feed\Feed;
 use XMLReader;
+use Spatie\Feed\Feed;
+use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class FeedTest extends TestCase
 {
@@ -16,8 +16,6 @@ class FeedTest extends TestCase
         collect($this->feedNames)->each(function (string $feedName) {
             $this->assertEquals(200, $this->call('GET', "/feedBaseUrl/{$feedName}")->getStatusCode());
         });
-
-
     }
 
     /** @test */

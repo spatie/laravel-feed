@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed\Http;
 
-use Illuminate\Routing\Controller;
 use Spatie\Feed\Feed;
+use Illuminate\Routing\Controller;
 
 class FeedController extends Controller
 {
