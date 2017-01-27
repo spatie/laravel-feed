@@ -33,7 +33,7 @@ class FeedServiceProvider extends ServiceProvider
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
             foreach (config('laravel-feed.feeds') as $index => $feedConfiguration) {
                 $router->get(
-                    trim($baseUrl, '/').'/'.trim($feedConfiguration['url'], '/'),
+                    $this->mergePaths($baseUrl, $feedConfiguration),
                     ['as' => "spatieLaravelFeed{$index}", 'uses' => '\Spatie\Feed\Http\FeedController@feed']
                 );
             }
@@ -51,5 +51,12 @@ class FeedServiceProvider extends ServiceProvider
         $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) use ($feeds) {
             $view->with(compact('feeds'));
         });
+    }
+
+    protected function mergePaths(...$paths): string
+    {
+        return collect($paths)->map(function (string $path) {
+            return trim($path, '/');
+        })->implode('/');
     }
 }
