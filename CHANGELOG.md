@@ -2,7 +2,7 @@
 
 All Notable changes to `laravel-feed` will be documented in this file
 
-## 1.1.1 - 2017-01-27
+## 1.2.0 - 2017-01-27
 - internal refactors to support cached routes
 
 ## 1.1.0 - 2017-01-24
