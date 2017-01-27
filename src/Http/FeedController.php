@@ -21,7 +21,7 @@ class FeedController extends Controller
     {
         $feeds = config('laravel-feed.feeds');
 
-        $feedIndex = (int) str_replace('spatieLaravelFeed', '', static::$router->currentRouteName());
+        $feedIndex = (int) str_replace('spatieLaravelFeed', '', app('router')->currentRouteName());
 
         return $feeds[$feedIndex] ?? abort(404);
     }
