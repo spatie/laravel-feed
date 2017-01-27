@@ -5,6 +5,7 @@ namespace Spatie\Feed;
 use Illuminate\View\View;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Feed\Helpers\Path;
 
 class FeedServiceProvider extends ServiceProvider
 {
@@ -33,7 +34,7 @@ class FeedServiceProvider extends ServiceProvider
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
             foreach (config('laravel-feed.feeds') as $index => $feedConfiguration) {
                 $router->get(
-                    $this->mergePaths($baseUrl, $feedConfiguration),
+                    Path::merge($baseUrl, $feedConfiguration['url']),
                     ['as' => "spatieLaravelFeed{$index}", 'uses' => '\Spatie\Feed\Http\FeedController@feed']
                 );
             }
@@ -51,12 +52,5 @@ class FeedServiceProvider extends ServiceProvider
         $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) use ($feeds) {
             $view->with(compact('feeds'));
         });
-    }
-
-    protected function mergePaths(...$paths): string
-    {
-        return collect($paths)->map(function (string $path) {
-            return trim($path, '/');
-        })->implode('/');
     }
 }
