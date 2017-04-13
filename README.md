@@ -16,18 +16,18 @@ Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview 
 
 ## Postcardware
 
-You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment you are required to send us a postcard from your hometown, mentioning which of our package(s) you are using.
+You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment we appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
 
 Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 
-The best postcards will get published on the open source page on our website.
+Aa postcards are published [on our website](https://spatie.be/en/opensource/postcards).
 
-## Install
+## Installation
 
 You can install the package via composer:
 
 ``` bash
-$ composer require spatie/laravel-feed
+composer require spatie/laravel-feed
 ```
 
 Next up, the service provider must be registered:
@@ -53,7 +53,7 @@ Route::feeds();
 Next, you must publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider"
+php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="config"
 ```
 
 This is the content of the published file laravel-feed.php:
@@ -88,6 +88,12 @@ You can pass a string as a first argument of the macro. The string will be used 
 the value specified in the `url` key of the config file.
 
 Please note that you can register multiple feeds by having multiple items in the `feeds`-key.
+
+Optionally you can publish the view files:
+
+```bash
+php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="views"
+```
 
 
 ### Automatically generate feed links
