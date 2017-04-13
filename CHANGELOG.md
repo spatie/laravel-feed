@@ -1,6 +1,9 @@
 # Changelog
 
-All Notable changes to `laravel-feed` will be documented in this file
+All notable changes to `laravel-feed` will be documented in this file
+
+## 1.3.0 - 2017-04-13
+- allow views to be published
 
 ## 1.2.0 - 2017-01-27
 - internal refactors to support cached routes
