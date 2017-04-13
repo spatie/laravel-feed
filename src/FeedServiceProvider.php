@@ -16,7 +16,7 @@ class FeedServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
-        
+
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-feed'),
         ]);
