@@ -4,9 +4,12 @@ namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
 use Spatie\Feed\FeedServiceProvider;
+use Spatie\Snapshots\MatchesSnapshots;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use MatchesSnapshots;
+
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
