@@ -2,7 +2,6 @@
 
 namespace Spatie\Feed\Test;
 
-use XMLReader;
 use Spatie\Feed\Feed;
 use Spatie\Feed\Exceptions\InvalidConfiguration;
 
