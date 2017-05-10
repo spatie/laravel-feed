@@ -15,7 +15,7 @@ class DummyRepository
         ]);
     }
 
-    public function getAllWithFilter($filter = '')
+    public function getAllWithArguments($filter = '')
     {
         if ($filter != '') {
             return collect([
