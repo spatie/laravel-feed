@@ -2,8 +2,11 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
-## 1.4.0 - 2017-05-10
+## 1.4.0 - 2017-05-12
 - allow a filter to be passed with items in config
+
+## 1.3.1 - 2017-05-12
+- add a tag to publish views
 
 ## 1.3.0 - 2017-04-13
 - allow views to be published
