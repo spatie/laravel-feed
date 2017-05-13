@@ -39,6 +39,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title'       => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
             ],
+            [
+                'items'       => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter'],
+                'url'         => '/feed3',
+                'title'       => 'Feed 3',
+                'description' => 'This is feed 3 from the unit tests',
+            ],
         ];
 
         $app['config']->set('laravel-feed.feeds', $feed);

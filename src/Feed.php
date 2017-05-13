@@ -14,8 +14,8 @@ class Feed
     public function __construct(array $feedConfiguration)
     {
         $this->feedConfiguration = $feedConfiguration;
-        if (! str_contains($feedConfiguration['items'], '@')) {
-            throw InvalidConfiguration::delimiterNotPresent($feedConfiguration['items']);
+        if (! str_contains($this->getFeedMethod(), '@')) {
+            throw InvalidConfiguration::delimiterNotPresent($this->getFeedMethod());
         }
     }
 
@@ -26,13 +26,23 @@ class Feed
 
     public function getFeedContent()
     {
-        list($class, $method) = explode('@', $this->feedConfiguration['items']);
+        list($class, $method) = explode('@', $this->getFeedMethod());
 
-        $items = app($class)->{$method}();
+        $items = app($class)->{$method}($this->getFeedArguments());
 
         $meta = ['id' => url($this->feedConfiguration['url']), 'link' => url($this->feedConfiguration['url']), 'title' => $this->feedConfiguration['title'], 'updated' => $this->getLastUpdatedDate($items)];
 
         return view('laravel-feed::feed', compact('meta', 'items'))->render();
+    }
+
+    protected function getFeedMethod()
+    {
+        return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][0] : $this->feedConfiguration['items'];
+    }
+
+    protected function getFeedArguments()
+    {
+        return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][1] : null;
     }
 
     protected function getLastUpdatedDate(Collection $items)

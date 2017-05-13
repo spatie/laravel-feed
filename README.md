@@ -65,7 +65,7 @@ return [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
-             * '\App\Model@getAllFeedItems'
+             * '\App\Model@getAllFeedItems' or ['\App\Model@getAllFeedItems', 'filter']
              */
             'items' => '',
 

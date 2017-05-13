@@ -14,4 +14,21 @@ class DummyRepository
             new DummyItem(),
         ]);
     }
+
+    public function getAllWithArguments($filter = '')
+    {
+        if ($filter != '') {
+            return collect([
+                new DummyItem(),
+            ]);
+        }
+
+        return collect([
+            new DummyItem(),
+            new DummyItem(),
+            new DummyItem(),
+            new DummyItem(),
+            new DummyItem(),
+        ]);
+    }
 }
