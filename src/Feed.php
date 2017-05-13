@@ -28,7 +28,7 @@ class Feed
     {
         list($class, $method) = explode('@', $this->getFeedMethod());
 
-        $items = app($class)->{$method}($this->getFeedArguments());
+        $items = app($class)->{$method}($this->getFeedArgument());
 
         $meta = ['id' => url($this->feedConfiguration['url']), 'link' => url($this->feedConfiguration['url']), 'title' => $this->feedConfiguration['title'], 'updated' => $this->getLastUpdatedDate($items)];
 
@@ -40,7 +40,7 @@ class Feed
         return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][0] : $this->feedConfiguration['items'];
     }
 
-    protected function getFeedArguments()
+    protected function getFeedArgument()
     {
         return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][1] : null;
     }
