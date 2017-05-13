@@ -23,7 +23,7 @@ class FeedTest extends TestCase
         collect($this->feedNames)->each(function (string $feedName) {
             $generatedFeedContent = $this->call('GET', "/feedBaseUrl/{$feedName}")->getContent();
 
-            $this->assertMatchesXmlSnapshot($generatedFeedContent);
+            $this->assertMatchesSnapshot($generatedFeedContent);
         });
     }
 

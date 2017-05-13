@@ -4,9 +4,12 @@ namespace Spatie\Feed\Test;
 
 class DummyRepository
 {
-    public function getAll()
+    /** @var \Illuminate\Support\Collection */
+    public $items;
+
+    public function __construct()
     {
-        return collect([
+        $this->items = collect([
             new DummyItem(),
             new DummyItem(),
             new DummyItem(),
@@ -15,20 +18,15 @@ class DummyRepository
         ]);
     }
 
-    public function getAllWithArguments($filter = '')
+    public function getAll()
     {
-        if ($filter != '') {
-            return collect([
-                new DummyItem(),
-            ]);
-        }
+        return $this->items;
+    }
 
-        return collect([
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
-        ]);
+    public function getAllWithArguments(string $filter = '')
+    {
+        return $filter === 'first'
+            ? collect($this->items->first())
+            : $this->items;
     }
 }

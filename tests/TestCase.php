@@ -40,7 +40,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is feed 2 from the unit tests',
             ],
             [
-                'items'       => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter'],
+                'items'       => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
                 'url'         => '/feed3',
                 'title'       => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
