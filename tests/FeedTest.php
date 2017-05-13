@@ -36,7 +36,7 @@ class FeedTest extends TestCase
     }
 
     /** @test */
-    public function it_wil_throw_an_expection_if_the_items_config_is_not_filled_properly()
+    public function it_wil_throw_an_exception_if_the_items_config_is_not_filled_properly()
     {
         $this->expectException(InvalidConfiguration::class);
 
