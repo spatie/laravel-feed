@@ -3,5 +3,5 @@ preset: laravel
 linting: true
 
 finder:
-  not-name:
+  not-contains:
     - "*__snapshots__*"
