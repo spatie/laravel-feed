@@ -4,4 +4,4 @@ linting: true
 
 finder:
   not-contains:
-    - "*__snapshots__*"
+    - "__snapshots__"
