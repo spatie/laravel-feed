@@ -5,3 +5,4 @@ linting: true
 finder:
   not-contains:
     - "__snapshots__"
+    
