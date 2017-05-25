@@ -1,8 +1,5 @@
 preset: laravel
 
-linting: true
-
 finder:
-  not-contains:
+  exclude:
     - "__snapshots__"
-    
