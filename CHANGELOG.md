@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 1.4.1 - 2017-08-07
+- removed unnecessary dependency
+
 ## 1.4.0 - 2017-05-13
 - allow an argument to be passed with items in config
 
