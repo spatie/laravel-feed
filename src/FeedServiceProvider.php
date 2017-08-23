@@ -2,11 +2,11 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Events\Dispatcher;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use Spatie\Feed\Helpers\Path;
+use Illuminate\Events\Dispatcher;
 use Spatie\Feed\Http\FeedController;
+use Illuminate\Support\ServiceProvider;
 
 class FeedServiceProvider extends ServiceProvider
 {

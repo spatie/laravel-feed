@@ -2,8 +2,6 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\Feed;
-
 class FeedTest extends TestCase
 {
     protected $feedNames = ['feed1', 'feed2', 'feed3'];
