@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed;
 
-use Carbon\Carbon;
 use Exception;
+use Carbon\Carbon;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class FeedItem
