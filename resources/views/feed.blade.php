@@ -14,16 +14,16 @@
     @endforeach
     @foreach($items as $item)
         <entry>
-            <title><![CDATA[{{ $item->getFeedItemTitle() }}]]></title>
-            <link rel="alternate" href="{{ url($item->getFeedItemLink()) }}" />
-            <id>{{ url($item->getFeedItemId()) }}</id>
+            <title><![CDATA[{{ $item->title }}]]></title>
+            <link rel="alternate" href="{{ url($item->link) }}" />
+            <id>{{ url($item->id) }}</id>
             <author>
-                <name> <![CDATA[{{ $item->getFeedItemAuthor() }}]]></name>
+                <name> <![CDATA[{{ $item->author }}]]></name>
             </author>
             <summary type="html">
-                <![CDATA[{!! $item->getFeedItemSummary() !!}]]>
+                <![CDATA[{!! $item->summary !!}]]>
             </summary>
-            <updated>{{ $item->getFeedItemUpdated()->toAtomString() }}</updated>
+            <updated>{{ $item->updated->toAtomString() }}</updated>
         </entry>
     @endforeach
 </feed>

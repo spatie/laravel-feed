@@ -13,7 +13,9 @@ class FeedTest extends TestCase
     public function all_feeds_are_available_on_their_registered_routes()
     {
         collect($this->feedNames)->each(function (string $feedName) {
-            $this->assertEquals(200, $this->call('GET', "/feedBaseUrl/{$feedName}")->getStatusCode());
+            $response = $this->call('GET', "/feedBaseUrl/{$feedName}");
+
+            $this->assertEquals(200, $response->getStatusCode());
         });
     }
 

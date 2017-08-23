@@ -4,36 +4,19 @@ namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
 use Spatie\Feed\FeedItem;
+use Spatie\Feed\Feedable;
 
-class DummyItem implements FeedItem
+class DummyItem implements Feedable
 {
-    public function getFeedItemId()
+    public function toFeedItem()
     {
-        return 1;
-    }
-
-    public function getFeedItemTitle() : string
-    {
-        return 'feedItemTitle';
-    }
-
-    public function getFeedItemSummary() : string
-    {
-        return 'feedItemSummary';
-    }
-
-    public function getFeedItemUpdated() : Carbon
-    {
-        return Carbon::now();
-    }
-
-    public function getFeedItemLink() : string
-    {
-        return 'https://localhost/news/testItem1';
-    }
-
-    public function getFeedItemAuthor() : string
-    {
-        return 'feedItemAuthor';
+        return new FeedItem([
+            'id' => 1,
+            'title' => 'feedItemTitle',
+            'summary' => 'feedItemSummary',
+            'updated' => Carbon::now(),
+            'link' => 'https://localhost/news/testItem1',
+            'author' => 'feedItemAuthor',
+        ]);
     }
 }
