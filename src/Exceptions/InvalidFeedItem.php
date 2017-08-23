@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Exceptions;
 
 use Exception;
+use Spatie\Feed\FeedItem;
 
 class InvalidFeedItem extends Exception
 {
@@ -11,27 +12,28 @@ class InvalidFeedItem extends Exception
 
     public static function notFeedable($subject)
     {
-        return tap(new static('Object doesn\'t implement `Spatie\Feed\Feedable`'), function ($exception) {
-            $exception->subject = $subject;
-        });
+        return (new static('Object doesn\'t implement `Spatie\Feed\Feedable`'))->withSubject($subject);
     }
 
     public static function notAFeedItem($subject)
     {
-        return tap(new static('`toFeedItem` should return an instance of `Spatie\Feed\Feedable`'), function ($exception) {
-            $exception->subject = $subject;
-        });
+        return (new static('`toFeedItem` should return an instance of `Spatie\Feed\Feedable`'))->withSubject($subject);
     }
 
     public static function missingField(FeedItem $subject, $field)
     {
-        return tap(new static("Field `{$field}` is required"), function ($exception) {
-            $exception->subject = $subject;
-        });
+        return (new static("Field `{$field}` is required"))->withSubject($subject);
     }
 
     public function getSubject()
     {
         return $this->subject;
+    }
+
+    protected function withSubject()
+    {
+        $this->subject;
+
+        return $this;
     }
 }

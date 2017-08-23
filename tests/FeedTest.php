@@ -3,7 +3,6 @@
 namespace Spatie\Feed\Test;
 
 use Spatie\Feed\Feed;
-use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class FeedTest extends TestCase
 {
