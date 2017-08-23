@@ -30,7 +30,7 @@ class InvalidFeedItem extends Exception
         });
     }
 
-    public function getFeedItem(): FeedItem
+    public function getSubject()
     {
         return $this->subject;
     }

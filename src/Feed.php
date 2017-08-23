@@ -2,93 +2,90 @@
 
 namespace Spatie\Feed;
 
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
-use Spatie\Feed\Exceptions\InvalidFeedItem;
 use Spatie\Feed\Exceptions\InvalidConfiguration;
+use Spatie\Feed\Exceptions\InvalidFeedItem;
 
-class Feed
+class Feed implements Responsable
 {
-    /** @var array */
-    protected $feedConfiguration;
+    /** @var string */
+    protected $title;
 
-    public function __construct(array $feedConfiguration)
+    /** @var string */
+    protected $url;
+
+    /** @var \Illuminate\Support\Collection */
+    protected $items;
+
+    public function __construct($title, $url, $resolver)
     {
-        $this->feedConfiguration = $feedConfiguration;
+        $this->title = $title;
+        $this->url = $url;
 
-        if (! str_contains($this->getFeedMethod(), '@')) {
-            throw InvalidConfiguration::delimiterNotPresent($this->getFeedMethod());
-        }
+        $this->items = $this->resolveItems($resolver);
     }
 
-    public function getFeedResponse()
+    public function toResponse($request)
     {
-        return response($this->getFeedContent(), 200, ['Content-Type' => 'application/xml;charset=UTF-8']);
-    }
-
-    public function getFeedContent()
-    {
-        $items = $this->getFeedItems();
-
         $meta = [
-            'id' => url($this->feedConfiguration['url']),
-            'link' => url($this->feedConfiguration['url']),
-            'title' => $this->feedConfiguration['title'],
-            'updated' => $this->getLastUpdatedDate($items),
+            'id' => url($this->url),
+            'link' => url($this->url),
+            'title' => $this->title,
+            'updated' => $this->lastUpdated(),
         ];
 
-        return view('feed::feed', compact('meta', 'items'))->render();
+        $contents = view('feed::feed', [
+            'meta' => $meta,
+            'items' => $this->items,
+        ]);
+
+        return new Response($contents, 200, [
+            'Content-Type' => 'application/xml;charset=UTF-8',
+        ]);
     }
 
-    protected function getFeedItems()
+    protected function resolveItems($resolver)
     {
-        list($class, $method) = explode('@', $this->getFeedMethod());
+        $resolver = array_wrap($resolver);
 
-        $items = app($class)->{$method}($this->getFeedArgument());
+        $items = app()->call(
+            array_shift($resolver), $resolver
+        );
 
         return collect($items)->map(function ($feedable) {
-            if (! $feedable instanceof Feedable) {
-                throw InvalidFeedItem::notFeedable($feedable);
-            }
-
-            $feedItem = $feedable->toFeedItem();
-
-            if (is_array($feedItem)) {
-                $feedItem = new FeedItem($feedItem);
-            }
-
-            if (! $feedItem instanceof FeedItem) {
-                throw InvalidFeedItem::notAFeedItem($feedItem);
-            }
-
-            $feedItem->validate();
-
-            return $feedItem;
+            return $this->castToFeedItem($feedable);
         });
     }
 
-    protected function getFeedMethod()
+    protected function castToFeedItem($feedable)
     {
-        return is_array($this->feedConfiguration['items'])
-            ? $this->feedConfiguration['items'][0]
-            : $this->feedConfiguration['items'];
+        if (! $feedable instanceof Feedable) {
+            throw InvalidFeedItem::notFeedable($feedable);
+        }
+
+        $feedItem = $feedable->toFeedItem();
+
+        if (is_array($feedItem)) {
+            $feedItem = new FeedItem($feedItem);
+        }
+
+        if (! $feedItem instanceof FeedItem) {
+            throw InvalidFeedItem::notAFeedItem($feedItem);
+        }
+
+        $feedItem->validate();
+
+        return $feedItem;
     }
 
-    protected function getFeedArgument()
+    protected function lastUpdated()
     {
-        return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][1] : null;
-    }
-
-    protected function getLastUpdatedDate(Collection $items)
-    {
-        if (! count($items)) {
+        if (! count($this->items)) {
             return '';
         }
 
-        $lastItem = $items->sortBy(function (FeedItem $feedItem) {
-            return $feedItem->updated->format('YmdHis');
-        })->last();
-
-        return $lastItem->updated->toAtomString();
+        return $this->items->sortBy('updated')->last()->updated->toAtomString();
     }
 }

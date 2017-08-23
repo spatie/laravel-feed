@@ -36,18 +36,4 @@ class FeedTest extends TestCase
 
         $this->assertMatchesSnapshot($feedLinksHtml);
     }
-
-    /** @test */
-    public function it_will_throw_an_exception_if_the_items_config_is_not_filled_properly()
-    {
-        $this->expectException(InvalidConfiguration::class);
-
-        $feedConfig = [
-            'items' => 'invalid',
-            'url'   => '/feed',
-            'title' => 'Title',
-        ];
-
-        new Feed($feedConfig);
-    }
 }

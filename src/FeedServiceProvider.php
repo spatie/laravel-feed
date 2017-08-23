@@ -2,10 +2,11 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\View\View;
-use Spatie\Feed\Helpers\Path;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\View;
+use Spatie\Feed\Helpers\Path;
+use Spatie\Feed\Http\FeedController;
 
 class FeedServiceProvider extends ServiceProvider
 {
@@ -36,11 +37,10 @@ class FeedServiceProvider extends ServiceProvider
         $router = $this->app['router'];
 
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
-            foreach (config('feed.feeds') as $index => $feedConfiguration) {
-                $router->get(
-                    Path::merge($baseUrl, $feedConfiguration['url']),
-                    ['as' => "spatieLaravelFeed{$index}", 'uses' => '\Spatie\Feed\Http\FeedController@feed']
-                );
+            foreach (config('feed.feeds') as $name => $configuration) {
+                $url = Path::merge($baseUrl, $configuration['url']);
+
+                $router->get($url, FeedController::class)->name("feeds.{$name}");
             }
         });
     }
@@ -51,7 +51,7 @@ class FeedServiceProvider extends ServiceProvider
             $feeds = collect(config('feed.feeds'))->map(function ($feedConfig, $index) {
                 return [
                     'title' => $feedConfig['title'],
-                    'url' => $this->app['url']->route("spatieLaravelFeed{$index}"),
+                    'url' => $this->app['url']->route("feeds.{$index}"),
                 ];
             });
 
