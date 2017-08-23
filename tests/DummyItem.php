@@ -3,8 +3,8 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
-use Spatie\Feed\FeedItem;
 use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
 class DummyItem implements Feedable
 {

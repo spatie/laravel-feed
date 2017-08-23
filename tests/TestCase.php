@@ -2,12 +2,12 @@
 
 namespace Spatie\Feed\Test;
 
-use Carbon\Carbon;
 use Exception;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Foundation\Exceptions\Handler;
+use Carbon\Carbon;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
+use Illuminate\Foundation\Exceptions\Handler;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

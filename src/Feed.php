@@ -4,8 +4,8 @@ namespace Spatie\Feed;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
-use Spatie\Feed\Exceptions\InvalidConfiguration;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
+use Spatie\Feed\Exceptions\InvalidConfiguration;
 
 class Feed
 {

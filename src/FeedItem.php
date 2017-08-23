@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed;
 
-use Carbon\Carbon;
 use Exception;
+use Carbon\Carbon;
 
 class FeedItem
 {
@@ -34,7 +34,7 @@ class FeedItem
 
     public static function create(array $data = [])
     {
-        return (new static($data));
+        return new static($data);
     }
 
     public function id(string $id)
