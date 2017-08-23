@@ -37,7 +37,7 @@ class Feed
             'updated' => $this->getLastUpdatedDate($items),
         ];
 
-        return view('laravel-feed::feed', compact('meta', 'items'))->render();
+        return view('feed::feed', compact('meta', 'items'))->render();
     }
 
     protected function getFeedItems()

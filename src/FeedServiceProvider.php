@@ -12,13 +12,13 @@ class FeedServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/laravel-feed.php' => config_path('laravel-feed.php'),
+            __DIR__.'/../config/feed.php' => config_path('feed.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-feed');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'feed');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-feed'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/feed'),
         ], 'views');
 
         $this->bindFeedLinks();
@@ -26,7 +26,7 @@ class FeedServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-feed.php', 'laravel-feed');
+        $this->mergeConfigFrom(__DIR__.'/../config/feed.php', 'feed');
 
         $this->registerRouteMacro();
     }
@@ -36,7 +36,7 @@ class FeedServiceProvider extends ServiceProvider
         $router = $this->app['router'];
 
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
-            foreach (config('laravel-feed.feeds') as $index => $feedConfiguration) {
+            foreach (config('feed.feeds') as $index => $feedConfiguration) {
                 $router->get(
                     Path::merge($baseUrl, $feedConfiguration['url']),
                     ['as' => "spatieLaravelFeed{$index}", 'uses' => '\Spatie\Feed\Http\FeedController@feed']
@@ -47,8 +47,8 @@ class FeedServiceProvider extends ServiceProvider
 
     public function bindFeedLinks()
     {
-        $this->app->make(Dispatcher::class)->listen('composing: laravel-feed::feed-links', function (View $view) {
-            $feeds = collect(config('laravel-feed.feeds'))->map(function ($feedConfig, $index) {
+        $this->app->make(Dispatcher::class)->listen('composing: feed::feed-links', function (View $view) {
+            $feeds = collect(config('feed.feeds'))->map(function ($feedConfig, $index) {
                 return [
                     'title' => $feedConfig['title'],
                     'url' => $this->app['url']->route("spatieLaravelFeed{$index}"),

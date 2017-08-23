@@ -52,7 +52,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ],
         ];
 
-        $app['config']->set('laravel-feed.feeds', $feed);
+        $app['config']->set('feed.feeds', $feed);
 
         $app['config']->set('app.debug', true);
 
@@ -64,7 +64,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $app['router']->feeds('feedBaseUrl');
 
         $app['router']->get('/test-route', function () use ($app) {
-            return $app['view']->make('laravel-feed::feed-links');
+            return $app['view']->make('feed::feed-links');
         });
     }
 

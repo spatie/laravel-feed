@@ -19,7 +19,7 @@ class FeedController extends Controller
 
     protected function getFeedConfiguration(): array
     {
-        $feeds = config('laravel-feed.feeds');
+        $feeds = config('feed.feeds');
 
         $feedIndex = (int) str_replace('spatieLaravelFeed', '', app('router')->currentRouteName());
 
