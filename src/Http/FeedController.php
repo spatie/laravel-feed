@@ -3,7 +3,6 @@
 namespace Spatie\Feed\Http;
 
 use Spatie\Feed\Feed;
-use Illuminate\Routing\Controller;
 
 class FeedController
 {
