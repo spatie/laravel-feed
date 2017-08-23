@@ -64,7 +64,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $app['router']->feeds('feedBaseUrl');
 
         $app['router']->get('/test-route', function () use ($app) {
-            return $app['view']->make('feed::feed-links');
+            return $app['view']->make('feed::links');
         });
     }
 

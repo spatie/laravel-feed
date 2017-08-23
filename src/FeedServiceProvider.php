@@ -2,9 +2,8 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Events\Dispatcher;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\View;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
 
@@ -22,7 +21,7 @@ class FeedServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views' => resource_path('views/vendor/feed'),
         ], 'views');
 
-        $this->bindFeedLinks();
+        $this->registerLinksComposer();
     }
 
     public function register()
@@ -45,17 +44,12 @@ class FeedServiceProvider extends ServiceProvider
         });
     }
 
-    public function bindFeedLinks()
+    public function registerLinksComposer()
     {
-        $this->app->make(Dispatcher::class)->listen('composing: feed::feed-links', function (View $view) {
-            $feeds = collect(config('feed.feeds'))->map(function ($feedConfig, $index) {
-                return [
-                    'title' => $feedConfig['title'],
-                    'url' => $this->app['url']->route("feeds.{$index}"),
-                ];
-            });
-
-            $view->with(compact('feeds'));
+        View::composer('feed::links', function ($view) {
+            $view->with([
+                'feeds' => array_pluck(config('feed.feeds'), 'title'),
+            ]);
         });
     }
 }
