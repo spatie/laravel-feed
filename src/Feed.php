@@ -2,9 +2,10 @@
 
 namespace Spatie\Feed;
 
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
-use Illuminate\Contracts\Support\Responsable;
 
 class Feed implements Responsable
 {
@@ -59,6 +60,14 @@ class Feed implements Responsable
 
     protected function castToFeedItem($feedable)
     {
+        if (is_array($feedable)) {
+            $feedable = new FeedItem($feedable);
+        }
+
+        if ($feedable instanceof Arrayable) {
+            $feedable = new FeedItem($feedable->toArray());
+        }
+
         if (! $feedable instanceof Feedable) {
             throw InvalidFeedItem::notFeedable($feedable);
         }
