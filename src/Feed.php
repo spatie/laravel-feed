@@ -80,7 +80,7 @@ class Feed implements Responsable
 
     protected function lastUpdated()
     {
-        if (! count($this->items)) {
+        if ($this->items->isEmpty()) {
             return '';
         }
 
