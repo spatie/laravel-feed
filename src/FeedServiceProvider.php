@@ -47,9 +47,14 @@ class FeedServiceProvider extends ServiceProvider
     public function registerLinksComposer()
     {
         View::composer('feed::links', function ($view) {
-            $view->with([
-                'feeds' => array_pluck(config('feed.feeds'), 'title'),
-            ]);
+            $view->with('feeds', $this->feeds());
+        });
+    }
+
+    protected function feeds()
+    {
+        return collect(config('feed.feeds'))->mapWithKeys(function ($feed, $name) {
+            return [$name => $feed['title']];
         });
     }
 }
