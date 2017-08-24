@@ -61,11 +61,7 @@ class Feed implements Responsable
     protected function castToFeedItem($feedable)
     {
         if (is_array($feedable)) {
-            $feedable = new FeedItem($feedable);
-        }
-
-        if ($feedable instanceof Arrayable) {
-            $feedable = new FeedItem($feedable->toArray());
+            return new FeedItem($feedable);
         }
 
         if (! $feedable instanceof Feedable) {
@@ -73,10 +69,6 @@ class Feed implements Responsable
         }
 
         $feedItem = $feedable->toFeedItem();
-
-        if (is_array($feedItem)) {
-            $feedItem = new FeedItem($feedItem);
-        }
 
         if (! $feedItem instanceof FeedItem) {
             throw InvalidFeedItem::notAFeedItem($feedItem);
