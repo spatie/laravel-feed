@@ -39,7 +39,7 @@ class FeedServiceProvider extends ServiceProvider
             foreach (config('feed.feeds') as $name => $configuration) {
                 $url = Path::merge($baseUrl, $configuration['url']);
 
-                $router->get($url, FeedController::class)->name("feeds.{$name}");
+                $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
             }
         });
     }
