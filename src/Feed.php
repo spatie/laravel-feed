@@ -2,10 +2,10 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
+use Illuminate\Contracts\Support\Arrayable;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
+use Illuminate\Contracts\Support\Responsable;
 
 class Feed implements Responsable
 {
