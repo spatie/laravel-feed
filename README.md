@@ -78,19 +78,33 @@ Optionally you can publish the view files:
 php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="views"
 ```
 
+### Upgrading from v1
 
-### Automatically generate feed links
+Version 2 introduces some major API changes to the package, but upgrading shouldn't take too long.
 
-To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this: 
+Replace the `FeedItem` interface with the new `Feedable` interface on your models. Visit the [Usage](#usage) usage for more details on implementing the new interface.
 
-```html
-<link rel="alternate" type="application/atom+xml" title="News" href="/feed">
+```diff
+- use Spatie\Feed\FeedItem;
++ use Spatie\Feed\Feedable;
+
+- class NewsItem extends Model implements FeedItem
++ class NewsItem extends Model implements Feedable
 ```
 
-You can add this to your `<head>` through a partial view.
- 
-```php
- @include('feed::links')
+Rename your config file from `laravel-feed.php` to `feed.php`.
+
+```diff
+  config/
+-   laravel-feed.php
++   feed.php
+```
+
+Change the links `@include` directive.
+
+```diff
+- @include('laravel-feed::feed-links')
++ @include('feed::links')
 ```
 
 ## Usage
@@ -102,10 +116,11 @@ First you must implement the `Feedable` interface on that model. `Feedable` expe
 ```php
 // app/NewsItem.php
 
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
-class NewsItem implements Feedable
+class NewsItem extends Model implements Feedable
 {
     public function toFeedItem()
     {
@@ -123,12 +138,12 @@ class NewsItem implements Feedable
 If you prefer, returning an associative array with the necessary keys will do the trick too.
 
 ```php
-```php
 // app/NewsItem.php
 
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Feed\Feedable;
 
-class NewsItem implements Feedable
+class NewsItem extends Model implements Feedable
 {
     public function toFeedItem()
     {
@@ -190,6 +205,20 @@ The `items` key must point to a method that returns one of the following:
 - An array or collection of `Feedable`s
 - An array or collection of `FeedItem`s
 - An array or collection of arrays containing feed item values
+
+### Automatically generate feed links
+
+To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this: 
+
+```html
+<link rel="alternate" type="application/atom+xml" title="News" href="/feed">
+```
+
+You can add this to your `<head>` through a partial view.
+ 
+```php
+ @include('feed::links')
+```
 
 ## Changelog
 
