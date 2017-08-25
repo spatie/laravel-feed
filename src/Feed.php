@@ -61,7 +61,13 @@ class Feed implements Responsable
     protected function castToFeedItem($feedable)
     {
         if (is_array($feedable)) {
-            return new FeedItem($feedable);
+            $feedable = new FeedItem($feedable);
+        }
+
+        if ($feedable instanceof FeedItem) {
+            $feedable->validate();
+
+            return $feedable;
         }
 
         if (! $feedable instanceof Feedable) {
