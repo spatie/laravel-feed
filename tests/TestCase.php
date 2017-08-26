@@ -33,21 +33,21 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $feed = [
             [
-                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url'         => '/feed1',
-                'title'       => 'Feed 1',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed1',
+                'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
             ],
             [
-                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url'         => '/feed2',
-                'title'       => 'Feed 2',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed2',
+                'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
             ],
             [
-                'items'       => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
-                'url'         => '/feed3',
-                'title'       => 'Feed 3',
+                'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
+                'url' => '/feed3',
+                'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
             ],
         ];
@@ -70,7 +70,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
+        $this->app->instance(ExceptionHandler::class, new class extends Handler
+        {
             public function __construct()
             {
             }

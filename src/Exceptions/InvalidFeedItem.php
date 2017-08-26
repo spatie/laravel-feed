@@ -8,7 +8,7 @@ use Spatie\Feed\FeedItem;
 class InvalidFeedItem extends Exception
 {
     /** @var \Spatie\Feed\FeedItem|null */
-    protected $subject;
+    public $subject;
 
     public static function notFeedable($subject)
     {
@@ -23,11 +23,6 @@ class InvalidFeedItem extends Exception
     public static function missingField(FeedItem $subject, $field)
     {
         return (new static("Field `{$field}` is required"))->withSubject($subject);
-    }
-
-    public function getSubject()
-    {
-        return $this->subject;
     }
 
     protected function withSubject()

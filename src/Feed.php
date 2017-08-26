@@ -3,6 +3,7 @@
 namespace Spatie\Feed;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 use Illuminate\Contracts\Support\Responsable;
 
@@ -25,7 +26,7 @@ class Feed implements Responsable
         $this->items = $this->resolveItems($resolver);
     }
 
-    public function toResponse($request)
+    public function toResponse($request): Response
     {
         $meta = [
             'id' => url($this->url),
@@ -44,7 +45,7 @@ class Feed implements Responsable
         ]);
     }
 
-    protected function resolveItems($resolver)
+    protected function resolveItems($resolver): Collection
     {
         $resolver = array_wrap($resolver);
 
@@ -57,7 +58,7 @@ class Feed implements Responsable
         });
     }
 
-    protected function castToFeedItem($feedable)
+    protected function castToFeedItem($feedable): FeedItem
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);
@@ -84,7 +85,7 @@ class Feed implements Responsable
         return $feedItem;
     }
 
-    protected function lastUpdated()
+    protected function lastUpdated(): string
     {
         if ($this->items->isEmpty()) {
             return '';
