@@ -70,8 +70,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function disableExceptionHandling()
     {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler
-        {
+        $this->app->instance(ExceptionHandler::class, new class extends Handler {
             public function __construct()
             {
             }
