@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.0.0 - 2017-08-30
+- Laravel 5.5 compatibility
+- Package rewrite, feeds can be built from anything that created a `FeedItem` now
+- Introduced the `Feedable` interface for models that can be transformed to a `FeedItem`
+- The readme has an upgrade guide to v2
+
 ## 1.4.1 - 2017-08-07
 - removed unnecessary dependency
 
