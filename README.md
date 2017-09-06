@@ -153,7 +153,7 @@ class NewsItem extends Model implements Feedable
             'summary' => $this->summary,
             'updated' => $this->updated_at,
             'link' => $this->link,
-            'author' => $this->author),
+            'author' => $this->author,
         ];
     }
 }
