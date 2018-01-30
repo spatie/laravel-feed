@@ -2,12 +2,11 @@
 
 namespace Spatie\Feed;
 
-use ArrayAccess;
 use Exception;
 use Carbon\Carbon;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 
-class FeedItem implements ArrayAccess
+class FeedItem
 {
     /** @var string */
     protected $id;
@@ -99,25 +98,5 @@ class FeedItem implements ArrayAccess
         }
 
         return $this->$key;
-    }
-
-    public function offsetExists($offset): bool
-    {
-        return isset($this->$offset);
-    }
-
-    public function offsetGet($offset)
-    {
-        return $this->$offset;
-    }
-
-    public function offsetSet($offset, $value)
-    {
-        $this->$offset = $value;
-    }
-
-    public function offsetUnset($offset)
-    {
-        unset($this->$offset);
     }
 }
