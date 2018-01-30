@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.0.1 - 2017-01-30
+- Fixed item sorting
+
 ## 2.0.0 - 2017-08-30
 - Laravel 5.5 compatibility
 - Package rewrite, feeds can be built from anything that created a `FeedItem` now
