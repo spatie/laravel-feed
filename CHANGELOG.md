@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.0.2 - 2018-02-08
+- Add support for Laravel 5.6
+
 ## 2.0.1 - 2017-01-30
 - Fixed item sorting
 
