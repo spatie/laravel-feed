@@ -4,57 +4,95 @@ namespace Spatie\Feed;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
-use Spatie\Feed\Exceptions\InvalidConfiguration;
+use Spatie\Feed\Exceptions\InvalidFeedItem;
+use Illuminate\Contracts\Support\Responsable;
 
-class Feed
+class Feed implements Responsable
 {
-    /** @var array */
-    protected $feedConfiguration;
+    /** @var string */
+    protected $title;
 
-    public function __construct(array $feedConfiguration)
+    /** @var string */
+    protected $url;
+
+    /** @var \Illuminate\Support\Collection */
+    protected $items;
+
+    public function __construct($title, $url, $resolver)
     {
-        $this->feedConfiguration = $feedConfiguration;
-        if (! str_contains($this->getFeedMethod(), '@')) {
-            throw InvalidConfiguration::delimiterNotPresent($this->getFeedMethod());
+        $this->title = $title;
+        $this->url = $url;
+
+        $this->items = $this->resolveItems($resolver);
+    }
+
+    public function toResponse($request): Response
+    {
+        $meta = [
+            'id' => url($this->url),
+            'link' => url($this->url),
+            'title' => $this->title,
+            'updated' => $this->lastUpdated(),
+        ];
+
+        $contents = view('feed::feed', [
+            'meta' => $meta,
+            'items' => $this->items,
+        ]);
+
+        return new Response($contents, 200, [
+            'Content-Type' => 'application/xml;charset=UTF-8',
+        ]);
+    }
+
+    protected function resolveItems($resolver): Collection
+    {
+        $resolver = array_wrap($resolver);
+
+        $items = app()->call(
+            array_shift($resolver), $resolver
+        );
+
+        return collect($items)->map(function ($feedable) {
+            return $this->castToFeedItem($feedable);
+        });
+    }
+
+    protected function castToFeedItem($feedable): FeedItem
+    {
+        if (is_array($feedable)) {
+            $feedable = new FeedItem($feedable);
         }
+
+        if ($feedable instanceof FeedItem) {
+            $feedable->validate();
+
+            return $feedable;
+        }
+
+        if (! $feedable instanceof Feedable) {
+            throw InvalidFeedItem::notFeedable($feedable);
+        }
+
+        $feedItem = $feedable->toFeedItem();
+
+        if (! $feedItem instanceof FeedItem) {
+            throw InvalidFeedItem::notAFeedItem($feedItem);
+        }
+
+        $feedItem->validate();
+
+        return $feedItem;
     }
 
-    public function getFeedResponse()
+    protected function lastUpdated(): string
     {
-        return response($this->getFeedContent(), 200, ['Content-Type' => 'application/xml;charset=UTF-8']);
-    }
-
-    public function getFeedContent()
-    {
-        list($class, $method) = explode('@', $this->getFeedMethod());
-
-        $items = app($class)->{$method}($this->getFeedArgument());
-
-        $meta = ['id' => url($this->feedConfiguration['url']), 'link' => url($this->feedConfiguration['url']), 'title' => $this->feedConfiguration['title'], 'updated' => $this->getLastUpdatedDate($items)];
-
-        return view('laravel-feed::feed', compact('meta', 'items'))->render();
-    }
-
-    protected function getFeedMethod()
-    {
-        return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][0] : $this->feedConfiguration['items'];
-    }
-
-    protected function getFeedArgument()
-    {
-        return is_array($this->feedConfiguration['items']) ? $this->feedConfiguration['items'][1] : null;
-    }
-
-    protected function getLastUpdatedDate(Collection $items)
-    {
-        if (! count($items)) {
+        if ($this->items->isEmpty()) {
             return '';
         }
 
-        $lastItem = $items->sortBy(function (FeedItem $feedItem) {
-            return $feedItem->getFeedItemUpdated()->format('YmdHis');
-        })->last();
-
-        return $lastItem->getFeedItemUpdated()->toAtomString();
+        return $this->items->sortBy(function ($feedItem) {
+            return $feedItem->updated;
+        })->last()->updated->toAtomString();
     }
 }

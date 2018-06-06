@@ -2,6 +2,8 @@
 
 namespace Spatie\Feed\Test;
 
+use Illuminate\Support\Collection;
+
 class DummyRepository
 {
     /** @var \Illuminate\Support\Collection */
@@ -18,7 +20,7 @@ class DummyRepository
         ]);
     }
 
-    public function getAll()
+    public function getAll(): Collection
     {
         return $this->items;
     }

@@ -3,26 +3,19 @@
 namespace Spatie\Feed\Http;
 
 use Spatie\Feed\Feed;
-use Illuminate\Routing\Controller;
 
-class FeedController extends Controller
+class FeedController
 {
-    public function feed()
+    public function __invoke()
     {
-        $configuration = $this->getFeedConfiguration();
+        $feeds = config('feed.feeds');
 
-        // Overwrite the relative feed url with the request's absolute url
-        $configuration['url'] = request()->url();
+        $name = str_after(app('router')->currentRouteName(), 'feeds.');
 
-        return (new Feed($configuration))->getFeedResponse();
-    }
+        $feed = $feeds[$name] ?? null;
 
-    protected function getFeedConfiguration(): array
-    {
-        $feeds = config('laravel-feed.feeds');
+        abort_unless($feed, 404);
 
-        $feedIndex = (int) str_replace('spatieLaravelFeed', '', app('router')->currentRouteName());
-
-        return $feeds[$feedIndex] ?? abort(404);
+        return new Feed($feed['title'], request()->url(), $feed['items']);
     }
 }

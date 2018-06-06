@@ -2,21 +2,26 @@
 
 namespace Spatie\Feed\Test;
 
+use Exception;
 use Carbon\Carbon;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
+use Illuminate\Foundation\Exceptions\Handler;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     use MatchesSnapshots;
 
-    public function __construct($name = null, array $data = [], $dataName = '')
+    public function setUp()
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
             ->setTimezone('Europe/Brussels')
             ->startOfDay());
 
-        parent::__construct($name, $data, $dataName);
+        parent::setUp();
+
+        $this->disableExceptionHandling();
     }
 
     protected function getPackageProviders($app)
@@ -28,26 +33,26 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $feed = [
             [
-                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url'         => '/feed1',
-                'title'       => 'Feed 1',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed1',
+                'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
             ],
             [
-                'items'       => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url'         => '/feed2',
-                'title'       => 'Feed 2',
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed2',
+                'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
             ],
             [
-                'items'       => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
-                'url'         => '/feed3',
-                'title'       => 'Feed 3',
+                'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
+                'url' => '/feed3',
+                'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
             ],
         ];
 
-        $app['config']->set('laravel-feed.feeds', $feed);
+        $app['config']->set('feed.feeds', $feed);
 
         $app['config']->set('app.debug', true);
 
@@ -59,7 +64,25 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $app['router']->feeds('feedBaseUrl');
 
         $app['router']->get('/test-route', function () use ($app) {
-            return $app['view']->make('laravel-feed::feed-links');
+            return $app['view']->make('feed::links');
+        });
+    }
+
+    protected function disableExceptionHandling()
+    {
+        $this->app->instance(ExceptionHandler::class, new class extends Handler {
+            public function __construct()
+            {
+            }
+
+            public function report(Exception $exception)
+            {
+            }
+
+            public function render($request, Exception $exception)
+            {
+                throw $exception;
+            }
         });
     }
 }
