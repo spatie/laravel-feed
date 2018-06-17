@@ -21,7 +21,7 @@ return [
 
             'title' => 'My feed',
 
-            /**
+            /*
              * Custom view for the items.
              *
              * Defaults to feed::feed if not present.
