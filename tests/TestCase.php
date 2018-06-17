@@ -50,6 +50,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
             ],
+            [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed-with-custom-view',
+                'title' => 'Feed with Custom View',
+                'description' => 'This is a feed that uses custom views from the unit tests',
+                'view' => 'feed::links',
+            ],
         ];
 
         $app['config']->set('feed.feeds', $feed);

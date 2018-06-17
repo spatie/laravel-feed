@@ -15,13 +15,17 @@ class Feed implements Responsable
     /** @var string */
     protected $url;
 
+    /** @var string */
+    protected $view;
+
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $url, $resolver)
+    public function __construct($title, $url, $resolver, $view)
     {
         $this->title = $title;
         $this->url = $url;
+        $this->view = $view;
 
         $this->items = $this->resolveItems($resolver);
     }
@@ -35,7 +39,7 @@ class Feed implements Responsable
             'updated' => $this->lastUpdated(),
         ];
 
-        $contents = view('feed::feed', [
+        $contents = view($this->view, [
             'meta' => $meta,
             'items' => $this->items,
         ]);

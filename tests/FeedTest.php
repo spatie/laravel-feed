@@ -32,4 +32,13 @@ class FeedTest extends TestCase
 
         $this->assertMatchesSnapshot($feedLinksHtml);
     }
+
+    /** @test */
+    function all_feed_items_can_have_a_custom_view()
+    {
+        $response = $this->get("/feedBaseUrl/feed-with-custom-view");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('feed::links');
+    }
 }
