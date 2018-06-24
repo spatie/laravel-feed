@@ -39,6 +39,7 @@ class FeedTest extends TestCase
         $response = $this->get('/feedBaseUrl/feed-with-custom-view');
 
         $response->assertStatus(200);
+
         $response->assertViewIs('feed::links');
     }
 }
