@@ -38,7 +38,6 @@ Here's what that looks like:
 
 ```php
 return [
-
     'feeds' => [
         'main' => [
             /*
@@ -46,8 +45,8 @@ return [
              * the items that should appear in the feed. For example:
              * 'App\Model@getAllFeedItems'
              *
-             * You can also pass a parameter to that method: 
-             * ['App\Model@getAllFeedItems', 'parameter']
+             * You can also pass an argument to that method:
+             * ['App\Model@getAllFeedItems', 'argument']
              */
             'items' => '',
 
@@ -58,9 +57,12 @@ return [
 
             'title' => 'My feed',
 
+            /*
+             * The view that will render the feed.
+             */
+            'view' => 'feed::feed',
         ],
     ],
-
 ];
 ```
 

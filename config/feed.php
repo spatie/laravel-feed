@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'feeds' => [
         'main' => [
             /*
@@ -22,12 +21,9 @@ return [
             'title' => 'My feed',
 
             /*
-             * Custom view for the items.
-             *
-             * Defaults to feed::feed if not present.
+             * The view that will render the feed.
              */
             'view' => 'feed::feed',
         ],
     ],
-
 ];
