@@ -186,6 +186,13 @@ return [
             'url' => '/feed',
 
             'title' => 'All newsitems on mysite.com',
+
+            /*
+             * Custom view for the items.
+             *
+             * Defaults to feed::feed if not present.
+             */
+            'view' => 'feed::feed',
         ],
     ],
 
@@ -197,6 +204,39 @@ The `items` key must point to a method that returns one of the following:
 - An array or collection of `Feedable`s
 - An array or collection of `FeedItem`s
 - An array or collection of arrays containing feed item values
+
+### Customizing your feed views
+
+This package provides, out of the box, the `feed::feed` view that displays your feeds details.
+
+However, you could use a custom view per feed by providing a `view` key inside of your feed configuration.
+
+In the following example, we're using the previous `News` feed with a custom `feeds.news` view (located on `resources/views/feeds/news.blade.php`):
+
+```php
+// config/feed.php
+
+return [
+
+    'feeds' => [
+        'news' => [
+            'items' => 'App\NewsItem@getFeedItems',
+
+            'url' => '/feed',
+
+            'title' => 'All newsitems on mysite.com',
+
+            /*
+             * Custom view for the items.
+             *
+             * Defaults to feed::feed if not present.
+             */
+            'view' => 'feeds.news',
+        ],
+    ],
+
+];
+```
 
 ### Automatically generate feed links
 
