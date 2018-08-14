@@ -136,19 +136,20 @@ If you prefer, returning an associative array with the necessary keys will do th
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
 class NewsItem extends Model implements Feedable
 {
     public function toFeedItem()
     {
-        return [
+        return FeedItem::create([
             'id' => $this->id,
             'title' => $this->title,
             'summary' => $this->summary,
             'updated' => $this->updated_at,
             'link' => $this->link,
             'author' => $this->author,
-        ];
+        ]);
     }
 }
 ```
