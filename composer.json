@@ -31,11 +31,11 @@
     ],
     "require": {
         "php" : "^7.0",
-        "illuminate/support": "~5.5.0|~5.6.0",
+        "laravel/framework": "~5.5.0|~5.6.0|~5.7.0",
         "nesbot/carbon": "^1.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.5.0|~3.6.0",
+        "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
         "phpunit/phpunit": "^6.0|^7.0",
         "spatie/phpunit-snapshot-assertions": "^1.0"
     },
