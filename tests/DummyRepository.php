@@ -25,6 +25,13 @@ class DummyRepository
         return $this->items;
     }
 
+    public function getSpecialItems(): Collection
+    {
+        return collect([
+            new SpecialDummyItem()
+        ]);
+    }
+
     public function getAllWithArguments(string $filter = '')
     {
         return $filter === 'first'

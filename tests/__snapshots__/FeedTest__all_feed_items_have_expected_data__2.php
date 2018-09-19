@@ -9,7 +9,7 @@
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name><![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -21,7 +21,7 @@
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name><![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -33,7 +33,7 @@
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name><![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -45,7 +45,7 @@
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name><![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
@@ -57,7 +57,7 @@
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name><![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>

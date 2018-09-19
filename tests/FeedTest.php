@@ -25,6 +25,22 @@ class FeedTest extends TestCase
         });
     }
 
+    /**
+     * When using CDATA in xml, there is no need to escape HTML characters; however,
+     * the one thing that must be escaped is the closing CDATA tag, "]]>".
+     * This is done by splitting up the output into two (or more) tags.
+     *
+     * See: https://stackoverflow.com/a/223782/2544756
+     *
+     * @test
+     */
+    public function feed_data_is_escaped_properly()
+    {
+        $feedContent = $this->get("/feedBaseUrl/feed-with-special-chars")->getContent();
+
+        $this->assertMatchesSnapshot($feedContent);
+    }
+
     /** @test */
     public function it_can_render_all_feed_links_via_a_view()
     {

@@ -42,7 +42,10 @@
     "autoload": {
         "psr-4": {
             "Spatie\\Feed\\": "src"
-        }
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

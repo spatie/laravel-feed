@@ -57,6 +57,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is a feed that uses custom views from the unit tests',
                 'view' => 'feed::links',
             ],
+            [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getSpecialItems',
+                'url' => '/feed-with-special-chars',
+                'title' => 'Feed with special characters',
+                'description' => 'This is a feed that has special characters that should be properly escaped',
+            ],
         ];
 
         $app['config']->set('feed.feeds', $feed);
