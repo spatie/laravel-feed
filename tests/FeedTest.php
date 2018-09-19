@@ -36,7 +36,7 @@ class FeedTest extends TestCase
      */
     public function feed_data_is_escaped_properly()
     {
-        $feedContent = $this->get("/feedBaseUrl/feed-with-special-chars")->getContent();
+        $feedContent = $this->get('/feedBaseUrl/feed-with-special-chars')->getContent();
 
         $this->assertMatchesSnapshot($feedContent);
     }

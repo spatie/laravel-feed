@@ -28,7 +28,7 @@ class DummyRepository
     public function getSpecialItems(): Collection
     {
         return collect([
-            new SpecialDummyItem()
+            new SpecialDummyItem(),
         ]);
     }
 

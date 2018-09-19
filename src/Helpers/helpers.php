@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('escape_cdata')) {
+if (!function_exists('escape_cdata')) {
     /*
     * Escape given sequence to remove ending CDATA tags
     *
