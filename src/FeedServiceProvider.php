@@ -39,7 +39,11 @@ class FeedServiceProvider extends ServiceProvider
             foreach (config('feed.feeds') as $name => $configuration) {
                 $url = Path::merge($baseUrl, $configuration['url']);
 
-                $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
+                $route = $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
+
+                if (array_key_exists('signed', $configuration) && $configuration['signed']) {
+                    $route->middleware('signed');
+                }
             }
         });
     }
@@ -53,7 +57,9 @@ class FeedServiceProvider extends ServiceProvider
 
     protected function feeds()
     {
-        return collect(config('feed.feeds'))->mapWithKeys(function ($feed, $name) {
+        return collect(config('feed.feeds'))->filter(function ($feed) {
+            return ! ($feed['signed'] ?? false);
+        })->mapWithKeys(function ($feed, $name) {
             return [$name => $feed['title']];
         });
     }

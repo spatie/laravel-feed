@@ -2,6 +2,8 @@
 
 namespace Spatie\Feed\Test;
 
+use Illuminate\Routing\Exceptions\InvalidSignatureException;
+
 class FeedTest extends TestCase
 {
     /** @var array */
@@ -41,5 +43,17 @@ class FeedTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertViewIs('feed::links');
+    }
+
+    /** @test */
+    public function feed_is_assigned_the_signed_middleware()
+    {
+        $this->disableExceptionHandling();
+
+        try {
+            $this->get('/feedBaseUrl/feed-signed');
+        } catch (InvalidSignatureException $e) {
+            $this->assertEquals(403, $e->getStatusCode());
+        }
     }
 }

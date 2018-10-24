@@ -61,6 +61,14 @@ return [
              * The view that will render the feed.
              */
             'view' => 'feed::feed',
+
+            /*
+             * The feed will be assigned the signed middleware.
+             * Only available for Laravel 5.6+
+             *
+             * Defaults to false if not present.
+             */
+            'signed' => false,
         ],
     ],
 ];
@@ -196,6 +204,14 @@ return [
              * Defaults to feed::feed if not present.
              */
             'view' => 'feed::feed',
+
+            /*
+             * The feed will be assigned the signed middleware.
+             * Only available for Laravel 5.6+
+             *
+             * Defaults to false if not present.
+             */
+            'signed' => false,
         ],
     ],
 
@@ -254,6 +270,48 @@ You can add this to your `<head>` through a partial view.
 ```php
  @include('feed::links')
 ```
+
+### Create protected feeds
+
+Laravel 5.6+ allows you to create "signed" URLs to named routes. With this you can create routes that are only accessible with a "signature" hash.
+
+For example you can create feeds for authorized clients where they can see their private news feed.
+
+Here you can see a configuration as an example:
+
+```php
+// config/feed.php
+
+return [
+
+    'feeds' => [
+        'signed' => [
+            'items' => 'App\NewsItem@getUserFeedItems',
+
+            'url' => '/feed/{user}',
+
+            'title' => 'All newsitems on mysite.com',
+
+            /*
+             * The feed will be assigned the signed middleware.
+             * Only available for Laravel 5.6+
+             *
+             * Defaults to false if not present.
+             */
+            'signed' => true,
+        ],
+    ],
+
+];
+```
+
+If the url has parameters, you cannot use the included partial.
+ 
+```html
+<link rel="alternate" type="application/atom+xml" title="News" href="{{ url()->signedRoute("feeds.signed", [auth()->id()]) }}">
+```
+
+To access the route parameters you can use the Request facade or add `Illuminate\Http\Request` to the parameter list of your item handler.
 
 ## Changelog
 

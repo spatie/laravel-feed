@@ -24,6 +24,14 @@ return [
              * The view that will render the feed.
              */
             'view' => 'feed::feed',
+
+            /*
+             * The feed will be assigned the signed middleware.
+             * Only available for Laravel 5.6+
+             *
+             * Defaults to false if not present.
+             */
+            'signed' => false,
         ],
     ],
 ];
