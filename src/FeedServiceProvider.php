@@ -42,7 +42,7 @@ class FeedServiceProvider extends ServiceProvider
                 $route = $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
 
                 if (array_key_exists('signed', $configuration) && $configuration['signed']) {
-                    $route->middleware('signed');
+                    $route->middleware(\Illuminate\Routing\Middleware\ValidateSignature::class);
                 }
             }
         });
