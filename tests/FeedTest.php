@@ -45,7 +45,10 @@ class FeedTest extends TestCase
         $response->assertViewIs('feed::links');
     }
 
-    /** @test */
+    /**
+     * @test
+     * @requires function \Illuminate\Routing\Middleware\ValidateSignature::handle
+     */
     public function feed_is_assigned_the_signed_middleware()
     {
         $this->disableExceptionHandling();
