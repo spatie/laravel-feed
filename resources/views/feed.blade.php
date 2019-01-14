@@ -7,21 +7,21 @@
         @if($key === 'link')
             <{{ $key }} href="{{ url($metaItem) }}"></{{ $key }}>
         @elseif($key === 'title')
-            <{{ $key }}><![CDATA[{!! escape_cdata($metaItem) !!}]]></{{ $key }}>
+            <{{ $key }}><![CDATA[{!! Spatie\Feed\Format::escape_cdata($metaItem) !!}]]></{{ $key }}>
         @else
             <{{ $key }}>{{ $metaItem }}</{{ $key }}>
         @endif
     @endforeach
     @foreach($items as $item)
         <entry>
-            <title><![CDATA[{!! escape_cdata($item->title) !!}]]></title>
+            <title><![CDATA[{!! Spatie\Feed\Format::escape_cdata($item->title) !!}]]></title>
             <link rel="alternate" href="{{ url($item->link) }}" />
             <id>{{ url($item->id) }}</id>
             <author>
-                <name><![CDATA[{!! escape_cdata($item->author) !!}]]></name>
+                <name><![CDATA[{!! Spatie\Feed\Format::escape_cdata($item->author) !!}]]></name>
             </author>
             <summary type="html">
-                <![CDATA[{!! escape_cdata($item->summary) !!}]]>
+                <![CDATA[{!! Spatie\Feed\Format::escape_cdata($item->summary) !!}]]>
             </summary>
             <updated>{{ $item->updated->toAtomString() }}</updated>
         </entry>
