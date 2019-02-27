@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed\Http;
 
-use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
+use Illuminate\Support\Str;
 
 class FeedController
 {
