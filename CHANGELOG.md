@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.2.0 - 2019-02-27
+- drop support for L5.7 and below, PHP 7.1 and PHPUnit 7
+
 ## 2.1.2 - 2019-02-27
 - Added: Laravel 5.8 compatibility
 
