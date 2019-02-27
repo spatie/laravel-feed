@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.1.2 - 2019-02-27
+- Added: Laravel 5.8 compatibility
+
 ## 2.1.1 - 2018-08-27
 - Add support for Laravel 5.7
 
