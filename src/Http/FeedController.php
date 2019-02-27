@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Http;
 
 use Spatie\Feed\Feed;
+use Illuminate\Support\Str;
 
 class FeedController
 {
@@ -10,7 +11,7 @@ class FeedController
     {
         $feeds = config('feed.feeds');
 
-        $name = str_after(app('router')->currentRouteName(), 'feeds.');
+        $name = Str::after(app('router')->currentRouteName(), 'feeds.');
 
         $feed = $feeds[$name] ?? null;
 
