@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.2.1 - 2019-03-06
+
+- allow all versions of carbon
+
 ## 2.2.0 - 2019-02-27
 - drop support for L5.7 and below, PHP 7.1 and PHPUnit 7
 
