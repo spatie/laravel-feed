@@ -4,6 +4,7 @@
                                 <link href="http://localhost/feedBaseUrl/feed3"></link>
                                 <title><![CDATA[Feed 3]]></title>
                                 <description>This is feed 3 from the unit tests</description>
+                                <language>en-US</language>
                                 <updated>2016-01-01T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>

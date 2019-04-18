@@ -16,6 +16,9 @@ class Feed implements Responsable
     protected $description;
 
     /** @var string */
+    protected $language;
+
+    /** @var string */
     protected $url;
 
     /** @var string */
@@ -24,10 +27,11 @@ class Feed implements Responsable
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $url, $resolver, $view, $description)
+    public function __construct($title, $url, $resolver, $view, $description, $language)
     {
         $this->title = $title;
         $this->description = $description;
+        $this->language = $language;
         $this->url = $url;
         $this->view = $view;
 
@@ -41,6 +45,7 @@ class Feed implements Responsable
             'link' => url($this->url),
             'title' => $this->title,
             'description' => $this->description,
+            'language' => $this->language,
             'updated' => $this->lastUpdated(),
         ];
 
