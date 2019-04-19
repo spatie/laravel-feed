@@ -24,6 +24,15 @@ class FeedItem
     protected $link;
 
     /** @var string */
+    protected $enclosure;
+
+    /** @var int */
+    protected $enclosureLength;
+
+    /** @var string */
+    protected $enclosureType;
+
+    /** @var string */
     protected $author;
 
     public function __construct(array $data = [])
@@ -69,6 +78,27 @@ class FeedItem
     public function link(string $link)
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function enclosure(string $enclosure)
+    {
+        $this->enclosure = $enclosure;
+
+        return $this;
+    }
+
+    public function enclosureLength(int $enclosureLength)
+    {
+        $this->enclosureLength = $enclosureLength;
+
+        return $this;
+    }
+
+    public function enclosureType(string $enclosureType)
+    {
+        $this->enclosureType = $enclosureType;
 
         return $this;
     }

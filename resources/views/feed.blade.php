@@ -23,6 +23,7 @@
             <summary type="html">
                 <![CDATA[{!! $item->summary !!}]]>
             </summary>
+            <enclosure url="{{ url($item->enclosure) }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
             <updated>{{ $item->updated->toAtomString() }}</updated>
         </entry>
     @endforeach
