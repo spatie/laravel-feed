@@ -17,6 +17,6 @@ class FeedController
 
         abort_unless($feed, 404);
 
-        return new Feed($feed['title'], request()->url(), $feed['items'], $feed['view'] ?? 'feed::feed', $feed['description'], $feed['language']);
+        return new Feed($feed['title'], request()->url(), $feed['items'], $feed['view'] ?? 'feed::feed', $feed['description'] ?? '', $feed['language'] ?? '');
     }
 }

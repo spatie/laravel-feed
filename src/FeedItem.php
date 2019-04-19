@@ -20,7 +20,7 @@ class FeedItem
     /** @var string */
     protected $summary;
 
-    /** @var @var string */
+    /** @var string */
     protected $link;
 
     /** @var string */
