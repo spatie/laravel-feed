@@ -27,7 +27,7 @@
             <category type="html">
                 <![CDATA[{!! $item->category ?? '' !!}]]>
             </category>
-            <updated>{{ $item->updated->toAtomString() }}</updated>
+            <updated>{{ $item->updated->toRssString() }}</updated>
         </entry>
     @endforeach
 </feed>

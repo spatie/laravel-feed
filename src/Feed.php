@@ -107,6 +107,6 @@ class Feed implements Responsable
 
         return $this->items->sortBy(function ($feedItem) {
             return $feedItem->updated;
-        })->last()->updated->toAtomString();
+        })->last()->updated->toRssString();
     }
 }

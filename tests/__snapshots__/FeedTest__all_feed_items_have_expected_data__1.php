@@ -5,7 +5,7 @@
                                 <title><![CDATA[Feed 1]]></title>
                                 <description>This is feed 1 from the unit tests</description>
                                 <language>en-US</language>
-                                <updated>2016-01-01T00:00:00+01:00</updated>
+                                <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
@@ -20,7 +20,7 @@
             <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -36,7 +36,7 @@
             <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -52,7 +52,7 @@
             <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -68,7 +68,7 @@
             <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -84,7 +84,7 @@
             <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
     </feed>
 ';
