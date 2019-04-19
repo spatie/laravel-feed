@@ -17,6 +17,9 @@
                 <![CDATA[feedItemSummary]]>
             </summary>
             <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+            <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
@@ -30,6 +33,9 @@
                 <![CDATA[feedItemSummary]]>
             </summary>
             <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+            <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
@@ -43,6 +49,9 @@
                 <![CDATA[feedItemSummary]]>
             </summary>
             <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+            <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
@@ -56,6 +65,9 @@
                 <![CDATA[feedItemSummary]]>
             </summary>
             <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+            <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
@@ -69,6 +81,9 @@
                 <![CDATA[feedItemSummary]]>
             </summary>
             <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+            <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
             <updated>2016-01-01T00:00:00+01:00</updated>
         </entry>
     </feed>

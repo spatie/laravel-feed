@@ -20,6 +20,7 @@ class DummyItem implements Feedable
             'updated' => Carbon::now(),
             'link' => 'https://localhost/news/testItem1',
             'author' => 'feedItemAuthor',
+            'category' => 'feedItemCategory',
         ]);
     }
 }

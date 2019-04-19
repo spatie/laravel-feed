@@ -35,6 +35,9 @@ class FeedItem
     /** @var string */
     protected $author;
 
+    /** @var string */
+    protected $category;
+
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
@@ -106,6 +109,13 @@ class FeedItem
     public function author(string $author)
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function category(string $category)
+    {
+        $this->category = $category;
 
         return $this;
     }
