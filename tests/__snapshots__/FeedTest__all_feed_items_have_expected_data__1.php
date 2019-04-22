@@ -16,8 +16,8 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-            <category type="html">
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                        <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
             <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
@@ -32,8 +32,8 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-            <category type="html">
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                        <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
             <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
@@ -48,8 +48,8 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-            <category type="html">
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                        <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
             <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
@@ -64,8 +64,8 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-            <category type="html">
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                        <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
             <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
@@ -80,8 +80,8 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-            <category type="html">
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                        <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
             <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>

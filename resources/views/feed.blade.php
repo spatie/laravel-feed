@@ -23,7 +23,9 @@
             <summary type="html">
                 <![CDATA[{!! $item->summary !!}]]>
             </summary>
-            <enclosure url="{{ url($item->enclosure) }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
+            @if($item->__isset('enclosure'))
+              <enclosure url="{{ url($item->enclosure) }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
+            @endif
             <category type="html">
                 <![CDATA[{!! $item->category ?? '' !!}]]>
             </category>
