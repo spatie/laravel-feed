@@ -3,7 +3,6 @@
 namespace Spatie\Feed\Test;
 
 use Exception;
-use Carbon\Carbon;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
 use Illuminate\Foundation\Exceptions\Handler;
@@ -15,10 +14,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     public function setUp() : void
     {
-        Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
-            ->setTimezone('Europe/Brussels')
-            ->startOfDay());
-
         parent::setUp();
 
         $this->disableExceptionHandling();
@@ -49,6 +44,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'url' => '/feed3',
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
+            ],
+            [
+                'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
+                'url' => '/feed4',
+                'title' => 'Feed 4',
+                'sort_by' => 'id',
+                'description' => 'This feed is sorted by `id` rather than the default `updated`',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',

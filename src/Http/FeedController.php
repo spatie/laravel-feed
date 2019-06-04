@@ -17,6 +17,12 @@ class FeedController
 
         abort_unless($feed, 404);
 
-        return new Feed($feed['title'], request()->url(), $feed['items'], $feed['view'] ?? 'feed::feed');
+        return new Feed(
+            $feed['title'],
+            request()->url(),
+            $feed['items'],
+            $feed['view'] ?? 'feed::feed',
+            $feed['sort_by'] ?? Feed::SORT_KEY_UPDATED
+        );
     }
 }

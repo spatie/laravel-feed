@@ -2,6 +2,7 @@
 
 namespace Spatie\Feed;
 
+use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
@@ -9,6 +10,8 @@ use Illuminate\Contracts\Support\Responsable;
 
 class Feed implements Responsable
 {
+    const SORT_KEY_UPDATED = 'updated';
+
     /** @var string */
     protected $title;
 
@@ -20,12 +23,15 @@ class Feed implements Responsable
 
     /** @var \Illuminate\Support\Collection */
     protected $items;
+    /** @var string */
+    private $sortKey;
 
-    public function __construct($title, $url, $resolver, $view)
+    public function __construct($title, $url, $resolver, $view, string $sortKey = self::SORT_KEY_UPDATED)
     {
         $this->title = $title;
         $this->url = $url;
         $this->view = $view;
+        $this->sortKey = $sortKey;
 
         $this->items = $this->resolveItems($resolver);
     }
@@ -41,7 +47,7 @@ class Feed implements Responsable
 
         $contents = view($this->view, [
             'meta' => $meta,
-            'items' => $this->items,
+            'items' => $this->sortItemsDescBy($this->sortKey),
         ]);
 
         return new Response($contents, 200, [
@@ -51,7 +57,7 @@ class Feed implements Responsable
 
     protected function resolveItems($resolver): Collection
     {
-        $resolver = array_wrap($resolver);
+        $resolver = Arr::wrap($resolver);
 
         $items = app()->call(
             array_shift($resolver), $resolver
@@ -89,14 +95,19 @@ class Feed implements Responsable
         return $feedItem;
     }
 
+    protected function sortItemsDescBy(string $sortKey): Collection
+    {
+        return $this->items->sortByDesc(function (FeedItem $feedItem) use ($sortKey) {
+            return $feedItem->$sortKey;
+        });
+    }
+
     protected function lastUpdated(): string
     {
         if ($this->items->isEmpty()) {
             return '';
         }
 
-        return $this->items->sortBy(function ($feedItem) {
-            return $feedItem->updated;
-        })->last()->updated->toAtomString();
+        return $this->sortItemsDescBy(self::SORT_KEY_UPDATED)->first()->updated->toAtomString();
     }
 }

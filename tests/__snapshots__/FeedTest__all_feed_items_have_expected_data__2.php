@@ -3,7 +3,7 @@
                         <id>http://localhost/feedBaseUrl/feed2</id>
                                 <link href="http://localhost/feedBaseUrl/feed2"></link>
                                 <title><![CDATA[Feed 2]]></title>
-                                <updated>2016-01-01T00:00:00+01:00</updated>
+                                <updated>2016-01-05T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
@@ -14,48 +14,48 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>2016-01-05T00:00:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <id>http://localhost/2</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>2016-01-04T00:00:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <id>http://localhost/3</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>2016-01-03T00:00:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <id>http://localhost/4</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-            <updated>2016-01-01T00:00:00+01:00</updated>
+            <updated>2016-01-02T00:00:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <id>http://localhost/5</id>
             <author>
                 <name> <![CDATA[feedItemAuthor]]></name>
             </author>

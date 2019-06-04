@@ -24,6 +24,11 @@ return [
              * The view that will render the feed.
              */
             'view' => 'feed::feed',
+
+            /*
+             * The model field that the feed should be sorted bys
+             */
+            'sort_by' => 'updated',
         ],
     ],
 ];
