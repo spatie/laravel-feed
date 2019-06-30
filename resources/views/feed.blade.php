@@ -22,6 +22,7 @@
             </author>
             <summary type="html">
                 <![CDATA[{!! $item->summary !!}]]>
+                <img src="{{ env('APP_URL') }}/storage/{{ $item->image }}" width="800" height="450" alt="" typeof="Image" class="image-style-body-default">
             </summary>
             <updated>{{ $item->updated->toAtomString() }}</updated>
         </entry>
