@@ -149,6 +149,7 @@ class NewsItem extends Model implements Feedable
             'updated' => $this->updated_at,
             'link' => $this->link,
             'author' => $this->author,
+            'image' => $this->image,
         ]);
     }
 }
