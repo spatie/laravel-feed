@@ -25,6 +25,9 @@ class FeedItem
 
     /** @var string */
     protected $author;
+    
+    /** @var string */
+    protected $image;
 
     public function __construct(array $data = [])
     {
@@ -79,10 +82,17 @@ class FeedItem
 
         return $this;
     }
+    
+    public function image(string $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
     public function validate()
     {
-        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
+        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author', 'image'];
 
         foreach ($requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {
