@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.2.2 - 2019-07-24
+
+- do not use deprecated Laravel helpers
+
 ## 2.2.1 - 2019-03-06
 
 - allow all versions of carbon
