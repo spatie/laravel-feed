@@ -20,11 +20,23 @@ class FeedItem
     /** @var string */
     protected $summary;
 
-    /** @var @var string */
+    /** @var string */
     protected $link;
 
     /** @var string */
+    protected $enclosure;
+
+    /** @var int */
+    protected $enclosureLength;
+
+    /** @var string */
+    protected $enclosureType;
+
+    /** @var string */
     protected $author;
+
+    /** @var string */
+    protected $category;
 
     public function __construct(array $data = [])
     {
@@ -73,9 +85,37 @@ class FeedItem
         return $this;
     }
 
+    public function enclosure(string $enclosure)
+    {
+        $this->enclosure = $enclosure;
+
+        return $this;
+    }
+
+    public function enclosureLength(int $enclosureLength)
+    {
+        $this->enclosureLength = $enclosureLength;
+
+        return $this;
+    }
+
+    public function enclosureType(string $enclosureType)
+    {
+        $this->enclosureType = $enclosureType;
+
+        return $this;
+    }
+
     public function author(string $author)
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function category(string $category)
+    {
+        $this->category = $category;
 
         return $this;
     }
@@ -98,5 +138,10 @@ class FeedItem
         }
 
         return $this->$key;
+    }
+
+    public function __isset($key)
+    {
+        return isset($this->$key);
     }
 }

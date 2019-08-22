@@ -14,6 +14,12 @@ class Feed implements Responsable
     protected $title;
 
     /** @var string */
+    protected $description;
+
+    /** @var string */
+    protected $language;
+
+    /** @var string */
     protected $url;
 
     /** @var string */
@@ -22,9 +28,11 @@ class Feed implements Responsable
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $url, $resolver, $view)
+    public function __construct($title, $url, $resolver, $view, $description, $language)
     {
         $this->title = $title;
+        $this->description = $description;
+        $this->language = $language;
         $this->url = $url;
         $this->view = $view;
 
@@ -37,6 +45,8 @@ class Feed implements Responsable
             'id' => url($this->url),
             'link' => url($this->url),
             'title' => $this->title,
+            'description' => $this->description,
+            'language' => $this->language,
             'updated' => $this->lastUpdated(),
         ];
 
@@ -98,6 +108,6 @@ class Feed implements Responsable
 
         return $this->items->sortBy(function ($feedItem) {
             return $feedItem->updated;
-        })->last()->updated->toAtomString();
+        })->last()->updated->toRssString();
     }
 }
