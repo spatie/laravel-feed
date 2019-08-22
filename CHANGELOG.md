@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.3.0 - 2019-08-22
+
+- add support for Flipboard and conform to RSS 2.0 (fixes #19)
+
 ## 2.2.2 - 2019-07-24
 
 - do not use deprecated Laravel helpers
