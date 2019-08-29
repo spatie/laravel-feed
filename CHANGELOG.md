@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.3.1 - 2019-08-29
+
+- add `description` and `language keys` to the config file
+
 ## 2.3.0 - 2019-08-22
 
 - add support for Flipboard and conform to RSS 2.0 (fixes #19)
