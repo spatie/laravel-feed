@@ -19,6 +19,8 @@ return [
             'url' => '',
 
             'title' => 'My feed',
+            'description' => 'The description of the feed.',
+            'language' => 'en-US',
 
             /*
              * The view that will render the feed.
