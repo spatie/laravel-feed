@@ -23,6 +23,11 @@ return [
             'language' => 'en-US',
 
             /*
+             * Required fields every feed item must contain.
+             */
+            'requiredFields' => ['id', 'title', 'updated', 'summary', 'link', 'author'],
+
+            /*
              * The view that will render the feed.
              */
             'view' => 'feed::feed',

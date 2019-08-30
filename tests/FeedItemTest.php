@@ -12,6 +12,6 @@ class FeedItemTest extends TestCase
     {
         $this->expectException(InvalidFeedItem::class);
 
-        FeedItem::create()->validate();
+        FeedItem::create()->validate('Feed 1');
     }
 }

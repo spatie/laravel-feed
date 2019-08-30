@@ -32,28 +32,29 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function getEnvironmentSetUp($app)
     {
         $feed = [
-            [
+            'Feed 1' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1',
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
                 'language' => 'en-US',
+                'requiredFields' => ['id', 'title', 'updated', 'summary', 'link', 'author'],
             ],
-            [
+            'Feed 2' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed2',
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
                 'language' => 'en-US',
             ],
-            [
+            'Feed 3' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
                 'url' => '/feed3',
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
                 'language' => 'en-US',
             ],
-            [
+            'Feed 4' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed-with-custom-view',
                 'title' => 'Feed with Custom View',

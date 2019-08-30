@@ -120,9 +120,9 @@ class FeedItem
         return $this;
     }
 
-    public function validate()
+    public function validate($feedName)
     {
-        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
+        $requiredFields = config("feed.feeds.{$feedName}.requiredFields", []);
 
         foreach ($requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {

@@ -11,6 +11,9 @@ use Illuminate\Contracts\Support\Responsable;
 class Feed implements Responsable
 {
     /** @var string */
+    protected $name;
+
+    /** @var string */
     protected $title;
 
     /** @var string */
@@ -28,8 +31,9 @@ class Feed implements Responsable
     /** @var \Illuminate\Support\Collection */
     protected $items;
 
-    public function __construct($title, $url, $resolver, $view, $description, $language)
+    public function __construct($name, $title, $url, $resolver, $view, $description, $language)
     {
+        $this->name = $name;
         $this->title = $title;
         $this->description = $description;
         $this->language = $language;
@@ -80,7 +84,7 @@ class Feed implements Responsable
         }
 
         if ($feedable instanceof FeedItem) {
-            $feedable->validate();
+            $feedable->validate($this->name);
 
             return $feedable;
         }
@@ -95,7 +99,7 @@ class Feed implements Responsable
             throw InvalidFeedItem::notAFeedItem($feedItem);
         }
 
-        $feedItem->validate();
+        $feedItem->validate($this->name);
 
         return $feedItem;
     }

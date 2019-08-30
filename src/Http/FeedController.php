@@ -18,6 +18,7 @@ class FeedController
         abort_unless($feed, 404);
 
         return new Feed(
+            $name,
             $feed['title'],
             request()->url(),
             $feed['items'],
