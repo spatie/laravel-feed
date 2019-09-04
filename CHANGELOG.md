@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.4.0 - 2019-09-04
+- add Laravel 6 compatibility
+
 ## 2.3.1 - 2019-08-29
 
 - add `description` and `language keys` to the config file
