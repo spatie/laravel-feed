@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.4.1 - 2019-09-16
+- Changed: Updated Laravel 6 compatibility for future versions
+
 ## 2.4.0 - 2019-09-04
 - add Laravel 6 compatibility
 
