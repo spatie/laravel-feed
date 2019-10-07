@@ -53,8 +53,6 @@ class FeedServiceProvider extends ServiceProvider
 
     protected function feeds()
     {
-        return collect(config('feed.feeds'))->mapWithKeys(function ($feed, $name) {
-            return [$name => $feed['title']];
-        });
+        return collect(config('feed.feeds'));
     }
 }
