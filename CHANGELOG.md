@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.5.0 - 2019-10-07
+
+- add support for multiple types of feeds (#110)
+
 ## 2.4.3 - 2019-10-07
 
 - fix feed type
