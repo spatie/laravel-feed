@@ -5,7 +5,7 @@ namespace Spatie\Feed\Test;
 class FeedTest extends TestCase
 {
     /** @var array */
-    protected $feedNames = ['feed1', 'feed2', 'feed3'];
+    protected $feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss'];
 
     /** @test */
     public function all_feeds_are_available_on_their_registered_routes()

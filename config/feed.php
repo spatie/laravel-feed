@@ -25,7 +25,12 @@ return [
             /*
              * The view that will render the feed.
              */
-            'view' => 'feed::feed',
+            'view' => 'feed::atom',
+
+            /*
+             * The type to be used in the <link> tag
+             */
+            'type' => 'application/atom+xml',
         ],
     ],
 ];
