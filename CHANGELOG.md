@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.4.3 - 2019-10-07
+
+- fix feed type
+
 ## 2.4.2 - 2019-09-25
 
 - Require individual illuminate components instead of framework
