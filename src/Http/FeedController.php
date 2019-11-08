@@ -4,11 +4,8 @@ namespace Spatie\Feed\Http;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Spatie\Feed\Exceptions\InvalidFeedItem;
-use Spatie\Feed\Feed;
 use Illuminate\Support\Str;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
+use Spatie\Feed\Feed;
 use Spatie\Feed\ResolveFeedItems;
 
 class FeedController
@@ -22,7 +19,6 @@ class FeedController
         $feed = $feeds[$name] ?? null;
 
         abort_unless($feed, 404);
-
 
         $items = $this->resolveFeedItems($feed['items']);
 

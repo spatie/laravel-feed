@@ -3,7 +3,6 @@
 namespace Spatie\Feed;
 
 use Illuminate\Support\Arr;
-use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class ResolveFeedItems
 {
@@ -19,6 +18,4 @@ class ResolveFeedItems
             return $this->castToFeedItem($feedable);
         });
     }
-
-
 }
