@@ -2,8 +2,14 @@
 
 namespace Spatie\Feed\Http;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Spatie\Feed\Exceptions\InvalidFeedItem;
 use Spatie\Feed\Feed;
 use Illuminate\Support\Str;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
+use Spatie\Feed\ResolveFeedItems;
 
 class FeedController
 {
@@ -17,13 +23,27 @@ class FeedController
 
         abort_unless($feed, 404);
 
+
+        $items = $this->resolveFeedItems($feed['items']);
+
         return new Feed(
             $feed['title'],
+            $items,
             request()->url(),
-            $feed['items'],
             $feed['view'] ?? 'feed::feed',
             $feed['description'] ?? '',
             $feed['language'] ?? ''
         );
+    }
+
+    protected function resolveFeedItems($resolver): Collection
+    {
+        $resolver = Arr::wrap($resolver);
+
+        $items = app()->call(
+            array_shift($resolver), $resolver
+        );
+
+        return $items;
     }
 }

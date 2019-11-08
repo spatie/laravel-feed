@@ -26,17 +26,25 @@ class Feed implements Responsable
     protected $view;
 
     /** @var \Illuminate\Support\Collection */
-    protected $items;
+    protected $feedItems;
 
-    public function __construct($title, $url, $resolver, $view, $description, $language)
-    {
+    public function __construct(
+        string $title,
+        Collection $items,
+        string $url = '',
+        string $view = 'feed::feed',
+        string $description = '',
+        string $language = ''
+    ) {
         $this->title = $title;
         $this->description = $description;
         $this->language = $language;
-        $this->url = $url;
+        $this->url = $url ?? request()->url();
         $this->view = $view;
 
-        $this->items = $this->resolveItems($resolver);
+        $this->feedItems = $items->map(function($feedable) {
+            return $this->castToFeedItem($feedable);
+        });
     }
 
     public function toResponse($request): Response
@@ -52,25 +60,12 @@ class Feed implements Responsable
 
         $contents = view($this->view, [
             'meta' => $meta,
-            'items' => $this->items,
+            'items' => $this->feedItems,
         ]);
 
         return new Response($contents, 200, [
             'Content-Type' => 'application/xml;charset=UTF-8',
         ]);
-    }
-
-    protected function resolveItems($resolver): Collection
-    {
-        $resolver = Arr::wrap($resolver);
-
-        $items = app()->call(
-            array_shift($resolver), $resolver
-        );
-
-        return collect($items)->map(function ($feedable) {
-            return $this->castToFeedItem($feedable);
-        });
     }
 
     protected function castToFeedItem($feedable): FeedItem
@@ -102,12 +97,14 @@ class Feed implements Responsable
 
     protected function lastUpdated(): string
     {
-        if ($this->items->isEmpty()) {
+        if ($this->feedItems->isEmpty()) {
             return '';
         }
 
-        return $this->items->sortBy(function ($feedItem) {
+        return $this->feedItems->sortBy(function ($feedItem) {
             return $feedItem->updated;
         })->last()->updated->toRssString();
     }
+
+
 }
