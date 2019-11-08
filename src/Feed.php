@@ -2,11 +2,10 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Support\Arr;
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
-use Illuminate\Contracts\Support\Responsable;
 
 class Feed implements Responsable
 {
@@ -42,7 +41,7 @@ class Feed implements Responsable
         $this->url = $url ?? request()->url();
         $this->view = $view;
 
-        $this->feedItems = $items->map(function($feedable) {
+        $this->feedItems = $items->map(function ($feedable) {
             return $this->castToFeedItem($feedable);
         });
     }
@@ -105,6 +104,4 @@ class Feed implements Responsable
             return $feedItem->updated;
         })->last()->updated->toRssString();
     }
-
-
 }

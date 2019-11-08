@@ -2,8 +2,8 @@
 
 namespace Spatie\Feed\Test;
 
-use Spatie\Feed\FeedItem;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
+use Spatie\Feed\FeedItem;
 
 class FeedItemTest extends TestCase
 {
