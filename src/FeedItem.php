@@ -38,7 +38,7 @@ class FeedItem
     /** @var string */
     protected $category;
 
-     /** @var string */
+    /** @var string */
     protected $imageUrl;
 
     /** @var int */

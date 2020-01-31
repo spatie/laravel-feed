@@ -22,7 +22,7 @@ class DummyItem implements Feedable
             'author' => 'feedItemAuthor',
             'category' => 'feedItemCategory',
             'imageUrl' => 'http://localhost/image1.jpg',
-            'imageSize' => 20000
+            'imageSize' => 20000,
         ]);
     }
 }
