@@ -18,6 +18,9 @@
                 <author><![CDATA[{{ $item->author }}]]></author>
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->updated->toRssString() }}</pubDate>
+                @if($item->__isset('imageUrl') && $item->__isset('imageSize'))
+                    <enclosure url="{{ $item->imageUrl }}"  type="image/*" length="{{ $item->imageSize }}" />
+                @endif
             </item>
         @endforeach
     </channel>

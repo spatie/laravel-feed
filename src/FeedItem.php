@@ -38,6 +38,12 @@ class FeedItem
     /** @var string */
     protected $category;
 
+     /** @var string */
+    protected $imageUrl;
+
+    /** @var int */
+    protected $imageSize;
+
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
@@ -116,6 +122,14 @@ class FeedItem
     public function category(string $category)
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function image(string $imageUrl, int $imageSize)
+    {
+        $this->imageUrl = $imageUrl;
+        $this->imageSize = $imageSize;
 
         return $this;
     }
