@@ -36,7 +36,6 @@
         "illuminate/contracts": "~5.8.0|^6.0|^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.8.0|^4.0|^5.0",
         "phpunit/phpunit": "^8.0",
         "spatie/phpunit-snapshot-assertions": "^2.0"
     },

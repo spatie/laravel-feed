@@ -21,7 +21,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         parent::setUp();
 
-        $this->disableExceptionHandling();
+        $this->withoutExceptionHandling();
     }
 
     protected function getPackageProviders($app)
@@ -85,24 +85,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         $app['router']->get('/test-route', function () use ($app) {
             return $app['view']->make('feed::links');
-        });
-    }
-
-    protected function disableExceptionHandling()
-    {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
-            public function __construct()
-            {
-            }
-
-            public function report(Exception $exception)
-            {
-            }
-
-            public function render($request, Exception $exception)
-            {
-                throw $exception;
-            }
         });
     }
 }
