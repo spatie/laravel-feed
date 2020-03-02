@@ -11,6 +11,13 @@ This package provides an easy way to generate [RSS feeds](http://www.whatisrss.c
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
+## Support us
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us). 
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+
+
 ## Installation
 
 You can install the package via composer:
@@ -72,35 +79,6 @@ Optionally you can publish the view files:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="views"
-```
-
-### Upgrading from v1
-
-Version 2 introduces some major API changes to the package, but upgrading shouldn't take too long.
-
-Replace the `FeedItem` interface with the new `Feedable` interface on your models. Visit the [Usage](#usage) usage for more details on implementing the new interface.
-
-```diff
-- use Spatie\Feed\FeedItem;
-+ use Spatie\Feed\Feedable;
-
-- class NewsItem extends Model implements FeedItem
-+ class NewsItem extends Model implements Feedable
-```
-
-Rename your config file from `laravel-feed.php` to `feed.php`.
-
-```diff
-  config/
--   laravel-feed.php
-+   feed.php
-```
-
-Change the links `@include` directive.
-
-```diff
-- @include('laravel-feed::feed-links')
-+ @include('feed::links')
 ```
 
 ## Usage
