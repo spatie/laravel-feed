@@ -13,7 +13,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     use MatchesSnapshots;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
             ->setTimezone('Europe/Brussels')
