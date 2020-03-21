@@ -3,9 +3,6 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
-use Exception;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Foundation\Exceptions\Handler;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
 
