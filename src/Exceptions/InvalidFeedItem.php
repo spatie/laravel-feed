@@ -25,9 +25,9 @@ class InvalidFeedItem extends Exception
         return (new static("Field `{$field}` is required"))->withSubject($subject);
     }
 
-    protected function withSubject()
+    protected function withSubject($subject)
     {
-        $this->subject;
+        $this->subject = $subject;
 
         return $this;
     }
