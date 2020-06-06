@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
+use Exception;
 
 class FeedServiceProvider extends ServiceProvider
 {
@@ -37,6 +38,10 @@ class FeedServiceProvider extends ServiceProvider
 
         $router->macro('feeds', function ($baseUrl = '') use ($router) {
             foreach (config('feed.feeds') as $name => $configuration) {
+                if (isset($configuration['url'])) {
+                    throw new Exception('Please set url in config/feed.php.');
+                }
+                
                 $url = Path::merge($baseUrl, $configuration['url']);
 
                 $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
