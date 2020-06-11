@@ -41,8 +41,8 @@ class FeedItem
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
-            if($key === 'category') {
-                $this->category = (array)$value;
+            if ($key === 'category') {
+                $this->category = (array) $value;
 
                 continue;
             }
