@@ -14,7 +14,8 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-            </item>
+                                    <category>feedItemCategory</category>
+                            </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem1</link>
@@ -22,7 +23,8 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-            </item>
+                                    <category>feedItemCategory</category>
+                            </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem1</link>
@@ -30,7 +32,8 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-            </item>
+                                    <category>feedItemCategory</category>
+                            </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem1</link>
@@ -38,7 +41,8 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-            </item>
+                                    <category>feedItemCategory</category>
+                            </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem1</link>
@@ -46,7 +50,8 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-            </item>
+                                    <category>feedItemCategory</category>
+                            </item>
             </channel>
 </rss>
 ';
