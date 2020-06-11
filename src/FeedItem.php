@@ -35,12 +35,18 @@ class FeedItem
     /** @var string */
     protected $author;
 
-    /** @var string */
-    protected $category;
+    /** @var string[] */
+    protected $category = [];
 
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
+            if($key === 'category') {
+                $this->category = (array)$value;
+
+                continue;
+            }
+
             $this->$key = $value;
         }
     }
@@ -113,7 +119,7 @@ class FeedItem
         return $this;
     }
 
-    public function category(string $category)
+    public function category(string ...$category)
     {
         $this->category = $category;
 

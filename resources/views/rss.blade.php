@@ -18,6 +18,9 @@
                 <author><![CDATA[{{ $item->author }}]]></author>
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->updated->toRssString() }}</pubDate>
+                @foreach($item->category as $category)
+                    <category>{{ $category }}</category>
+                @endforeach
             </item>
         @endforeach
     </channel>
