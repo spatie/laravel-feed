@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-feed/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-feed)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
 [![StyleCI](https://styleci.io/repos/51826021/shield)](https://styleci.io/repos/51826021)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
@@ -10,6 +10,16 @@
 This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
+## Support us
+
+Learn how to create a package like this one, by watching our premium video course:
+
+[![Laravel Package training](https://spatie.be/github/package-training.jpg)](https://laravelpackage.training)
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -72,35 +82,6 @@ Optionally you can publish the view files:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="views"
-```
-
-### Upgrading from v1
-
-Version 2 introduces some major API changes to the package, but upgrading shouldn't take too long.
-
-Replace the `FeedItem` interface with the new `Feedable` interface on your models. Visit the [Usage](#usage) usage for more details on implementing the new interface.
-
-```diff
-- use Spatie\Feed\FeedItem;
-+ use Spatie\Feed\Feedable;
-
-- class NewsItem extends Model implements FeedItem
-+ class NewsItem extends Model implements Feedable
-```
-
-Rename your config file from `laravel-feed.php` to `feed.php`.
-
-```diff
-  config/
--   laravel-feed.php
-+   feed.php
-```
-
-Change the links `@include` directive.
-
-```diff
-- @include('laravel-feed::feed-links')
-+ @include('feed::links')
 ```
 
 ## Usage
@@ -289,17 +270,6 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
 - [All Contributors](../../contributors)
-
-## PHP 7
-
-This package requires PHP 7, and we won't make a PHP 5 compatible version.  We have [good reasons to go PHP 7 only](https://murze.be/2016/01/why-we-are-requiring-php-7-for-our-new-packages/). 
-
-## Support us
-
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
-
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
-All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License
 

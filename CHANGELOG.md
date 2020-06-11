@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.6.2 - 2020-04-23
+
+- fix null subject (#124)
+
+## 2.6.1 - 2020-03-02
+
+- make compatible with Laravel 7
+
 ## 2.6.0 - 2019-11-08
 
 - internal refactor to make `Feed` easier to handle programmatically

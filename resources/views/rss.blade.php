@@ -21,6 +21,9 @@
                 @if($item->__isset('imageUrl') && $item->__isset('imageSize'))
                     <enclosure url="{{ $item->imageUrl }}"  type="image/*" length="{{ $item->imageSize }}" />
                 @endif
+                @foreach($item->category as $category)
+                    <category>{{ $category }}</category>
+                @endforeach
             </item>
         @endforeach
     </channel>

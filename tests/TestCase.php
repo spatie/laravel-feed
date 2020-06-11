@@ -3,9 +3,6 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
-use Exception;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Foundation\Exceptions\Handler;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
 
@@ -13,7 +10,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     use MatchesSnapshots;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
             ->setTimezone('Europe/Brussels')
@@ -21,7 +18,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         parent::setUp();
 
-        $this->disableExceptionHandling();
+        $this->withoutExceptionHandling();
     }
 
     protected function getPackageProviders($app)
@@ -85,24 +82,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         $app['router']->get('/test-route', function () use ($app) {
             return $app['view']->make('feed::links');
-        });
-    }
-
-    protected function disableExceptionHandling()
-    {
-        $this->app->instance(ExceptionHandler::class, new class extends Handler {
-            public function __construct()
-            {
-            }
-
-            public function report(Exception $exception)
-            {
-            }
-
-            public function render($request, Exception $exception)
-            {
-                throw $exception;
-            }
         });
     }
 }
