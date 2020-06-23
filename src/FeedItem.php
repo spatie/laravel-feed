@@ -39,10 +39,13 @@ class FeedItem
     protected $category = [];
 
     /** @var string */
-    protected $imageUrl;
+    protected $attachmentUrl;
 
     /** @var int */
-    protected $imageSize;
+    protected $attachmentSize;
+
+    /** @var string */
+    protected $attachmentType;
 
     public function __construct(array $data = [])
     {
@@ -132,10 +135,11 @@ class FeedItem
         return $this;
     }
 
-    public function image(string $imageUrl, int $imageSize)
+    public function attachment(string $attachmentUrl, int $attachmentSize, string $attachmentType)
     {
-        $this->imageUrl = $imageUrl;
-        $this->imageSize = $imageSize;
+        $this->attachmentUrl = $attachmentUrl;
+        $this->attachmentSize = $attachmentSize;
+        $this->attachmentType = $attachmentType;
 
         return $this;
     }
@@ -147,6 +151,16 @@ class FeedItem
         foreach ($requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {
                 throw InvalidFeedItem::missingField($this, $requiredField);
+            }
+        }
+
+        if (isset($this->attachmentUrl)) {
+            if (is_null($this->attachmentSize)) {
+                throw InvalidFeedItem::missingField($this, 'attachmentSize');
+            }
+
+            if (is_null($this->attachmentType)) {
+                throw InvalidFeedItem::missingField($this, 'attachmentType');
             }
         }
     }

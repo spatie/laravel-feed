@@ -137,7 +137,7 @@ class NewsItem extends Model implements Feedable
 }
 ```
 
-Next, you'll have to create a method that will return all the items that must be displayed in 
+Next, you'll have to create a method that will return all the items that must be displayed in
 the feed. You can name that method anything you like and you can do any query you want.
 
 ```php
@@ -191,6 +191,62 @@ The `items` key must point to a method that returns one of the following:
 - An array or collection of `FeedItem`s
 - An array or collection of arrays containing feed item values
 
+### Adding attachments
+
+You can add attachments to the feed like so.
+```php
+// app/NewsItem.php
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
+
+class NewsItem extends Model implements Feedable
+{
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->summary)
+            ->updated($this->updated_at)
+            ->link($this->link)
+            ->author($this->author)
+            ->attachmentUrl($this->attachment_url)
+            ->attachmentSize($this->attachment_size)
+            ->attachmentType($this->attachment_type)
+    }
+}
+```
+
+You can also add them in the array as keys.
+
+```php
+// app/NewsItem.php
+
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
+
+class NewsItem extends Model implements Feedable
+{
+    public function toFeedItem()
+    {
+        return FeedItem::create([
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->summary,
+            'updated' => $this->updated_at,
+            'link' => $this->link,
+            'author' => $this->author,
+            'attachmentUrl' => $this->attachment_url,
+            'attachmentSize' => $this->attachment_size,
+            'attachmentType' => $this->attachment_type,
+        ]);
+    }
+}
+```
+
 ### Customizing your feed views
 
 This package provides, out of the box, the `feed::feed` view that displays your feeds details.
@@ -226,14 +282,14 @@ return [
 
 ### Automatically generate feed links
 
-To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this: 
+To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this:
 
 ```html
 <link rel="alternate" type="application/atom+xml" title="News" href="/feed">
 ```
 
 You can add this to your `<head>` through a partial view.
- 
+
 ```php
  @include('feed::links')
 ```

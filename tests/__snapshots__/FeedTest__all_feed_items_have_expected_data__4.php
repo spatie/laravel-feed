@@ -15,7 +15,7 @@
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
                                     <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
-                                    <category>feedItemCategory</category>
+                                                    <category>feedItemCategory</category>
                             </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -25,7 +25,7 @@
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
                                     <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
-                                    <category>feedItemCategory</category>
+                                                    <category>feedItemCategory</category>
                             </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -35,7 +35,7 @@
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
                                     <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
-                                    <category>feedItemCategory</category>
+                                                    <category>feedItemCategory</category>
                             </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -45,7 +45,7 @@
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
                                     <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
-                                    <category>feedItemCategory</category>
+                                                    <category>feedItemCategory</category>
                             </item>
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -55,7 +55,7 @@
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
                                     <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
-                                    <category>feedItemCategory</category>
+                                                    <category>feedItemCategory</category>
                             </item>
             </channel>
 </rss>

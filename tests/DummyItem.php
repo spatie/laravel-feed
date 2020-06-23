@@ -21,8 +21,9 @@ class DummyItem implements Feedable
             'link' => 'https://localhost/news/testItem1',
             'author' => 'feedItemAuthor',
             'category' => 'feedItemCategory',
-            'imageUrl' => 'http://localhost/image1.jpg',
-            'imageSize' => 20000,
+            'attachmentUrl' => 'http://localhost/image1.jpg',
+            'attachmentSize' => 20000,
+            'attachmentType' => 'image/*',
         ]);
     }
 }
