@@ -18,7 +18,11 @@
                 <author><![CDATA[{{ $item->author }}]]></author>
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->updated->toRssString() }}</pubDate>
-                @if($item->__isset('attachmentUrl') && $item->__isset('attachmentSize') && $item->__isset('attachmentType'))
+                @if(
+                    isset($item->attachmentUrl)
+                    && isset($item->attachmentSize)
+                    && isset($item->attachmentType)
+                )
                     <enclosure url="{{ $item->attachmentUrl }}"  type="{{ $item->attachmentType }}" length="{{ $item->attachmentSize }}" />
                 @endif
                 @foreach($item->category as $category)
