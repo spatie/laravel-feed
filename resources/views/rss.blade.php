@@ -19,11 +19,11 @@
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->updated->toRssString() }}</pubDate>
                 @if(
-                    isset($item->attachmentUrl)
-                    && isset($item->attachmentSize)
-                    && isset($item->attachmentType)
+                    isset($item->enclosure)
+                    && isset($item->enclosureLength)
+                    && isset($item->enclosureType)
                 )
-                    <enclosure url="{{ $item->attachmentUrl }}"  type="{{ $item->attachmentType }}" length="{{ $item->attachmentSize }}" />
+                    <enclosure url="{{ $item->enclosure }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
                 @endif
                 @foreach($item->category as $category)
                     <category>{{ $category }}</category>

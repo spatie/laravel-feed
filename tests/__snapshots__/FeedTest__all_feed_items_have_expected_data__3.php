@@ -16,7 +16,7 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                          <link rel="enclosure" href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
@@ -32,7 +32,7 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                          <link rel="enclosure" href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
@@ -48,7 +48,7 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                          <link rel="enclosure" href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
@@ -64,7 +64,7 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                          <link rel="enclosure" href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>
@@ -80,7 +80,7 @@
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                          <link rel="enclosure" href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category type="html">
                 <![CDATA[feedItemCategory]]>
             </category>

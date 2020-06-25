@@ -191,9 +191,9 @@ The `items` key must point to a method that returns one of the following:
 - An array or collection of `FeedItem`s
 - An array or collection of arrays containing feed item values
 
-### Adding attachments
+### Enclosures
 
-You can add attachments to the feed like so.
+You can add an enclosure to the feed like so.
 ```php
 // app/NewsItem.php
 
@@ -212,9 +212,9 @@ class NewsItem extends Model implements Feedable
             ->updated($this->updated_at)
             ->link($this->link)
             ->author($this->author)
-            ->attachmentUrl($this->attachment_url)
-            ->attachmentSize($this->attachment_size)
-            ->attachmentType($this->attachment_type)
+            ->enclosure($this->enclosure)
+            ->enclosureLength($this->enclosure_length)
+            ->enclosureType($this->enclosure_type)
     }
 }
 ```
@@ -239,9 +239,9 @@ class NewsItem extends Model implements Feedable
             'updated' => $this->updated_at,
             'link' => $this->link,
             'author' => $this->author,
-            'attachmentUrl' => $this->attachment_url,
-            'attachmentSize' => $this->attachment_size,
-            'attachmentType' => $this->attachment_type,
+            'enclosure' => $this->enclosure,
+            'enclosureLength' => $this->enclosure_length,
+            'enclosureType' => $this->enclosure_type,
         ]);
     }
 }

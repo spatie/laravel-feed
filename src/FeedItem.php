@@ -38,15 +38,6 @@ class FeedItem
     /** @var string[] */
     protected $category = [];
 
-    /** @var string */
-    protected $attachmentUrl;
-
-    /** @var int */
-    protected $attachmentSize;
-
-    /** @var string */
-    protected $attachmentType;
-
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
@@ -135,15 +126,6 @@ class FeedItem
         return $this;
     }
 
-    public function attachment(string $attachmentUrl, int $attachmentSize, string $attachmentType)
-    {
-        $this->attachmentUrl = $attachmentUrl;
-        $this->attachmentSize = $attachmentSize;
-        $this->attachmentType = $attachmentType;
-
-        return $this;
-    }
-
     public function validate()
     {
         $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
@@ -154,13 +136,13 @@ class FeedItem
             }
         }
 
-        if (isset($this->attachmentUrl)) {
-            if (is_null($this->attachmentSize)) {
-                throw InvalidFeedItem::missingField($this, 'attachmentSize');
+        if (isset($this->enclosure)) {
+            if (is_null($this->enclosureLength)) {
+                throw InvalidFeedItem::missingField($this, 'enclosureLength');
             }
 
-            if (is_null($this->attachmentType)) {
-                throw InvalidFeedItem::missingField($this, 'attachmentType');
+            if (is_null($this->enclosureType)) {
+                throw InvalidFeedItem::missingField($this, 'enclosureType');
             }
         }
     }

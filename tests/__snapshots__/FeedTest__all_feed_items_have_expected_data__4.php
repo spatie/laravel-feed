@@ -14,7 +14,7 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
+                                    <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -24,7 +24,7 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
+                                    <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -34,7 +34,7 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
+                                    <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -44,7 +44,7 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
+                                    <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -54,7 +54,7 @@
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <enclosure url="http://localhost/image1.jpg"  type="image/*" length="20000" />
+                                    <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                                     <category>feedItemCategory</category>
                             </item>
             </channel>
