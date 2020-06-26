@@ -193,6 +193,7 @@ The `items` key must point to a method that returns one of the following:
 
 ### Enclosures
 
+An enclosure can be used to add multimedia content to the feed, such as: mp3, video, images, etc.
 You can add an enclosure to the feed like so.
 ```php
 // app/NewsItem.php

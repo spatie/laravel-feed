@@ -18,11 +18,7 @@
                 <author><![CDATA[{{ $item->author }}]]></author>
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->updated->toRssString() }}</pubDate>
-                @if(
-                    isset($item->enclosure)
-                    && isset($item->enclosureLength)
-                    && isset($item->enclosureType)
-                )
+                @if($item->hasEnclosure())
                     <enclosure url="{{ $item->enclosure }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
                 @endif
                 @foreach($item->category as $category)

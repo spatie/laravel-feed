@@ -147,6 +147,19 @@ class FeedItem
         }
     }
 
+    public function hasEnclosure()
+    {
+        if (
+            isset($this->enclosure)
+            && isset($this->enclosureLength)
+            && isset($this->enclosureType)
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function __get($key)
     {
         if (! isset($this->$key)) {

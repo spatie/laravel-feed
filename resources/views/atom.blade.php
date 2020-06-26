@@ -23,11 +23,7 @@
             <summary type="html">
                 <![CDATA[{!! $item->summary !!}]]>
             </summary>
-            @if(
-                isset($item->enclosure)
-                && isset($item->enclosureLength)
-                && isset($item->enclosureType)
-            )
+            @if($item->hasEnclosure())
               <link rel="enclosure" href="{{ url($item->enclosure) }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />
             @endif
             @foreach($item->category as $category)
