@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 2.7.1 - 2020-09-08
+
+- add support for Laravel 8
+
 ## 2.7.0 - 2020-06-12
 
 - allow multiple categories
