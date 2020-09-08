@@ -3,8 +3,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-feed.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-feed)
-[![StyleCI](https://styleci.io/repos/51826021/shield)](https://styleci.io/repos/51826021)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
 This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.

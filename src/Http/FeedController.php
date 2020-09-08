@@ -37,7 +37,8 @@ class FeedController
         $resolver = Arr::wrap($resolver);
 
         $items = app()->call(
-            array_shift($resolver), $resolver
+            array_shift($resolver),
+            $resolver
         );
 
         return $items;
