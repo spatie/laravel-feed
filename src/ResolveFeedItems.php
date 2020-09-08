@@ -15,8 +15,6 @@ class ResolveFeedItems
             $resolver
         );
 
-        return collect($items)->map(function ($feedable) {
-            return $this->castToFeedItem($feedable);
-        });
+        return collect($items)->map(fn(Feedable $feedable) => $this->castToFeedItem($feedable));
     }
 }

@@ -8,35 +8,25 @@ use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class FeedItem
 {
-    /** @var string */
-    protected $id;
+    protected ?string $id = null;
 
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var \Carbon\Carbon */
-    protected $updated;
+    protected Carbon $updated;
 
-    /** @var string */
-    protected $summary;
+    protected string $summary;
 
-    /** @var string */
-    protected $link;
+    protected string $link;
 
-    /** @var string */
-    protected $enclosure;
+    protected string $enclosure;
 
-    /** @var int */
-    protected $enclosureLength;
+    protected int $enclosureLength;
 
-    /** @var string */
-    protected $enclosureType;
+    protected string $enclosureType;
 
-    /** @var string */
-    protected $author;
+    protected string $author;
 
-    /** @var string[] */
-    protected $category = [];
+    protected array $category = [];
 
     public function __construct(array $data = [])
     {
@@ -51,82 +41,82 @@ class FeedItem
         }
     }
 
-    public static function create(array $data = [])
+    public static function create(array $data = []): self
     {
         return new static($data);
     }
 
-    public function id(string $id)
+    public function id(string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function title(string $title)
+    public function title(string $title): self
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function updated(Carbon $updated)
+    public function updated(Carbon $updated): self
     {
         $this->updated = $updated;
 
         return $this;
     }
 
-    public function summary(string $summary)
+    public function summary(string $summary): self
     {
         $this->summary = $summary;
 
         return $this;
     }
 
-    public function link(string $link)
+    public function link(string $link): self
     {
         $this->link = $link;
 
         return $this;
     }
 
-    public function enclosure(string $enclosure)
+    public function enclosure(string $enclosure): self
     {
         $this->enclosure = $enclosure;
 
         return $this;
     }
 
-    public function enclosureLength(int $enclosureLength)
+    public function enclosureLength(int $enclosureLength): self
     {
         $this->enclosureLength = $enclosureLength;
 
         return $this;
     }
 
-    public function enclosureType(string $enclosureType)
+    public function enclosureType(string $enclosureType): self
     {
         $this->enclosureType = $enclosureType;
 
         return $this;
     }
 
-    public function author(string $author)
+    public function author(string $author): self
     {
         $this->author = $author;
 
         return $this;
     }
 
-    public function category(string ...$category)
+    public function category(string ...$category): self
     {
         $this->category = $category;
 
         return $this;
     }
 
-    public function validate()
+    public function validate(): void
     {
         $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
 

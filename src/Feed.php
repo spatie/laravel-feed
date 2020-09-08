@@ -9,23 +9,17 @@ use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class Feed implements Responsable
 {
-    /** @var string */
-    protected $title;
+    protected string $title;
 
-    /** @var string */
-    protected $description;
+    protected string $description;
 
-    /** @var string */
-    protected $language;
+    protected string $language;
 
-    /** @var string */
-    protected $url;
+    protected string $url;
 
-    /** @var string */
-    protected $view;
+    protected string $view;
 
-    /** @var \Illuminate\Support\Collection */
-    protected $feedItems;
+    protected Collection $feedItems;
 
     public function __construct(
         string $title,
@@ -41,9 +35,7 @@ class Feed implements Responsable
         $this->url = $url ?? request()->url();
         $this->view = $view;
 
-        $this->feedItems = $items->map(function ($feedable) {
-            return $this->castToFeedItem($feedable);
-        });
+        $this->feedItems = $items->map(fn(Feedable $feedable) => $this->castToFeedItem($feedable));
     }
 
     public function toResponse($request): Response
@@ -67,7 +59,7 @@ class Feed implements Responsable
         ]);
     }
 
-    protected function castToFeedItem($feedable): FeedItem
+    protected function castToFeedItem(Feedable $feedable): FeedItem
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);
