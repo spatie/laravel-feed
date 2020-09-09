@@ -51,6 +51,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
             ],
             [
+                'items' => 'Spatie\Feed\Test\DummyFeedItemRepository@getAll',
+                'url' => '/feed4',
+                'title' => 'Feed 4',
+                'description' => 'This is feed 4 from the unit tests',
+                'language' => 'en-US',
+            ],
+            [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed-with-custom-view',
                 'title' => 'Feed with Custom View',
