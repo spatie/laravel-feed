@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+                        <id>http://localhost</id>
+                                <link href="http://localhost"></link>
+                                <title><![CDATA[title]]></title>
+                                <description></description>
+                                <language></language>
+                                <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+                        <entry>
+            <title><![CDATA[Song A]]></title>
+            <link rel="alternate" href="http://localhost/link A" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[John]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[summary A]]>
+            </summary>
+                                    <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[Song B]]></title>
+            <link rel="alternate" href="http://localhost/link B" />
+            <id>http://localhost/2</id>
+            <author>
+                <name> <![CDATA[paul]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[summary B]]>
+            </summary>
+                                    <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+        </entry>
+    </feed>

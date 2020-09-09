@@ -59,7 +59,7 @@ class Feed implements Responsable
         ]);
     }
 
-    protected function castToFeedItem(Feedable $feedable): FeedItem
+    protected function castToFeedItem($feedable): FeedItem
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);

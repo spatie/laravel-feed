@@ -2,10 +2,13 @@
 
 namespace Spatie\Feed\Test;
 
+use Illuminate\Http\Request;
+use Spatie\Feed\Feed;
+use Spatie\TestTime\TestTime;
+
 class FeedTest extends TestCase
 {
-    /** @var array */
-    protected $feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss'];
+    protected array $feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss'];
 
     /** @test */
     public function all_feeds_are_available_on_their_registered_routes()
@@ -41,5 +44,35 @@ class FeedTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertViewIs('feed::links');
+    }
+
+    /** @test */
+    public function it_can_accept_an_array()
+    {
+        TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00');
+
+        $feed = new Feed('title', collect([
+            [
+                'id' => 1,
+                'author' => 'John',
+                'title' => 'Song A',
+                'updated' => now(),
+                'summary' => 'summary A',
+                'link' => 'link A'
+            ],
+            [
+                'id' => 2,
+                'author' => 'paul',
+                'title' => 'Song B',
+                'updated' => now(),
+                'summary' => 'summary B',
+                'link' => 'link B'
+
+            ],
+        ]));
+
+        $response = $feed->toResponse(Request::capture());
+
+        $this->assertMatchesSnapshot($response->content());
     }
 }
