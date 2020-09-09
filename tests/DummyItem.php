@@ -8,7 +8,7 @@ use Spatie\Feed\FeedItem;
 
 class DummyItem implements Feedable
 {
-    public function toFeedItem()
+    public function toFeedItem(): FeedItem
     {
         return new FeedItem([
             'id' => 1,
