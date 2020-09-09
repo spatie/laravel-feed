@@ -58,7 +58,7 @@ class FeedTest extends TestCase
                 'title' => 'Song A',
                 'updated' => now(),
                 'summary' => 'summary A',
-                'link' => 'link A'
+                'link' => 'link A',
             ],
             [
                 'id' => 2,
@@ -66,7 +66,7 @@ class FeedTest extends TestCase
                 'title' => 'Song B',
                 'updated' => now(),
                 'summary' => 'summary B',
-                'link' => 'link B'
+                'link' => 'link B',
 
             ],
         ]));
