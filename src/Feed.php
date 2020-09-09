@@ -35,7 +35,7 @@ class Feed implements Responsable
         $this->url = $url ?? request()->url();
         $this->view = $view;
 
-        $this->feedItems = $items->map(fn (Feedable $feedable) => $this->castToFeedItem($feedable));
+        $this->feedItems = $items->map(fn ($feedable) => $this->castToFeedItem($feedable));
     }
 
     public function toResponse($request): Response
