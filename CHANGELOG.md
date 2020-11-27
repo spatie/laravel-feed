@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.1.0 - 2020-11-27
+
+- Add support for PHP 8
+
 ## 3.0.1 - 2020-09-08
 
 - allow arrays as feed items
