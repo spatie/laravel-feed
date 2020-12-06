@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.1.1 - 2020-12-07
+
+- RFC3339 compliant updated field (#136)
+
 ## 3.1.0 - 2020-11-27
 
 - Add support for PHP 8
