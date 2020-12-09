@@ -5,7 +5,7 @@
                                 <title><![CDATA[title]]></title>
                                 <description></description>
                                 <language></language>
-                                <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+                                <updated>2020-01-01T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[Song A]]></title>
             <link rel="alternate" href="http://localhost/link A" />
@@ -16,7 +16,7 @@
             <summary type="html">
                 <![CDATA[summary A]]>
             </summary>
-                                    <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+                                    <updated>2020-01-01T00:00:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[Song B]]></title>
@@ -28,6 +28,6 @@
             <summary type="html">
                 <![CDATA[summary B]]>
             </summary>
-                                    <updated>Wed, 01 Jan 2020 00:00:00 +0100</updated>
+                                    <updated>2020-01-01T00:00:00+01:00</updated>
         </entry>
     </feed>

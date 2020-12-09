@@ -5,7 +5,7 @@
         <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
         <description><![CDATA[This is feed 1 as RSS from the unit tests]]></description>
         <language>en-US</language>
-        <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+        <pubDate>2016-01-01T00:00:00+01:00</pubDate>
 
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -13,7 +13,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+                <pubDate>2016-01-01T00:00:00+01:00</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -22,7 +22,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+                <pubDate>2016-01-01T00:00:00+01:00</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -31,7 +31,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+                <pubDate>2016-01-01T00:00:00+01:00</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -40,7 +40,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+                <pubDate>2016-01-01T00:00:00+01:00</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -49,7 +49,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
+                <pubDate>2016-01-01T00:00:00+01:00</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
             </channel>
