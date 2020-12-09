@@ -17,7 +17,7 @@
                 <description><![CDATA[{!! $item->summary !!}]]></description>
                 <author><![CDATA[{{ $item->author }}]]></author>
                 <guid>{{ url($item->id) }}</guid>
-                <pubDate>{{ $item->updated->toRssString() }}</pubDate>
+                <pubDate>{{ $item->updated->toRfc3339String() }}</pubDate>
                 @foreach($item->category as $category)
                     <category>{{ $category }}</category>
                 @endforeach

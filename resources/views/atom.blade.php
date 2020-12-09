@@ -31,7 +31,7 @@
                 <![CDATA[{!! $category !!}]]>
             </category>
             @endforeach
-            <updated>{{ $item->updated->toRssString() }}</updated>
+            <updated>{{ $item->updated->toRfc3339String() }}</updated>
         </entry>
     @endforeach
 </feed>

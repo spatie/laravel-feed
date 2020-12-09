@@ -62,7 +62,7 @@ class FeedItem
 
     public function updated(Carbon $updated): self
     {
-        $this->updated = $updated->toRfc3339String();
+        $this->updated = $updated;
 
         return $this;
     }

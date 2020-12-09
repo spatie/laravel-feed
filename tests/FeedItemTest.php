@@ -14,4 +14,17 @@ class FeedItemTest extends TestCase
 
         FeedItem::create()->validate();
     }
+
+    /** @test * */
+    public function it_can_be_created_without_errors()
+    {
+        FeedItem::create()
+            ->title('A title')
+            ->category('a category')
+            ->link('https://spatie.be')
+            ->author('an author')
+            ->updated(now());
+
+        $this->expectNotToPerformAssertions();
+    }
 }

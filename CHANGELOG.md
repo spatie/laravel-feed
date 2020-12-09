@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.1.2 - 2020-12-09
+
+- Fix issue with Rfc3339 string
+
 ## 3.1.1 - 2020-12-07
 
 - RFC3339 compliant updated field (#136)
