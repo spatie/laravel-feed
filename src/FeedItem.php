@@ -28,6 +28,16 @@ class FeedItem
 
     protected array $category = [];
 
+    protected array $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
+
+    protected array $jsonFieldMappings = [
+        'id' => 'id',
+        'title' => 'title',
+        'updated' => 'date_modified',
+        'summary' => 'content_text',
+        'link' => 'url',
+    ];
+
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
@@ -118,9 +128,7 @@ class FeedItem
 
     public function validate(): void
     {
-        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
-
-        foreach ($requiredFields as $requiredField) {
+        foreach ($this->requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {
                 throw InvalidFeedItem::missingField($this, $requiredField);
             }
@@ -139,5 +147,15 @@ class FeedItem
     public function __isset($key)
     {
         return isset($this->$key);
+    }
+
+    public function toJson() {
+        $json = [];
+
+        foreach ($this->jsonFieldMappings as $key => $mapping) {
+            $json[$mapping] = $this->$key;
+        }
+
+        return $json;
     }
 }

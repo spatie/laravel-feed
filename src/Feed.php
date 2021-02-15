@@ -3,6 +3,7 @@
 namespace Spatie\Feed;
 
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
@@ -38,7 +39,10 @@ class Feed implements Responsable
         $this->feedItems = $items->map(fn ($feedable) => $this->castToFeedItem($feedable));
     }
 
-    public function toResponse($request): Response
+    /**
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function toResponse($request)
     {
         $meta = [
             'id' => url($this->url),
@@ -49,6 +53,10 @@ class Feed implements Responsable
             'updated' => $this->lastUpdated(),
         ];
 
+        if ($this->view === 'feed::json') {
+            return $this->toJson();
+        }
+
         $contents = view($this->view, [
             'meta' => $meta,
             'items' => $this->feedItems,
@@ -57,6 +65,31 @@ class Feed implements Responsable
         return new Response($contents, 200, [
             'Content-Type' => 'application/xml;charset=UTF-8',
         ]);
+    }
+
+    public function toJson(): JsonResponse
+    {
+        $meta = [
+            'version' => 'https://jsonfeed.org/version/1.1',
+            'home_page_url' => url(''),
+            'feed_url' => url($this->url),
+            'title' => $this->title,
+            'description' => $this->description,
+            'language' => $this->language,
+        ];
+
+        $authors = [
+            [
+                'name' => $this->feedItems->first()->author,
+            ],
+        ];
+
+        $response = array_merge($meta, [
+            'authors' => $authors,
+            'items' => $this->feedItems->map(fn ($item) => $item->toJson()),
+        ]);
+
+        return new JsonResponse($response, 200);
     }
 
     protected function castToFeedItem($feedable): FeedItem

@@ -5,7 +5,8 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
+This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/) and [JSON Feeds](https://jsonfeed.org/).
+There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -133,7 +134,7 @@ class NewsItem extends Model implements Feedable
 }
 ```
 
-Next, you'll have to create a method that will return all the items that must be displayed in 
+Next, you'll have to create a method that will return all the items that must be displayed in
 the feed. You can name that method anything you like and you can do any query you want.
 
 ```php
@@ -175,6 +176,42 @@ return [
              * Defaults to feed::feed if not present.
              */
             'view' => 'feed::feed',
+        ],
+    ],
+
+];
+```
+To generate a JSON feed type, you should set the `view` to `json`
+and add the `type` of `application/feed+json'`:
+
+```php
+// config/feed.php
+
+return [
+
+    'feeds' => [
+        'news' => [
+            /*
+             * Here you can specify which class and method will return
+             * the items that should appear in the feed. For example:
+             * '\App\Model@getAllFeedItems'
+             */
+            'items' => 'App\NewsItem@getFeedItems',
+
+            /*
+             * The feed will be available on this url.
+             */
+            'url' => '/feed.json',
+
+            'title' => 'All newsitems on mysite.com',
+
+            /*
+             * Custom view for the items.
+             *
+             * Defaults to feed::feed if not present.
+             */
+            'view' => 'feed::json',
+            'type' => 'application/feed+json',
         ],
     ],
 
@@ -222,14 +259,14 @@ return [
 
 ### Automatically generate feed links
 
-To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this: 
+To discover a feed, feed readers are looking for a tag in the head section of your html documents that looks like this:
 
 ```html
 <link rel="alternate" type="application/atom+xml" title="News" href="/feed">
 ```
 
 You can add this to your `<head>` through a partial view.
- 
+
 ```php
  @include('feed::links')
 ```
