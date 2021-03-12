@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.1.3 - 2021-03-12
+
+- implement laravel-package-tools (#143)
+
 ## 3.1.2 - 2020-12-09
 
 - Fix issue with Rfc3339 string
