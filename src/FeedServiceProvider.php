@@ -3,10 +3,10 @@
 namespace Spatie\Feed;
 
 use Illuminate\Support\Facades\View;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Package;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FeedServiceProvider extends PackageServiceProvider
 {
