@@ -236,7 +236,7 @@ You can add this to your `<head>` through a partial view.
 
 As an alternative you can use this blade component:
 
-```php
+```html
 <x-feed-links />
 ```
 
