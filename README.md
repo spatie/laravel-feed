@@ -37,7 +37,7 @@ You can pass a string as a first argument of the macro. The string will be used 
 Next, you must publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="feed-config"
 ```
 
 Here's what that looks like:
@@ -77,7 +77,7 @@ return [
 Optionally you can publish the view files:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="feed-views"
 ```
 
 ## Usage
