@@ -3,6 +3,7 @@
 namespace Spatie\Feed;
 
 use Illuminate\Support\Facades\View;
+use Spatie\Feed\Components\FeedLinks;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
 use Spatie\LaravelPackageTools\Package;
@@ -15,7 +16,8 @@ class FeedServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-feed')
             ->hasConfigFile()
-            ->hasViews();
+            ->hasViews()
+            ->hasViewComponent('', FeedLinks::class);
     }
 
     public function packageBooted()
