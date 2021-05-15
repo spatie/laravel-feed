@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
 
@@ -76,12 +77,32 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $this->setUpRoutes($app);
     }
 
+
+    private function renderBlade($app, string $template, array $data = [])
+    {
+        $tempDirectory = dirname(__FILE__) . '/temp';
+
+        if (!in_array($tempDirectory, $app['view']->getFinder()->getPaths())) {
+            $app['view']->addLocation($tempDirectory);
+        }
+
+        $tempFile = $tempDirectory . '/laravel-feed-' . Str::random(10) . '.blade.php';
+        file_put_contents($tempFile, $template);
+
+        return $app['view']->make(Str::before(basename($tempFile), '.blade.php'))->with($data);
+    }
+
+
     protected function setUpRoutes($app)
     {
         $app['router']->feeds('feedBaseUrl');
 
         $app['router']->get('/test-route', function () use ($app) {
             return $app['view']->make('feed::links');
+        });
+
+        $app['router']->get('/test-route-blade-component', function () use ($app) {
+            return $this->renderBlade($app, '<x-feed-links />');
         });
     }
 }
