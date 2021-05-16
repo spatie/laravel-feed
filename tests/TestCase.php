@@ -30,28 +30,28 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $feed = [
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'items' => [DummyRepository::class,'getAll'],
                 'url' => '/feed1',
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
                 'language' => 'en-US',
             ],
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'items' => [DummyRepository::class,'getAll'],
                 'url' => '/feed2',
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
                 'language' => 'en-US',
             ],
             [
-                'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
+                'items' => [DummyRepository::class,'getAllWithArguments','first'],
                 'url' => '/feed3',
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
                 'language' => 'en-US',
             ],
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'items' => [DummyRepository::class,'getAll'],
                 'url' => '/feed-with-custom-view',
                 'title' => 'Feed with Custom View',
                 'description' => 'This is a feed that uses custom views from the unit tests',
@@ -59,7 +59,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::links',
             ],
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'items' => [DummyRepository::class,'getAll'],
                 'url' => '/feed1.rss',
                 'title' => 'Feed 1 RSS',
                 'description' => 'This is feed 1 as RSS from the unit tests',

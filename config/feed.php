@@ -6,12 +6,12 @@ return [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
-             * 'App\Model@getAllFeedItems'
+             * [App\Model::class,'getFeedItems']
              *
              * You can also pass an argument to that method:
-             * ['App\Model@getAllFeedItems', 'argument']
+             * [App\Model::class,'getFeedItems','argument']
              */
-            'items' => '',
+            'items' => [\App\User::class,'getFeedItems'],
 
             /*
              * The feed will be available on this url.
