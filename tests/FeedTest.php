@@ -39,7 +39,7 @@ class FeedTest extends TestCase
     /** @test */
     public function it_can_render_all_feed_links_via_the_blade_component()
     {
-        $feedLinksHtml = $this->get('/test-route-blade-component')->getContent();
+        $feedLinksHtml = trim($this->get('/test-route-blade-component')->getContent());
 
         $this->assertMatchesSnapshot($feedLinksHtml);
     }
