@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.2.0 - 2021-05-17
+
+- blade component to include feed links (#148)
+
 ## 3.1.4 - 2021-05-17
 
 - make `Route::feeds()` use default value (#150)
