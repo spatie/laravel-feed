@@ -234,6 +234,12 @@ You can add this to your `<head>` through a partial view.
  @include('feed::links')
 ```
 
+As an alternative you can use this blade component:
+
+```html
+<x-feed-links />
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

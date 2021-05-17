@@ -37,6 +37,14 @@ class FeedTest extends TestCase
     }
 
     /** @test */
+    public function it_can_render_all_feed_links_via_the_blade_component()
+    {
+        $feedLinksHtml = trim($this->get('/test-route-blade-component')->getContent());
+
+        $this->assertMatchesSnapshot($feedLinksHtml);
+    }
+
+    /** @test */
     public function all_feed_items_can_have_a_custom_view()
     {
         $response = $this->get('/feedBaseUrl/feed-with-custom-view');
