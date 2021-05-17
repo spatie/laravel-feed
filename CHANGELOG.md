@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.1.4 - 2021-05-17
+
+- make `Route::feeds()` use default value (#150)
+
 ## 3.1.3 - 2021-03-12
 
 - implement laravel-package-tools (#143)
