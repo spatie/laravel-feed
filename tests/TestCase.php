@@ -37,7 +37,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
             ],
             [
-                'items' => [DummyRepository::class,'getAll'],
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed2',
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
