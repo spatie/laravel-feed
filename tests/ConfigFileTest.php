@@ -9,7 +9,7 @@ use Spatie\Feed\Exceptions\InvalidConfigFile;
 class ConfigFileTest extends TestCase
 {
     /** @test */
-    public function ensure_that_the_items_key_in_the_config_is_array()
+    public function ensure_that_the_items_key_in_the_config_is_valid()
     {
         $configItems = config('feed.feeds');
 
@@ -17,7 +17,7 @@ class ConfigFileTest extends TestCase
             if (is_array($configItem['items'])) {
                 $this->assertIsArray($configItem['items']);
                 $this->assertArrayHasKey(1, $configItem['items']);
-            } elseif (is_string($configItem['items'])) {
+            } elseif (is_string($configItem['items']) && !empty($configItem['items'])) {
                 $this->assertStringContainsString('@',$configItem['items']);
             }
         }
