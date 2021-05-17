@@ -21,15 +21,7 @@ class FeedController
 
         abort_unless($feed, 404);
 
-        if (!is_array($feed['items'])) {
-            throw InvalidConfigFile::itemsIsNotArray($feed['items'],gettype($feed['items']));
-        }
-
-        if (count($feed['items']) < 2) {
-            throw InvalidConfigFile::itemsIsNotFilled($feed['items']);
-        }
-
-        $items = $this->resolveFeedItems($feed['items']);
+        $items = $this->resolveCallableFeedItems($feed['items']);
 
         return new Feed(
             $feed['title'],
@@ -41,23 +33,37 @@ class FeedController
         );
     }
 
-    protected function resolveFeedItems(array $resolver): Collection
+    protected function resolveFeedItems(string $callable,$arg = null): Collection
     {
-        //The Feed Class(Model)
-        $feedClass = $resolver[0];
+        return app()->call($callable, $arg);
+    }
 
-        //The Feed Method inisde the calss(model)
-        $feedClassMethod = $resolver[1];
+    protected function resolveCallableFeedItems($resolver): Collection
+    {
+        $arg = [];
+        if (is_array($resolver)) {
 
-        //Argument to be passed
-        $arg = isset($resolver[2]) ? Arr::wrap($resolver[2]) : [];
+            //if items is like ['App\Model@getAllFeedItems', 'argument']
+            if (strpos($resolver[0],'@')){
 
-        $items = app()->call(
-            $this->genrateCallableString($feedClass,$feedClassMethod),
-            $arg
-        );
+                $arg = Arr::wrap($resolver[1]);
+            }else{
+                //The Feed Class(Model)
+                $feedClass = $resolver[0];
 
-        return $items;
+                //The Feed Method inisde the calss(model)
+                $feedClassMethod = $resolver[1];
+                $resolver = $this->genrateCallableString($feedClass,$feedClassMethod);
+
+                //Argument to be passed
+                $arg = isset($resolver[2]) ? Arr::wrap($resolver[2]) : [];
+            }
+
+        } elseif (!strpos($resolver,'@')) {
+
+            throw InvalidConfigFile::itemsIsNotFilled($resolver);
+        }
+        return $this->resolveFeedItems($resolver,$arg);
     }
 
     protected function genrateCallableString(string $class , string $method) :string

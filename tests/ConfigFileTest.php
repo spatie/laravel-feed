@@ -4,6 +4,8 @@
 namespace Spatie\Feed\Test;
 
 
+use Spatie\Feed\Exceptions\InvalidConfigFile;
+
 class ConfigFileTest extends TestCase
 {
     /** @test */
@@ -12,9 +14,13 @@ class ConfigFileTest extends TestCase
         $configItems = config('feed.feeds');
 
         foreach ($configItems as $configItem) {
-            $this->assertIsArray($configItem['items']);
-            $this->assertArrayHasKey(1,$configItem['items']);
+            if (is_array($configItem['items'])) {
+                $this->assertIsArray($configItem['items']);
+                $this->assertArrayHasKey(1, $configItem['items']);
+            } elseif (is_string($configItem['items'])) {
+                $this->assertStringContainsString('@',$configItem['items']);
+            }
         }
-        
+
     }
 }
