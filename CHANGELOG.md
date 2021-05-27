@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 3.2.1 - 2021-05-27
+
+- fix breaking change introduced in 3.1.4
+
 ## 3.2.0 - 2021-05-17
 
 - blade component to include feed links (#148)

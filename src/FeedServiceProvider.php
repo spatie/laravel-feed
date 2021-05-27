@@ -34,7 +34,7 @@ class FeedServiceProvider extends PackageServiceProvider
     {
         $router = $this->app['router'];
 
-        $router->macro('feeds', function ($baseUrl = 'feed') use ($router) {
+        $router->macro('feeds', function ($baseUrl = '') use ($router) {
             foreach (config('feed.feeds') as $name => $configuration) {
                 $url = Path::merge($baseUrl, $configuration['url']);
 
