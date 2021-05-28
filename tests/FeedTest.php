@@ -8,7 +8,7 @@ use Spatie\TestTime\TestTime;
 
 class FeedTest extends TestCase
 {
-    protected array $feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss'];
+    protected array $feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss', 'feed1.json'];
 
     /** @test */
     public function all_feeds_are_available_on_their_registered_routes()

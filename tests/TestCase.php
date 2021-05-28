@@ -68,6 +68,15 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
             ],
+            [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed1.json',
+                'title' => 'Feed 1 JSON',
+                'description' => 'This is feed 1 as JSON from the unit tests',
+                'language' => 'en-US',
+                'view' => 'feed::jsonfeed',
+                'type' => 'application/feed+json',
+            ],
         ];
 
         $app['config']->set('feed.feeds', $feed);
