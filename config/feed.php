@@ -31,6 +31,11 @@ return [
              * The type to be used in the <link> tag
              */
             'type' => 'application/atom+xml',
+
+            /*
+             * The content type for the feed response
+             */
+            'content-type' => 'application/xml',
         ],
     ],
 ];

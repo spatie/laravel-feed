@@ -55,7 +55,7 @@ class Feed implements Responsable
         ]);
 
         return new Response($contents, 200, [
-            'Content-Type' => 'application/xml;charset=UTF-8',
+            'Content-Type' => config('feed::content-type', 'application/xml') . ';charset=UTF-8',
         ]);
     }
 
