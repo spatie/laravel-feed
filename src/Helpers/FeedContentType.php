@@ -4,16 +4,21 @@ namespace Spatie\Feed\Helpers;
 
 class FeedContentType
 {
+    public static array $typeMap = [
+        'atom' => ['response' => 'application/xml', 'link' => 'application/atom+xml'],
+        'json' => ['response' => 'application/json', 'link' => 'application/feed+json'],
+        'rss' => ['response' => 'application/xml', 'link' => 'application/rss+xml'],
+    ];
+
+    public static array $defaults = [
+        'response' => 'application/xml',
+        'link' => 'application/atom+xml',
+    ];
+
     public static function forResponse(string $feedFormat): string
     {
-        $typeMap = [
-            'atom' => 'application/xml',
-            'json' => 'application/json',
-            'rss' => 'application/xml',
-        ];
-
         $contentType = config('feed::content-type');
-        $mappedType = $typeMap[$feedFormat] ?? 'application/xml';
+        $mappedType = self::$typeMap[$feedFormat]['response'] ?? self::$defaults['response'];
 
         return empty($contentType)
             ? $mappedType
@@ -22,14 +27,8 @@ class FeedContentType
 
     public static function forLink(string $feedFormat): string
     {
-        $typeMap = [
-            'atom' => 'application/rss+xml',
-            'json' => 'application/feed+json',
-            'rss' => 'application/atom+xml',
-        ];
-
         $type = config('feed::type');
-        $mappedType = $typeMap[$feedFormat] ?? 'application/atom+xml';
+        $mappedType = self::$typeMap[$feedFormat]['link'] ?? self::$defaults['link'];
 
         return empty($type)
             ? $mappedType
