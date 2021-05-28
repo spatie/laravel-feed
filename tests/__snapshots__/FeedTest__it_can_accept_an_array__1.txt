@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="">
                         <id>http://localhost</id>
-                                <link href="http://localhost"></link>
+                                <link href="http://localhost" rel="self"></link>
                                 <title><![CDATA[title]]></title>
                     
-                                <description></description>
-                                <language></language>
-                                <updated>2020-01-01T00:00:00+01:00</updated>
+                                <subtitle></subtitle>
+                                                    <updated>2020-01-01T00:00:00+01:00</updated>
                         <entry>
             <title><![CDATA[Song A]]></title>
             <link rel="alternate" href="http://localhost/link A" />

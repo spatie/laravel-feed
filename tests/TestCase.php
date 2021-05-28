@@ -37,6 +37,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is feed 1 from the unit tests',
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -45,6 +46,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is feed 2 from the unit tests',
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
             [
                 'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
@@ -53,6 +55,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is feed 3 from the unit tests',
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -62,6 +65,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
+                'format' => 'atom',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -72,6 +76,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
+                'format' => 'rss',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -82,6 +87,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::jsonfeed',
                 'type' => 'application/feed+json',
+                'format' => 'json',
             ],
         ];
 

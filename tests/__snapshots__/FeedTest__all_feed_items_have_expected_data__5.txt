@@ -11,9 +11,9 @@
             "url": "https://localhost/news/testItem1",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
-            "date_published": "2016-01-01T00:00:00+01:00",
-            "date_modified": "2016-01-01T00:00:00+01:00",
-            "authors": [{ "name": "feedItemAuthor" }],
+            "date_published": "2015-12-31T23:59:00+01:00",
+            "date_modified": "2015-12-31T23:59:00+01:00",
+            "authors": [{ "name": "feedItemAuthor@test.test" }],
             "attachments": [
                 {
                     "url": "http://localhost/image1.jpg",
@@ -24,14 +24,14 @@
             "tags": [ "feedItemCategory" ]
         },
         {
-            "id": "http://localhost/1",
+            "id": "http://localhost/2",
             "title": "feedItemTitle",
-            "url": "https://localhost/news/testItem1",
+            "url": "https://localhost/news/testItem2",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
-            "date_published": "2016-01-01T00:00:00+01:00",
-            "date_modified": "2016-01-01T00:00:00+01:00",
-            "authors": [{ "name": "feedItemAuthor" }],
+            "date_published": "2015-12-31T23:58:00+01:00",
+            "date_modified": "2015-12-31T23:58:00+01:00",
+            "authors": [{ "name": "feedItemAuthor@test.test" }],
             "attachments": [
                 {
                     "url": "http://localhost/image1.jpg",
@@ -42,14 +42,14 @@
             "tags": [ "feedItemCategory" ]
         },
         {
-            "id": "http://localhost/1",
+            "id": "http://localhost/3",
             "title": "feedItemTitle",
-            "url": "https://localhost/news/testItem1",
+            "url": "https://localhost/news/testItem3",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
-            "date_published": "2016-01-01T00:00:00+01:00",
-            "date_modified": "2016-01-01T00:00:00+01:00",
-            "authors": [{ "name": "feedItemAuthor" }],
+            "date_published": "2015-12-31T23:57:00+01:00",
+            "date_modified": "2015-12-31T23:57:00+01:00",
+            "authors": [{ "name": "feedItemAuthor@test.test" }],
             "attachments": [
                 {
                     "url": "http://localhost/image1.jpg",
@@ -60,14 +60,14 @@
             "tags": [ "feedItemCategory" ]
         },
         {
-            "id": "http://localhost/1",
+            "id": "http://localhost/4",
             "title": "feedItemTitle",
-            "url": "https://localhost/news/testItem1",
+            "url": "https://localhost/news/testItem4",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
-            "date_published": "2016-01-01T00:00:00+01:00",
-            "date_modified": "2016-01-01T00:00:00+01:00",
-            "authors": [{ "name": "feedItemAuthor" }],
+            "date_published": "2015-12-31T23:56:00+01:00",
+            "date_modified": "2015-12-31T23:56:00+01:00",
+            "authors": [{ "name": "feedItemAuthor@test.test" }],
             "attachments": [
                 {
                     "url": "http://localhost/image1.jpg",
@@ -78,14 +78,14 @@
             "tags": [ "feedItemCategory" ]
         },
         {
-            "id": "http://localhost/1",
+            "id": "http://localhost/5",
             "title": "feedItemTitle",
-            "url": "https://localhost/news/testItem1",
+            "url": "https://localhost/news/testItem5",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
-            "date_published": "2016-01-01T00:00:00+01:00",
-            "date_modified": "2016-01-01T00:00:00+01:00",
-            "authors": [{ "name": "feedItemAuthor" }],
+            "date_published": "2015-12-31T23:55:00+01:00",
+            "date_modified": "2015-12-31T23:55:00+01:00",
+            "authors": [{ "name": "feedItemAuthor@test.test" }],
             "attachments": [
                 {
                     "url": "http://localhost/image1.jpg",

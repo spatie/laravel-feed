@@ -4,14 +4,17 @@
     "home_page_url": "{{ config('app.url') }}",
     "feed_url": "{{ url($meta['link']) }}",
     "language": "{{ $meta['language'] }}",
+@if(!empty($meta['image']))
+    "icon": "{{ $meta['image'] }}",
+@endif
     "items": [@foreach($items as $item){
             "id": "{{ url($item->id) }}",
             "title": "{{ $item->title }}",
             "url": "{{ url($item->link) }}",
             "content_html": "{!! str_replace('"', '\\"', $item->summary) !!}",
             "summary": "{!! str_replace('"', '\\"', $item->summary) !!}",
-            "date_published": "{{ $item->updated->toRfc3339String() }}",
-            "date_modified": "{{ $item->updated->toRfc3339String() }}",
+            "date_published": "{{ $item->timestamp() }}",
+            "date_modified": "{{ $item->timestamp() }}",
             "authors": [{ "name": "{{ $item->author }}" }],
 @if($item->__isset('enclosure'))
             "attachments": [

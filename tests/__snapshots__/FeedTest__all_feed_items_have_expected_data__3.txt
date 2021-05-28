@@ -1,90 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
                         <id>http://localhost/feedBaseUrl/feed3</id>
-                                <link href="http://localhost/feedBaseUrl/feed3"></link>
+                                <link href="http://localhost/feedBaseUrl/feed3" rel="self"></link>
                                 <title><![CDATA[Feed 3]]></title>
-                                <atom:logo>http://localhost/image.jpg</atom:logo>
-                                <description>This is feed 3 from the unit tests</description>
-                                <language>en-US</language>
-                                <updated>2016-01-01T00:00:00+01:00</updated>
+                                <logo>http://localhost/image.jpg</logo>
+                                <subtitle>This is feed 3 from the unit tests</subtitle>
+                                                    <updated>2015-12-31T23:59:00+01:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name> <![CDATA[feedItemAuthor@test.test]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-                                    <category type="html">
-                <![CDATA[feedItemCategory]]>
-            </category>
-                        <updated>2016-01-01T00:00:00+01:00</updated>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T23:59:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <link rel="alternate" href="https://localhost/news/testItem2" />
+            <id>http://localhost/2</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name> <![CDATA[feedItemAuthor@test.test]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-                                    <category type="html">
-                <![CDATA[feedItemCategory]]>
-            </category>
-                        <updated>2016-01-01T00:00:00+01:00</updated>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T23:58:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <link rel="alternate" href="https://localhost/news/testItem3" />
+            <id>http://localhost/3</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name> <![CDATA[feedItemAuthor@test.test]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-                                    <category type="html">
-                <![CDATA[feedItemCategory]]>
-            </category>
-                        <updated>2016-01-01T00:00:00+01:00</updated>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T23:57:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <link rel="alternate" href="https://localhost/news/testItem4" />
+            <id>http://localhost/4</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name> <![CDATA[feedItemAuthor@test.test]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-                                    <category type="html">
-                <![CDATA[feedItemCategory]]>
-            </category>
-                        <updated>2016-01-01T00:00:00+01:00</updated>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T23:56:00+01:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
-            <link rel="alternate" href="https://localhost/news/testItem1" />
-            <id>http://localhost/1</id>
+            <link rel="alternate" href="https://localhost/news/testItem5" />
+            <id>http://localhost/5</id>
             <author>
-                <name> <![CDATA[feedItemAuthor]]></name>
+                <name> <![CDATA[feedItemAuthor@test.test]]></name>
             </author>
             <summary type="html">
                 <![CDATA[feedItemSummary]]>
             </summary>
-                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
-                                    <category type="html">
-                <![CDATA[feedItemCategory]]>
-            </category>
-                        <updated>2016-01-01T00:00:00+01:00</updated>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T23:55:00+01:00</updated>
         </entry>
     </feed>

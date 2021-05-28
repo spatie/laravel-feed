@@ -12,11 +12,11 @@ class DummyRepository
     public function __construct()
     {
         $this->items = collect([
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
-            new DummyItem(),
+            new DummyItem(1),
+            new DummyItem(2),
+            new DummyItem(3),
+            new DummyItem(4),
+            new DummyItem(5),
         ]);
     }
 
