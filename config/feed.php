@@ -23,8 +23,8 @@ return [
             'language' => 'en-US',
 
             /*
-             * The image to display for the feed.  For Atom and JSON feeds, this is displayed as
-             * an icon; for RSS feeds, it's displayed as a banner image.
+             * The image to display for the feed.  For Atom feeds, this is displayed as
+             * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
              * An empty value omits the image attribute from the feed.
              */
             'image' => '',
@@ -40,14 +40,16 @@ return [
             'view' => 'feed::atom',
 
             /*
-             * The type to be used in the <link> tag
+             * The type to be used in the <link> tag.  Set to an empty string to automatically
+             * determine the correct value.
              */
-            'type' => 'application/atom+xml',
+            'type' => '',
 
             /*
-             * The content type for the feed response
+             * The content type for the feed response.  Set to an empty string to automatically
+             * determine the correct value.
              */
-            'content-type' => 'application/xml',
+            'content-type' => '',
         ],
     ],
 ];

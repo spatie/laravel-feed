@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
+use Spatie\Feed\Helpers\FeedContentType;
 
 class Feed implements Responsable
 {
@@ -64,7 +65,7 @@ class Feed implements Responsable
         ]);
 
         return new Response($contents, 200, [
-            'Content-Type' => config('feed::content-type', 'application/xml') . ';charset=UTF-8',
+            'Content-Type' => FeedContentType::forResponse($this->format) . ';charset=UTF-8',
         ]);
     }
 
@@ -77,7 +78,6 @@ class Feed implements Responsable
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);
-            $feedable->feed = $this;
         }
 
         if ($feedable instanceof FeedItem) {
@@ -121,4 +121,5 @@ class Feed implements Responsable
 
         return $updatedAt->toRfc3339String();
     }
+
 }
