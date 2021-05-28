@@ -23,7 +23,7 @@
                 <title><![CDATA[{{ $item->title }}]]></title>
                 <link>{{ url($item->link) }}</link>
                 <description><![CDATA[{!! $item->summary !!}]]></description>
-                <author><![CDATA[{{ $item->author }}]]></author>
+                <author><![CDATA[{{ $item->authorName }}@if(!empty($item->authorEmail)) <{{ $item->authorEmail }}>@endif]]></author>
                 <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->timestamp() }}</pubDate>
                 @foreach($item->category as $category)

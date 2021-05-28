@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Test;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
 use Spatie\TestTime\TestTime;
 
@@ -62,7 +63,8 @@ class FeedTest extends TestCase
         $feed = new Feed('title', collect([
             [
                 'id' => 1,
-                'author' => 'John',
+                'authorName' => 'John',
+                'authorEmail' => 'john@test.test',
                 'title' => 'Song A',
                 'updated' => now(),
                 'summary' => 'summary A',
@@ -70,17 +72,35 @@ class FeedTest extends TestCase
             ],
             [
                 'id' => 2,
-                'author' => 'paul',
+                'authorName' => 'paul',
+                'authorEmail' => 'paul@test.test',
                 'title' => 'Song B',
                 'updated' => now(),
                 'summary' => 'summary B',
                 'link' => 'link B',
-
             ],
         ]));
 
         $response = $feed->toResponse(Request::capture());
 
         $this->assertMatchesSnapshot($response->content());
+    }
+
+    /** @test */
+    public function it_returns_the_correct_content_type()
+    {
+        $feeds = [
+            'feed1' => 'application/xml',
+            'feed1.rss' => 'application/xml',
+            'feed1.json' => 'application/json',
+        ];
+
+        collect($feeds)->each(function (string $contentType, $feedName) {
+            $response = $this->get("/feedBaseUrl/{$feedName}");
+
+            $response->assertStatus(200);
+
+            $this->assertEquals(Str::before($response->headers->get('content-type'), ';'), $contentType);
+        });
     }
 }

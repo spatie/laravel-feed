@@ -15,7 +15,10 @@
             "summary": "{!! str_replace('"', '\\"', $item->summary) !!}",
             "date_published": "{{ $item->timestamp() }}",
             "date_modified": "{{ $item->timestamp() }}",
-            "authors": [{ "name": "{{ $item->author }}" }],
+            "authors": [{ "name": "{{ $item->authorName }}" }],
+@if($item->__isset('image'))
+            "image": "{{ url($item->image) }}",
+@endif
 @if($item->__isset('enclosure'))
             "attachments": [
                 {

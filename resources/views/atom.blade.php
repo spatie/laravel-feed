@@ -27,7 +27,11 @@
             <link rel="alternate" href="{{ url($item->link) }}" />
             <id>{{ url($item->id) }}</id>
             <author>
-                <name> <![CDATA[{{ $item->author }}]]></name>
+                <name><![CDATA[{{ $item->authorName }}]]></name>
+@if(!empty($item->authorEmail))
+                <email><![CDATA[{{ $item->authorEmail }}]]></email>
+
+@endif
             </author>
             <summary type="html">
                 <![CDATA[{!! $item->summary !!}]]>

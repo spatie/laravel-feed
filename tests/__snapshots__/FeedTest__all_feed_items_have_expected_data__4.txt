@@ -17,7 +17,7 @@
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor@test.test]]></author>
+                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/1</guid>
                 <pubDate>Thu, 31 Dec 2015 23:59:00 +0100</pubDate>
                                     <category>feedItemCategory</category>
@@ -26,7 +26,7 @@
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem2</link>
                 <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor@test.test]]></author>
+                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/2</guid>
                 <pubDate>Thu, 31 Dec 2015 23:58:00 +0100</pubDate>
                                     <category>feedItemCategory</category>
@@ -35,7 +35,7 @@
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem3</link>
                 <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor@test.test]]></author>
+                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/3</guid>
                 <pubDate>Thu, 31 Dec 2015 23:57:00 +0100</pubDate>
                                     <category>feedItemCategory</category>
@@ -44,7 +44,7 @@
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem4</link>
                 <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor@test.test]]></author>
+                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/4</guid>
                 <pubDate>Thu, 31 Dec 2015 23:56:00 +0100</pubDate>
                                     <category>feedItemCategory</category>
@@ -53,7 +53,7 @@
                 <title><![CDATA[feedItemTitle]]></title>
                 <link>https://localhost/news/testItem5</link>
                 <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor@test.test]]></author>
+                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/5</guid>
                 <pubDate>Thu, 31 Dec 2015 23:55:00 +0100</pubDate>
                                     <category>feedItemCategory</category>

@@ -22,7 +22,8 @@ class FeedItemTest extends TestCase
             ->title('A title')
             ->category('a category')
             ->link('https://spatie.be')
-            ->author('an author')
+            ->authorName('an author')
+            ->authorEmail('author@test.test')
             ->updated(now());
 
         $this->expectNotToPerformAssertions();

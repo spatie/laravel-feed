@@ -11,7 +11,9 @@
             <link rel="alternate" href="http://localhost/link A" />
             <id>http://localhost/1</id>
             <author>
-                <name> <![CDATA[John]]></name>
+                <name><![CDATA[John]]></name>
+                <email><![CDATA[john@test.test]]></email>
+
             </author>
             <summary type="html">
                 <![CDATA[summary A]]>
@@ -23,7 +25,9 @@
             <link rel="alternate" href="http://localhost/link B" />
             <id>http://localhost/2</id>
             <author>
-                <name> <![CDATA[paul]]></name>
+                <name><![CDATA[paul]]></name>
+                <email><![CDATA[paul@test.test]]></email>
+
             </author>
             <summary type="html">
                 <![CDATA[summary B]]>

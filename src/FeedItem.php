@@ -22,11 +22,15 @@ class FeedItem
 
     protected string $enclosure;
 
+    protected string $image;
+
     protected int $enclosureLength;
 
     protected string $enclosureType;
 
-    protected string $author;
+    protected string $authorName;
+
+    protected string $authorEmail;
 
     protected array $category = [];
 
@@ -104,9 +108,23 @@ class FeedItem
         return $this;
     }
 
-    public function author(string $author): self
+    public function image(string $image): self
     {
-        $this->author = $author;
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function authorName(string $authorName): self
+    {
+        $this->authorName = $authorName;
+
+        return $this;
+    }
+
+    public function authorEmail(string $authorEmail): self
+    {
+        $this->authorEmail = $authorEmail;
 
         return $this;
     }
@@ -129,7 +147,7 @@ class FeedItem
 
     public function validate(): void
     {
-        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
+        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'authorName'];
 
         foreach ($requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {

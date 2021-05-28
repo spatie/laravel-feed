@@ -26,7 +26,8 @@ class DummyItem implements Feedable
             'enclosureType' => 'image/jpeg',
             'updated' => Carbon::now()->subMinutes($this->id),
             'link' => 'https://localhost/news/testItem' . $this->id,
-            'author' => 'feedItemAuthor@test.test',
+            'authorName' => 'feedItemAuthor',
+            'authorEmail' => 'feedItemAuthor@test.test',
             'category' => 'feedItemCategory',
         ]);
     }
