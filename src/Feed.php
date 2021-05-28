@@ -19,6 +19,8 @@ class Feed implements Responsable
 
     protected string $view;
 
+    protected string $image;
+
     protected Collection $feedItems;
 
     public function __construct(
@@ -27,13 +29,15 @@ class Feed implements Responsable
         string $url = '',
         string $view = 'feed::feed',
         string $description = '',
-        string $language = ''
+        string $language = '',
+        string $image = ''
     ) {
         $this->title = $title;
         $this->description = $description;
         $this->language = $language;
         $this->url = $url ?? request()->url();
         $this->view = $view;
+        $this->image = $image;
 
         $this->feedItems = $items->map(fn ($feedable) => $this->castToFeedItem($feedable));
     }
@@ -44,6 +48,7 @@ class Feed implements Responsable
             'id' => url($this->url),
             'link' => url($this->url),
             'title' => $this->title,
+            'image' => $this->image,
             'description' => $this->description,
             'language' => $this->language,
             'updated' => $this->lastUpdated(),

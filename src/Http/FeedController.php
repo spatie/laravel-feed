@@ -28,7 +28,8 @@ class FeedController
             request()->url(),
             $feed['view'] ?? 'feed::feed',
             $feed['description'] ?? '',
-            $feed['language'] ?? ''
+            $feed['language'] ?? '',
+            $feed['image'] ?? '',
         );
     }
 

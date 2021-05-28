@@ -4,6 +4,7 @@
     "home_page_url": "http://localhost",
     "feed_url": "http://localhost/feedBaseUrl/feed1.json",
     "language": "en-US",
+    "icon": "http://localhost/image.jpg",
     "items": [{
             "id": "http://localhost/1",
             "title": "feedItemTitle",

@@ -3,6 +3,11 @@
     <channel>
         <title><![CDATA[Feed 1 RSS]]></title>
         <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
+        <image>
+            <url>http://localhost/image.jpg</url>
+            <title><![CDATA[Feed 1 RSS]]></title>
+            <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
+        </image>
         <description><![CDATA[This is feed 1 as RSS from the unit tests]]></description>
         <language>en-US</language>
         <pubDate>2016-01-01T00:00:00+01:00</pubDate>

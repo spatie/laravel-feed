@@ -3,6 +3,7 @@
                         <id>http://localhost/feedBaseUrl/feed2</id>
                                 <link href="http://localhost/feedBaseUrl/feed2"></link>
                                 <title><![CDATA[Feed 2]]></title>
+                                <atom:logo>http://localhost/image.jpg</atom:logo>
                                 <description>This is feed 2 from the unit tests</description>
                                 <language>en-US</language>
                                 <updated>2016-01-01T00:00:00+01:00</updated>

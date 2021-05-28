@@ -36,6 +36,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -43,6 +44,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
             ],
             [
                 'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
@@ -50,6 +52,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
             ],
             [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -57,6 +60,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed with Custom View',
                 'description' => 'This is a feed that uses custom views from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
             ],
             [
@@ -65,6 +69,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 1 RSS',
                 'description' => 'This is feed 1 as RSS from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
             ],
@@ -74,6 +79,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'title' => 'Feed 1 JSON',
                 'description' => 'This is feed 1 as JSON from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::jsonfeed',
                 'type' => 'application/feed+json',
             ],
