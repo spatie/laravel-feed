@@ -6,7 +6,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
-use Spatie\Feed\ResolveFeedItems;
 
 class FeedController
 {
