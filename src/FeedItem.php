@@ -8,6 +8,8 @@ use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class FeedItem
 {
+    public ?Feed $feed = null;
+
     protected ?string $id = null;
 
     protected string $title;
@@ -114,6 +116,15 @@ class FeedItem
         $this->category = $category;
 
         return $this;
+    }
+
+    public function timestamp(): string
+    {
+        if ($this->feed->format() === 'rss') {
+            return $this->updated->toRssString();
+        }
+
+        return $this->updated->toRfc3339String();
     }
 
     public function validate(): void
