@@ -5,7 +5,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate a feed for your Laravel application.  Supported formats are [RSS](http://www.whatisrss.com/), [Atom](https://en.wikipedia.org/wiki/Atom_(standard)), and [JSON](https://jsonfeed.org). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
+This package provides an easy way to generate a feed for your Laravel application.  Supported formats are [RSS](http://www.whatisrss.com/), [Atom](https://en.wikipedia.org/wiki/Atom_(standard)), and [JSON](https://jsonfeed.org). There's almost no coding required on your part. Just follow the installation instructions, update your config file, and you're good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -66,19 +66,33 @@ return [
             'language' => 'en-US',
 
             /*
+             * The image to display for the feed.  For Atom feeds, this is displayed as
+             * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
+             * An empty value omits the image attribute from the feed.
+             */
+            'image' => '',
+
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+
+            /*
              * The view that will render the feed.
              */
             'view' => 'feed::atom',
 
             /*
-             * The type to be used in the <link> tag
+             * The type to be used in the <link> tag.  Set to an empty string to automatically
+             * determine the correct value.
              */
-            'type' => 'application/atom+xml',
+            'type' => '',
 
             /*
-             * The content type for the feed response
+             * The content type for the feed response.  Set to an empty string to automatically
+             * determine the correct value.
              */
-            'content-type' => 'application/xml',
+            'content-type' => '',
         ],
     ],
 ];
@@ -113,7 +127,8 @@ class NewsItem extends Model implements Feedable
             ->summary($this->summary)
             ->updated($this->updated_at)
             ->link($this->link)
-            ->author($this->author);
+            ->authorName($this->author)
+            ->authorEmail($this->authorEmail);
     }
 }
 ```
@@ -137,7 +152,7 @@ class NewsItem extends Model implements Feedable
             'summary' => $this->summary,
             'updated' => $this->updated_at,
             'link' => $this->link,
-            'author' => $this->author,
+            'authorName' => $this->authorName,
         ]);
     }
 }
@@ -180,6 +195,11 @@ return [
             'title' => 'All newsitems on mysite.com',
 
             /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+
+            /*
              * Custom view for the items.
              *
              * Defaults to feed::feed if not present.
@@ -218,6 +238,11 @@ return [
 
             'title' => 'All newsitems on mysite.com',
 
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+            
             /*
              * Custom view for the items.
              *
