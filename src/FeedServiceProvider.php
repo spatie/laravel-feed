@@ -3,6 +3,8 @@
 namespace Spatie\Feed;
 
 use Spatie\Feed\Components\FeedLinks;
+use Spatie\Feed\Exceptions\InvalidConfiguration;
+use Spatie\Feed\Helpers\ConfigurationValidator;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
 use Spatie\LaravelPackageTools\Package;
@@ -25,6 +27,8 @@ class FeedServiceProvider extends PackageServiceProvider
     public function packageRegistered()
     {
         $this->registerRouteMacro();
+
+        ConfigurationValidator::validate();
     }
 
     protected function registerRouteMacro(): void
@@ -44,4 +48,5 @@ class FeedServiceProvider extends PackageServiceProvider
     {
         return collect(config('feed.feeds'));
     }
+
 }
