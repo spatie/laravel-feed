@@ -2,7 +2,6 @@
 
 namespace Spatie\Feed;
 
-use Illuminate\Support\Facades\View;
 use Spatie\Feed\Components\FeedLinks;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
@@ -17,12 +16,10 @@ class FeedServiceProvider extends PackageServiceProvider
             ->name('laravel-feed')
             ->hasConfigFile()
             ->hasViews()
+            ->hasViewComposer('feed::links', function ($view) {
+                $view->with('feeds', $this->feeds());
+            })
             ->hasViewComponent('', FeedLinks::class);
-    }
-
-    public function packageBooted()
-    {
-        $this->registerLinksComposer();
     }
 
     public function packageRegistered()
@@ -40,13 +37,6 @@ class FeedServiceProvider extends PackageServiceProvider
 
                 $router->get($url, '\\'.FeedController::class)->name("feeds.{$name}");
             }
-        });
-    }
-
-    public function registerLinksComposer(): void
-    {
-        View::composer('feed::links', function ($view) {
-            $view->with('feeds', $this->feeds());
         });
     }
 
