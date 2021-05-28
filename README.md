@@ -5,7 +5,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
+This package provides an easy way to generate a feed for your Laravel application.  Supported formats are [RSS](http://www.whatisrss.com/), [Atom](https://en.wikipedia.org/wiki/Atom_(standard)), and [JSON](https://jsonfeed.org). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -68,7 +68,17 @@ return [
             /*
              * The view that will render the feed.
              */
-            'view' => 'feed::feed',
+            'view' => 'feed::atom',
+
+            /*
+             * The type to be used in the <link> tag
+             */
+            'type' => 'application/atom+xml',
+
+            /*
+             * The content type for the feed response
+             */
+            'content-type' => 'application/xml',
         ],
     ],
 ];
@@ -240,23 +250,23 @@ As an alternative you can use this blade component:
 <x-feed-links />
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
 ## Testing
 
-``` bash
+```bash
 composer test
 ```
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security
+## Security Vulnerabilities
 
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
