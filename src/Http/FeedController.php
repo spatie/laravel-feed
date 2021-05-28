@@ -30,6 +30,7 @@ class FeedController
             $feed['description'] ?? '',
             $feed['language'] ?? '',
             $feed['image'] ?? '',
+            $feed['format'] ?? '',
         );
     }
 

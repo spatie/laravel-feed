@@ -21,6 +21,8 @@ class Feed implements Responsable
 
     protected string $image;
 
+    protected string $format;
+
     protected Collection $feedItems;
 
     public function __construct(
@@ -30,7 +32,8 @@ class Feed implements Responsable
         string $view = 'feed::feed',
         string $description = '',
         string $language = '',
-        string $image = ''
+        string $image = '',
+        string $format = 'atom'
     ) {
         $this->title = $title;
         $this->description = $description;
@@ -38,6 +41,7 @@ class Feed implements Responsable
         $this->url = $url ?? request()->url();
         $this->view = $view;
         $this->image = $image;
+        $this->format = $format;
 
         $this->feedItems = $items->map(fn ($feedable) => $this->castToFeedItem($feedable));
     }
@@ -64,13 +68,21 @@ class Feed implements Responsable
         ]);
     }
 
+    public function format(): string
+    {
+        return $this->format;
+    }
+
     protected function castToFeedItem($feedable): FeedItem
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);
+            $feedable->feed = $this;
         }
 
         if ($feedable instanceof FeedItem) {
+            $feedable->feed = $this;
+
             $feedable->validate();
 
             return $feedable;
@@ -86,6 +98,8 @@ class Feed implements Responsable
             throw InvalidFeedItem::notAFeedItem($feedItem);
         }
 
+        $feedItem->feed = $this;
+
         $feedItem->validate();
 
         return $feedItem;
@@ -97,8 +111,14 @@ class Feed implements Responsable
             return '';
         }
 
-        return $this->feedItems->sortBy(function ($feedItem) {
+        $updatedAt = $this->feedItems->sortBy(function ($feedItem) {
             return $feedItem->updated;
-        })->last()->updated->toRfc3339String();
+        })->last()->updated;
+
+        if ($this->format === 'rss') {
+            return $updatedAt->toRssString();
+        }
+
+        return $updatedAt->toRfc3339String();
     }
 }

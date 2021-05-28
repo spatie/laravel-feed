@@ -23,6 +23,18 @@ return [
             'language' => 'en-US',
 
             /*
+             * The image to display for the feed.  For Atom and JSON feeds, this is displayed as
+             * an icon; for RSS feeds, it's displayed as a banner image.
+             * An empty value omits the image attribute from the feed.
+             */
+            'image' => '',
+
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+
+            /*
              * The view that will render the feed.
              */
             'view' => 'feed::atom',
