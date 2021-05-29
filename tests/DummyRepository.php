@@ -6,8 +6,7 @@ use Illuminate\Support\Collection;
 
 class DummyRepository
 {
-    /** @var \Illuminate\Support\Collection */
-    public $items;
+    public Collection $items;
 
     public function __construct()
     {

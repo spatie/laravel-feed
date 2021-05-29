@@ -8,11 +8,8 @@ use Spatie\Feed\FeedItem;
 
 class DummyItem implements Feedable
 {
-    public $id = 1;
-
-    public function __construct(int $id = 1)
+    public function __construct(public int $id = 1)
     {
-        $this->id = $id;
     }
 
     public function toFeedItem(): FeedItem

@@ -2,8 +2,6 @@
 
 namespace Spatie\Feed\Http;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
 use Spatie\Feed\Helpers\ResolveFeedItems;
