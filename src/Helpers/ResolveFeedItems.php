@@ -27,13 +27,13 @@ class ResolveFeedItems
     {
         $ttl = config("feed.feeds.{$feedName}.cacheTtl", 0);
 
-        if ($ttl <= 0 || ! $ttl) {
-            return self::callResolver($resolver) ?? collect();
+        if (is_int($ttl) && $ttl > 0) {
+            return Cache::remember("feed:{$feedName}", $ttl, function () use ($resolver) {
+                return self::callResolver($resolver);
+            });
         }
 
-        return Cache::remember("feed:{$feedName}", $ttl, function() use ($resolver) {
-            return self::callResolver($resolver);
-        });
+        return self::callResolver($resolver) ?? collect();
     }
 
     protected static function callResolver($resolver): Collection
