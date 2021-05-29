@@ -85,7 +85,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'description' => 'This is feed 1 as JSON from the unit tests',
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
-                'view' => 'feed::jsonfeed',
+                'view' => 'feed::json',
                 'type' => 'application/feed+json',
                 'format' => 'json',
             ],
