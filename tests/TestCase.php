@@ -31,7 +31,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $feed = [
             [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'items' => ['Spatie\Feed\Test\DummyRepository', 'getAll'],
                 'url' => '/feed1',
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
@@ -49,7 +49,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'format' => 'atom',
             ],
             [
-                'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
+                'items' => ['Spatie\Feed\Test\DummyRepository', 'getAllWithArguments', 'first'],
                 'url' => '/feed3',
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
