@@ -50,9 +50,13 @@ return [
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
              * 'App\Model@getAllFeedItems'
+             * or
+             * ['App\Model', 'getAllFeedItems']
              *
              * You can also pass an argument to that method:
              * ['App\Model@getAllFeedItems', 'argument']
+             * or
+             * ['App\Model', 'getAllFeedItems', 'argument']
              */
             'items' => '',
 
@@ -183,7 +187,14 @@ return [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
-             * '\App\Model@getAllFeedItems'
+             * 'App\Model@getAllFeedItems'
+             * or
+             * ['App\Model', 'getAllFeedItems']
+             *
+             * You can also pass an argument to that method:
+             * ['App\Model@getAllFeedItems', 'argument']
+             * or
+             * ['App\Model', 'getAllFeedItems', 'argument']
              */
             'items' => 'App\NewsItem@getFeedItems',
 
@@ -232,7 +243,7 @@ return [
 
     'feeds' => [
         'news' => [
-            'items' => 'App\NewsItem@getFeedItems',
+            'items' => ['App\NewsItem', 'getFeedItems'],
 
             'url' => '/feed',
 
