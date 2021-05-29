@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
+use Spatie\Feed\Helpers\ResolveFeedItems;
 
 class FeedController
 {
@@ -19,44 +20,17 @@ class FeedController
 
         abort_unless($feed, 404);
 
-        $items = $this->resolveFeedItems($feed['items']);
+        $items = ResolveFeedItems::resolve($feed['items']);
 
         return new Feed(
             $feed['title'],
             $items,
             request()->url(),
-            $feed['view'] ?? 'feed::feed',
+            $feed['view'] ?? 'feed::atom',
             $feed['description'] ?? '',
-            $feed['language'] ?? '',
+            $feed['language'] ?? 'en-US',
             $feed['image'] ?? '',
-            $feed['format'] ?? '',
+            $feed['format'] ?? 'atom',
         );
-    }
-
-    protected function resolveFeedItems($resolver): Collection
-    {
-        $newResolver = $resolver;
-
-        if (is_array($resolver) && ! str_contains($resolver[0], '@')) {
-            $newResolver = implode('@', array_slice($resolver, 0, 2));
-
-            if (count($resolver) > 2) {
-                $newResolver = array_merge([$newResolver], array_slice($resolver, 2));
-            }
-        }
-
-        return $this->callFeedItemsResolver($newResolver);
-    }
-
-    protected function callFeedItemsResolver($resolver): Collection
-    {
-        $resolver = Arr::wrap($resolver);
-
-        $items = app()->call(
-            array_shift($resolver),
-            $resolver
-        );
-
-        return $items;
     }
 }

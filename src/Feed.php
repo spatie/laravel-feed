@@ -10,41 +10,21 @@ use Spatie\Feed\Helpers\FeedContentType;
 
 class Feed implements Responsable
 {
-    protected string $title;
-
-    protected string $description;
-
-    protected string $language;
-
-    protected string $url;
-
-    protected string $view;
-
-    protected string $image;
-
-    protected string $format;
-
     protected Collection $feedItems;
 
     public function __construct(
-        string $title,
-        Collection $items,
-        string $url = '',
-        string $view = 'feed::feed',
-        string $description = '',
-        string $language = '',
-        string $image = '',
-        string $format = 'atom'
+        protected string $title,
+        protected Collection $items,
+        protected string $url = '',
+        protected string $view = 'feed::feed',
+        protected string $description = '',
+        protected string $language = '',
+        protected string $image = '',
+        protected string $format = 'atom'
     ) {
-        $this->title = $title;
-        $this->description = $description;
-        $this->language = $language;
         $this->url = $url ?? request()->url();
-        $this->view = $view;
-        $this->image = $image;
-        $this->format = $format;
 
-        $this->feedItems = $items->map(fn ($feedable) => $this->castToFeedItem($feedable));
+        $this->feedItems = $this->items->map(fn ($feedable) => $this->castToFeedItem($feedable));
     }
 
     public function toResponse($request): Response
@@ -74,7 +54,7 @@ class Feed implements Responsable
         return $this->format;
     }
 
-    protected function castToFeedItem($feedable): FeedItem
+    protected function castToFeedItem(array | FeedItem | Feedable $feedable): FeedItem
     {
         if (is_array($feedable)) {
             $feedable = new FeedItem($feedable);
@@ -111,9 +91,9 @@ class Feed implements Responsable
             return '';
         }
 
-        $updatedAt = $this->feedItems->sortBy(function ($feedItem) {
-            return $feedItem->updated;
-        })->last()->updated;
+        $updatedAt = $this->feedItems
+            ->sortBy(fn ($feedItem) => $feedItem->updated)
+            ->last()->updated;
 
         if ($this->format === 'rss') {
             return $updatedAt->toRssString();

@@ -47,7 +47,7 @@ class FeedItem
         }
     }
 
-    public static function create(array $data = []): self
+    public static function create(array $data = []): static
     {
         return new static($data);
     }

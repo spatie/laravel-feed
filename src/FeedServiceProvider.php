@@ -2,6 +2,7 @@
 
 namespace Spatie\Feed;
 
+use Illuminate\Support\Collection;
 use Spatie\Feed\Components\FeedLinks;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 use Spatie\Feed\Helpers\Path;
@@ -45,7 +46,7 @@ class FeedServiceProvider extends PackageServiceProvider
         });
     }
 
-    protected function feeds()
+    protected function feeds(): Collection
     {
         return collect(config('feed.feeds'));
     }
