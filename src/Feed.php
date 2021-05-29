@@ -16,7 +16,7 @@ class Feed implements Responsable
         protected string $title,
         protected Collection $items,
         protected string $url = '',
-        protected string $view = 'feed::feed',
+        protected string $view = 'feed::atom',
         protected string $description = '',
         protected string $language = '',
         protected string $image = '',
