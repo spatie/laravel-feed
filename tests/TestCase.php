@@ -30,7 +30,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function getEnvironmentSetUp($app)
     {
         $feed = [
-            [
+            'feed1' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository', 'getAll'],
                 'url' => '/feed1',
                 'title' => 'Feed 1',
@@ -38,8 +38,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
+                'cache-ttl' => 0,
             ],
-            [
+            'feed2' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed2',
                 'title' => 'Feed 2',
@@ -47,8 +48,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
+                'cache-ttl' => 0,
             ],
-            [
+            'feed3' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository', 'getAllWithArguments', 'first'],
                 'url' => '/feed3',
                 'title' => 'Feed 3',
@@ -56,8 +58,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
+                'cache-ttl' => 0,
             ],
-            [
+            'feedcustom' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed-with-custom-view',
                 'title' => 'Feed with Custom View',
@@ -66,8 +69,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
                 'format' => 'atom',
+                'cache-ttl' => 0,
             ],
-            [
+            'feedrss' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1.rss',
                 'title' => 'Feed 1 RSS',
@@ -77,8 +81,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
                 'format' => 'rss',
+                'cache-ttl' => 0,
             ],
-            [
+            'feedjson' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1.json',
                 'title' => 'Feed 1 JSON',
@@ -88,6 +93,19 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::json',
                 'type' => 'application/feed+json',
                 'format' => 'json',
+                'cache-ttl' => 0,
+            ],
+            'feedcached' => [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed1-cached.json',
+                'title' => 'Cached Feed 1 JSON',
+                'description' => 'This is feed 1 with cached items as JSON from the unit tests',
+                'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'view' => 'feed::rss',
+                'type' => 'application/rss+xml',
+                'format' => 'rss',
+                'cache-ttl' => 10,
             ],
         ];
 

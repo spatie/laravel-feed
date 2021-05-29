@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Test;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Spatie\Feed\Feed;
 use Spatie\TestTime\TestTime;
@@ -103,4 +104,68 @@ class FeedTest extends TestCase
             $this->assertEquals(Str::before($response->headers->get('content-type'), ';'), $contentType);
         });
     }
+
+    /** @test */
+    public function it_caches_items_when_cache_ttl_is_greater_than_zero()
+    {
+        Cache::spy();
+
+        $responses = [
+            $this->get('/feedBaseUrl/feed1-cached.json'),
+            $this->get('/feedBaseUrl/feed1-cached.json'),
+            $this->get('/feedBaseUrl/feed1-cached.json'),
+        ];
+
+        collect($responses)->each(fn ($resp) => $resp->assertStatus(200));
+
+        Cache::shouldHaveReceived('remember')
+            ->times(count($responses))
+            ->withAnyArgs();
+    }
+
+    /** @test */
+    public function it_does_not_cache_items_when_cache_ttl_is_zero()
+    {
+        Cache::shouldReceive('remember')->never();
+
+        $responses = [
+            $this->get('/feedBaseUrl/feed1.json'),
+            $this->get('/feedBaseUrl/feed1.json'),
+        ];
+
+        collect($responses)->each(fn ($resp) => $resp->assertStatus(200));
+    }
+
+    /** @test */
+    public function it_returns_cached_items_when_cache_ttl_is_greater_than_zero()
+    {
+        $responses = [];
+
+        // initial response is cached for 10 seconds (see TestCase class)
+        TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00');
+        $responses[] = $this->get('/feedBaseUrl/feed1-cached.json');
+
+        // cause an an item to be added while items are still cached
+        TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:05');
+        $responses[] = $this->get('/feedBaseUrl/feed1-cached.json?add=1');
+
+        // cause an item to be added after the initial cache expires
+        TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:55');
+        $responses[] = $this->get('/feedBaseUrl/feed1-cached.json?add=1');
+
+        // get content of each response, removing date strings
+        $content = collect($responses)
+            ->map(fn ($resp) => preg_replace('~<pubDate>.+</pubDate>~', '', $resp->getContent()))
+            ->all();
+
+        // first two responses are the same even though an item was added because we received a
+        // cached response on the second request.
+        $this->assertSame($content[0], $content[1]);
+
+        // the third request did not return cached data, so it's different than the first response
+        $this->assertNotSame($content[0], $content[2]);
+
+        $this->assertMatchesSnapshot($content);
+    }
+
 }

@@ -22,6 +22,10 @@ class DummyRepository
 
     public function getAll(): Collection
     {
+        if (request()->query->getInt('add', 0) === 1) {
+            $this->items->push(new DummyItem($this->items->count() + 1));
+        }
+
         return $this->items;
     }
 

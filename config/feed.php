@@ -54,6 +54,12 @@ return [
              * determine the correct value.
              */
             'content-type' => '',
+
+            /*
+             * The TTL in seconds to keep the feed items cached to improve performance.
+             * Set to 0 to disable caching.
+             */
+            'cache-ttl' => 0,
         ],
     ],
 ];
