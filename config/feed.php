@@ -44,7 +44,7 @@ return [
             'view' => 'feed::atom',
 
             /*
-             * The type to be used in the <link> tag.  Set to an empty string to automatically
+             * The mime type to be used in the <link> tag.  Set to an empty string to automatically
              * determine the correct value.
              */
             'type' => '',

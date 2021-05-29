@@ -3,7 +3,6 @@
 namespace Spatie\Feed;
 
 use Spatie\Feed\Components\FeedLinks;
-use Spatie\Feed\Exceptions\InvalidConfiguration;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
