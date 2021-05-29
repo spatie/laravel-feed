@@ -38,7 +38,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feed2' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -48,7 +48,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feed3' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository', 'getAllWithArguments', 'first'],
@@ -58,7 +58,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feedcustom' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -69,7 +69,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
                 'format' => 'atom',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feedrss' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -81,7 +81,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
                 'format' => 'rss',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feedjson' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -93,7 +93,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::json',
                 'type' => 'application/feed+json',
                 'format' => 'json',
-                'cache-ttl' => 0,
+                'cacheTtl' => 0,
             ],
             'feedcached' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -105,7 +105,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
                 'format' => 'rss',
-                'cache-ttl' => 10,
+                'cacheTtl' => 10,
             ],
         ];
 

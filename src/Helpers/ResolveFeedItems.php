@@ -25,7 +25,7 @@ class ResolveFeedItems
 
     protected static function callFeedItemsResolver(string $feedName, $resolver): ?Collection
     {
-        $ttl = config("feed.feeds.{$feedName}.cache-ttl", 0);
+        $ttl = config("feed.feeds.{$feedName}.cacheTtl", 0);
 
         if ($ttl <= 0 || ! $ttl) {
             return self::callResolver($resolver) ?? collect();

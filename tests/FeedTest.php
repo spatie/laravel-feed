@@ -141,6 +141,8 @@ class FeedTest extends TestCase
     {
         $responses = [];
 
+        Cache::flush();
+
         // initial response is cached for 10 seconds (see TestCase class)
         TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00');
         $responses[] = $this->get('/feedBaseUrl/feed1-cached.json');

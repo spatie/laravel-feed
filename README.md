@@ -96,7 +96,13 @@ return [
              * The content type for the feed response.  Set to an empty string to automatically
              * determine the correct value.
              */
-            'content-type' => '',
+            'contentType' => '',
+            
+            /*
+             * The TTL in seconds to keep the feed items cached to improve performance.
+             * Set to 0 to disable caching.
+             */
+            'cacheTtl' => 0,
         ],
     ],
 ];

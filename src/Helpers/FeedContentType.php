@@ -17,7 +17,7 @@ class FeedContentType
 
     public static function forResponse(string $feedFormat): string
     {
-        $contentType = config('feed::content-type');
+        $contentType = config('feed::contentType');
         $mappedType = self::$typeMap[$feedFormat]['response'] ?? self::$defaults['response'];
 
         return empty($contentType)
