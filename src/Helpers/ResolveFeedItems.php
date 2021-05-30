@@ -2,30 +2,35 @@
 
 namespace Spatie\Feed\Helpers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class ResolveFeedItems
 {
-    public static function resolve(string $feedName, $resolver): Collection
+    public static function resolve($resolver): Collection
     {
         $newResolver = $resolver;
-        $args = [];
 
-        if (is_array($resolver)) {
-            if (str_contains($resolver[0], '@')) {
-                $newResolver = $resolver[0];
-                $args = array_slice($resolver, 1);
-            } else {
-                $newResolver = "{$resolver[0]}@{$resolver[1]}";
-                $args = array_slice($resolver, 2);
+        if (is_array($resolver) && ! str_contains($resolver[0], '@')) {
+            $newResolver = implode('@', array_slice($resolver, 0, 2));
+
+            if (count($resolver) > 2) {
+                $newResolver = array_merge([$newResolver], array_slice($resolver, 2, true));
             }
         }
 
-        return self::callFeedItemsResolver($newResolver, $args);
+        return self::callFeedItemsResolver($newResolver);
     }
 
-    protected static function callFeedItemsResolver($resolver, $args): ?Collection
+    protected static function callFeedItemsResolver($resolver): Collection
     {
-        return app()->call($resolver, $args);
+        $resolver = Arr::wrap($resolver);
+
+        $items = app()->call(
+            array_shift($resolver),
+            $resolver
+        );
+
+        return $items;
     }
 }

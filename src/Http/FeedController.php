@@ -18,7 +18,7 @@ class FeedController
 
         abort_unless($feed, 404);
 
-        $items = ResolveFeedItems::resolve($name, $feed['items']);
+        $items = ResolveFeedItems::resolve($feed['items']);
 
         return new Feed(
             $feed['title'],
