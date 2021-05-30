@@ -2,49 +2,30 @@
 
 namespace Spatie\Feed\Helpers;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 
 class ResolveFeedItems
 {
     public static function resolve(string $feedName, $resolver): Collection
     {
         $newResolver = $resolver;
+        $args = [];
 
-        if (is_array($resolver) && ! str_contains($resolver[0], '@')) {
-            $newResolver = implode('@', array_slice($resolver, 0, 2));
-
-            if (count($resolver) > 2) {
-                $newResolver = array_merge([$newResolver], array_slice($resolver, 1));
+        if (is_array($resolver)) {
+            if (str_contains($resolver[0], '@')) {
+                $newResolver = $resolver[0];
+                $args = array_slice($resolver, 1);
+            } else {
+                $newResolver = "{$resolver[0]}@{$resolver[1]}";
+                $args = array_slice($resolver, 2);
             }
         }
 
-        return self::callFeedItemsResolver($feedName, $newResolver) ?? collect();
+        return self::callFeedItemsResolver($newResolver, $args);
     }
 
-    protected static function callFeedItemsResolver(string $feedName, $resolver): ?Collection
+    protected static function callFeedItemsResolver($resolver, $args): ?Collection
     {
-        $ttl = config("feed.feeds.{$feedName}.cacheTtl", 0);
-
-        if (is_int($ttl) && $ttl > 0) {
-            return Cache::remember("feed:{$feedName}", $ttl, function () use ($resolver) {
-                return self::callResolver($resolver);
-            });
-        }
-
-        return self::callResolver($resolver) ?? collect();
-    }
-
-    protected static function callResolver($resolver): Collection
-    {
-        $resolver = Arr::wrap($resolver);
-
-        $result = app()->call(
-            array_shift($resolver),
-            $resolver
-        );
-
-        return $result ?? collect();
+        return app()->call($resolver, $args);
     }
 }

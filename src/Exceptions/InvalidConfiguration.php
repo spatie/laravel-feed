@@ -20,9 +20,4 @@ class InvalidConfiguration extends Exception
     {
         return new static("Invalid 'view' value in configuration for feed '{$name}'.");
     }
-
-    public static function invalidCacheTtl(string $name): static
-    {
-        return new static("Invalid 'cacheTtl' value in configuration for feed '{$name}'.  An integer value is required.");
-    }
 }

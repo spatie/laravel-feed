@@ -29,12 +29,6 @@ Make the following additions and changes to the `config/feed.php` configuration 
     'contentType' => '',
 ```
 
-- add `cacheTtl` to each feed with an integer value to specify the number of seconds feed items should be cached _(a value of 0 disables caching)_:
-
-```php
-    'cacheTtl' => 0,
-```
-
 - update the `view` key in each feed to an existing view that is not `feed::feed`:
 
 ```php

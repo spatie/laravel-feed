@@ -38,7 +38,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cacheTtl' => 0,
             ],
             'feed2' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -48,7 +47,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cacheTtl' => 0,
             ],
             'feed3' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository', 'getAllWithArguments', 'first'],
@@ -58,7 +56,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'language' => 'en-US',
                 'image' => 'http://localhost/image.jpg',
                 'format' => 'atom',
-                'cacheTtl' => 0,
             ],
             'feedcustom' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -69,7 +66,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
                 'format' => 'atom',
-                'cacheTtl' => 0,
             ],
             'feedrss' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -81,7 +77,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
                 'format' => 'rss',
-                'cacheTtl' => 0,
             ],
             'feedjson' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
@@ -93,19 +88,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'view' => 'feed::json',
                 'type' => 'application/feed+json',
                 'format' => 'json',
-                'cacheTtl' => 0,
-            ],
-            'feedcached' => [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
-                'url' => '/feed1-cached.json',
-                'title' => 'Cached Feed 1 JSON',
-                'description' => 'This is feed 1 with cached items as JSON from the unit tests',
-                'language' => 'en-US',
-                'image' => 'http://localhost/image.jpg',
-                'view' => 'feed::rss',
-                'type' => 'application/rss+xml',
-                'format' => 'rss',
-                'cacheTtl' => 10,
             ],
         ];
 

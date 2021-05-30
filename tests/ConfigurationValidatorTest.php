@@ -21,7 +21,6 @@ class ConfigurationValidatorTest extends TestCase
                         'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                         'view' => 'feed::rss',
                         'format' => $format,
-                        'cacheTtl' => 0,
                     ],
                 ]);
             } catch(InvalidConfiguration $e) {
@@ -30,31 +29,6 @@ class ConfigurationValidatorTest extends TestCase
         }
 
         $this->assertEquals(1, $exceptionCounter);
-    }
-
-    /** @test */
-    public function it_throws_an_exception_for_non_integer_cache_ttl_values()
-    {
-        $exceptionCounter = 0;
-        $values = [1, null, false, '1', [1]];
-
-        foreach($values as $value) {
-            try {
-                ConfigurationValidator::validate([
-                    'feed1' => [
-                        'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
-                        'view' => 'feed::rss',
-                        'format' => 'rss',
-                        'cacheTtl' => $value,
-                    ],
-                ]);
-            } catch(\Exception $e) {
-                $exceptionCounter++;
-                $this->assertInstanceOf(InvalidConfiguration::class, $e);
-            }
-        }
-
-        $this->assertEquals(4, $exceptionCounter);
     }
 
     /** @test */
@@ -67,7 +41,6 @@ class ConfigurationValidatorTest extends TestCase
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'view' => 'feed::rss',
                 'format' => 'test',
-                'cacheTtl' => 0,
             ],
         ]);
     }
@@ -89,7 +62,6 @@ class ConfigurationValidatorTest extends TestCase
                         'items' => $itemsValue,
                         'view' => 'feed::rss',
                         'format' => 'rss',
-                        'cacheTtl' => 0,
                     ],
                 ]);
             } catch (InvalidConfiguration $e) {
@@ -113,7 +85,6 @@ class ConfigurationValidatorTest extends TestCase
                         'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                         'view' => $view,
                         'format' => 'json',
-                        'cacheTtl' => 0,
                     ],
                 ]);
             } catch (InvalidConfiguration $e) {

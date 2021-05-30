@@ -2,7 +2,6 @@
 
 namespace Spatie\Feed\Helpers;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Spatie\Feed\Exceptions\InvalidConfiguration;
 
@@ -13,10 +12,6 @@ class ConfigurationValidator
         $feeds = $feeds ?? (array)config('feed.feeds', []);
 
         foreach($feeds as $name => $config) {
-            if (! is_int($config['cacheTtl'])) {
-                throw InvalidConfiguration::invalidCacheTtl($name);
-            }
-
             if (! in_array($config['format'], ['atom', 'json', 'rss'])) {
                 throw InvalidConfiguration::unrecognizedFormat($name, $config['format']);
             }

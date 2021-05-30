@@ -97,12 +97,6 @@ return [
              * determine the correct value.
              */
             'contentType' => '',
-            
-            /*
-             * The TTL in seconds to keep the feed items cached to improve performance.
-             * Set to 0 to disable caching.
-             */
-            'cacheTtl' => 0,
         ],
     ],
 ];
