@@ -53,10 +53,10 @@ return [
              * or
              * ['App\Model', 'getAllFeedItems']
              *
-             * You can also pass an argument to that method:
-             * ['App\Model@getAllFeedItems', 'argument']
+             * You can also pass an argument to that method.  Note that their key must be the name of the parameter:             * 
+             * ['App\Model@getAllFeedItems', 'parameterName' => 'argument']
              * or
-             * ['App\Model', 'getAllFeedItems', 'argument']
+             * ['App\Model', 'getAllFeedItems', 'parameterName' => 'argument']
              */
             'items' => '',
 
@@ -191,10 +191,10 @@ return [
              * or
              * ['App\Model', 'getAllFeedItems']
              *
-             * You can also pass an argument to that method:
-             * ['App\Model@getAllFeedItems', 'argument']
+             * You can also pass an argument to that method.  Note that their key must be the name of the parameter:             * 
+             * ['App\Model@getAllFeedItems', 'parameterName' => 'argument']
              * or
-             * ['App\Model', 'getAllFeedItems', 'argument']
+             * ['App\Model', 'getAllFeedItems', 'parameterName' => 'argument']
              */
             'items' => 'App\NewsItem@getFeedItems',
 
