@@ -13,6 +13,10 @@ class ConfigurationValidator
         $feeds = $feeds ?? (array)config('feed.feeds', []);
 
         foreach($feeds as $name => $config) {
+            if (! is_int($config['cacheTtl'])) {
+                throw InvalidConfiguration::invalidCacheTtl($name);
+            }
+
             if (! in_array($config['format'], ['atom', 'json', 'rss'])) {
                 throw InvalidConfiguration::unrecognizedFormat($name, $config['format']);
             }
