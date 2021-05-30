@@ -34,12 +34,12 @@
         "illuminate/support": "^7.0|^8.0",
         "illuminate/http": "^7.0|^8.0",
         "illuminate/contracts": "^7.0|^8.0",
-        "spatie/laravel-package-tools": "^1.5"
+        "spatie/laravel-package-tools": "^1.9"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
         "nunomaduro/collision": "^5.3",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.5.4",
         "orchestra/testbench": "^5.0|^6.0",
         "spatie/phpunit-snapshot-assertions": "^4.2",
         "spatie/test-time": "^1.2"
