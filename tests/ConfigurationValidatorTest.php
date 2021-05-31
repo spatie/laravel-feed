@@ -92,6 +92,6 @@ class ConfigurationValidatorTest extends TestCase
             }
         }
 
-        $this->assertEquals(3, $exceptionCounter);
+        $this->assertEquals(2, $exceptionCounter);
     }
 }

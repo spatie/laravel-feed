@@ -20,7 +20,7 @@ class ConfigurationValidator
                 throw InvalidConfiguration::invalidItemsValue($name);
             }
 
-            if (! View::exists($config['view'])) {
+            if (! View::exists($config['view'] ?? 'feed::atom')) {
                 throw InvalidConfiguration::invalidView($name);
             }
         }
