@@ -3,6 +3,7 @@
 namespace Spatie\Feed\Test;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Snapshots\MatchesSnapshots;
@@ -99,7 +100,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     }
 
 
-    private function renderBlade($app, string $template, array $data = [])
+    private function renderBlade($app, string $template, array $data = []): string
     {
         $tempDirectory = dirname(__FILE__) . '/temp';
 
@@ -114,15 +115,15 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     }
 
 
-    protected function setUpRoutes($app)
+    protected function setUpRoutes($app): void
     {
-        $app['router']->feeds('feedBaseUrl');
+        Route::feeds('feedBaseUrl');
 
-        $app['router']->get('/test-route', function () use ($app) {
+        Route::get('/test-route', function () use ($app) {
             return $app['view']->make('feed::links');
         });
 
-        $app['router']->get('/test-route-blade-component', function () use ($app) {
+        Route::get('/test-route-blade-component', function () use ($app) {
             return $this->renderBlade($app, '<x-feed-links />');
         });
     }
