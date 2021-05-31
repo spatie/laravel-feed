@@ -7,8 +7,10 @@ use Illuminate\Support\Collection;
 
 class ResolveFeedItems
 {
-    public static function resolve($resolver): Collection
+    public static function resolve(string $feedName, $resolver): Collection
     {
+        ConfigurationValidator::validateResolver($feedName, $resolver);
+
         $newResolver = $resolver;
 
         if (is_array($resolver) && ! str_contains($resolver[0], '@')) {

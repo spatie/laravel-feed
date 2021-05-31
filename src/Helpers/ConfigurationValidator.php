@@ -16,26 +16,21 @@ class ConfigurationValidator
                 throw InvalidConfiguration::unrecognizedFormat($name, $config['format']);
             }
 
-            if (! self::validateFeedItemsResolver($config['items'])) {
-                throw InvalidConfiguration::invalidItemsValue($name);
-            }
-
             if (! View::exists($config['view'] ?? 'feed::atom')) {
                 throw InvalidConfiguration::invalidView($name);
             }
         }
     }
 
-    protected static function validateFeedItemsResolver($resolver): bool
+    public static function validateResolver(string $feedName, $resolver): void
     {
-        if ($resolver === null) {
-            return true;
+        if (! self::feedItemsResolverIsValid($resolver)) {
+            throw InvalidConfiguration::invalidItemsValue($feedName);
         }
+    }
 
-        if ($resolver === '') {
-            return true;
-        }
-
+    protected static function feedItemsResolverIsValid($resolver): bool
+    {
         if (! is_string($resolver) && ! is_array($resolver)) {
             return false;
         }
