@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.0.3 - 2021-05-31
+
+- do not throw exception for default config
+
 ## 4.0.2 - 2021-05-31
 
 - improve service provider
