@@ -4,10 +4,10 @@ namespace Spatie\Feed\Helpers;
 
 class Path
 {
-    public static function merge(...$paths): string
+    public static function merge(string ...$paths): string
     {
-        return collect($paths)->map(function (string $path) {
-            return trim($path, '/');
-        })->implode('/');
+        return collect($paths)
+            ->map(fn (string $path) => trim($path, '/'))
+            ->implode('/');
     }
 }

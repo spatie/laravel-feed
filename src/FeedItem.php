@@ -8,6 +8,8 @@ use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class FeedItem
 {
+    public ?Feed $feed = null;
+
     protected ?string $id = null;
 
     protected string $title;
@@ -20,11 +22,15 @@ class FeedItem
 
     protected string $enclosure;
 
+    protected string $image;
+
     protected int $enclosureLength;
 
     protected string $enclosureType;
 
-    protected string $author;
+    protected string $authorName;
+
+    protected string $authorEmail;
 
     protected array $category = [];
 
@@ -41,7 +47,7 @@ class FeedItem
         }
     }
 
-    public static function create(array $data = []): self
+    public static function create(array $data = []): static
     {
         return new static($data);
     }
@@ -102,9 +108,23 @@ class FeedItem
         return $this;
     }
 
-    public function author(string $author): self
+    public function image(string $image): self
     {
-        $this->author = $author;
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function authorName(string $authorName): self
+    {
+        $this->authorName = $authorName;
+
+        return $this;
+    }
+
+    public function authorEmail(string $authorEmail): self
+    {
+        $this->authorEmail = $authorEmail;
 
         return $this;
     }
@@ -116,9 +136,18 @@ class FeedItem
         return $this;
     }
 
+    public function timestamp(): string
+    {
+        if ($this->feed->format() === 'rss') {
+            return $this->updated->toRssString();
+        }
+
+        return $this->updated->toRfc3339String();
+    }
+
     public function validate(): void
     {
-        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'author'];
+        $requiredFields = ['id', 'title', 'updated', 'summary', 'link', 'authorName'];
 
         foreach ($requiredFields as $requiredField) {
             if (is_null($this->$requiredField)) {

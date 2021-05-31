@@ -2,6 +2,34 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.0.0 - unreleased
+
+- adds support for PHP 8 only.
+- drops PHP 7 support.
+- uses PHP 8 syntax where possible.
+- bumps `PHPUnit` to v9.5.
+- adds support for running tests in parallel.
+- updates the readme to include the new API & configuration settings.
+- adds an `UPGRADING.md` guide to help users manually upgrade package versions.
+- adds support for json feeds _(`jsonfeed.org` support)_.
+- removes `FeedItem::author`.  _Use `FeedItem::authorName` and `FeedItem::authorEmail` instead._
+- removes the `feed::feed` view.  _Use `feed::atom`, `feed::json`, `feed:rss` or a custom view instead._
+- adds support for `FeedItem::image` _(json feeds only)_.
+- adds validation of the configuration file.
+- adds support for tuple notation in the `items` configuration key.
+- adds feed config option `format` to specify the type of feed that is generated _(`rss`, `atom`, or `json`)_.
+- adds feed config option `contentType` to force the content type of the feed response.
+- adds feed config option `image` which associates an image with the overall feed.
+- changes feed config option `type` default value to an empty string _(value is now auto detected by default)_.
+- changes feed config option `view` so that it is now required to be an existing view.
+- config option `view` no longer defaults to `feed::feed` when it contains an empty value _(now defaults to `feed::atom`)._
+- generated rss and atom feeds now pass w3c validation (#152).
+
+This release contains Breaking Changes:
+- `FeedItem::author` has been replaced with `authorName` and `authorEmail` _(optional)_.
+- Several new configuration options are required (see above).
+- The value of the configuration option `view` must be an existing view _(empty values/non-existent views now throw an Exception)_.
+
 ## 3.2.1 - 2021-05-27
 
 - fix breaking change introduced in 3.1.4

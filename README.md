@@ -5,7 +5,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-feed/run-tests?label=tests)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 
-This package provides an easy way to generate [RSS feeds](http://www.whatisrss.com/). There's almost no coding required on your part. Just follow the installation instructions update your config file and you're good to go.
+This package provides an easy way to generate a feed for your Laravel application.  Supported formats are [RSS](http://www.whatisrss.com/), [Atom](https://en.wikipedia.org/wiki/Atom_(standard)), and [JSON](https://jsonfeed.org). There's almost no coding required on your part. Just follow the installation instructions, update your config file, and you're good to go.
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -50,9 +50,13 @@ return [
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
              * 'App\Model@getAllFeedItems'
+             * or
+             * ['App\Model', 'getAllFeedItems']
              *
-             * You can also pass an argument to that method:
-             * ['App\Model@getAllFeedItems', 'argument']
+             * You can also pass an argument to that method.  Note that their key must be the name of the parameter:             * 
+             * ['App\Model@getAllFeedItems', 'parameterName' => 'argument']
+             * or
+             * ['App\Model', 'getAllFeedItems', 'parameterName' => 'argument']
              */
             'items' => '',
 
@@ -66,9 +70,33 @@ return [
             'language' => 'en-US',
 
             /*
+             * The image to display for the feed.  For Atom feeds, this is displayed as
+             * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
+             * An empty value omits the image attribute from the feed.
+             */
+            'image' => '',
+
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+
+            /*
              * The view that will render the feed.
              */
-            'view' => 'feed::feed',
+            'view' => 'feed::atom',
+
+            /*
+             * The type to be used in the <link> tag.  Set to an empty string to automatically
+             * determine the correct value.
+             */
+            'type' => '',
+
+            /*
+             * The content type for the feed response.  Set to an empty string to automatically
+             * determine the correct value.
+             */
+            'contentType' => '',
         ],
     ],
 ];
@@ -103,7 +131,8 @@ class NewsItem extends Model implements Feedable
             ->summary($this->summary)
             ->updated($this->updated_at)
             ->link($this->link)
-            ->author($this->author);
+            ->authorName($this->author)
+            ->authorEmail($this->authorEmail);
     }
 }
 ```
@@ -127,7 +156,7 @@ class NewsItem extends Model implements Feedable
             'summary' => $this->summary,
             'updated' => $this->updated_at,
             'link' => $this->link,
-            'author' => $this->author,
+            'authorName' => $this->authorName,
         ]);
     }
 }
@@ -158,7 +187,14 @@ return [
             /*
              * Here you can specify which class and method will return
              * the items that should appear in the feed. For example:
-             * '\App\Model@getAllFeedItems'
+             * 'App\Model@getAllFeedItems'
+             * or
+             * ['App\Model', 'getAllFeedItems']
+             *
+             * You can also pass an argument to that method.  Note that their key must be the name of the parameter:             * 
+             * ['App\Model@getAllFeedItems', 'parameterName' => 'argument']
+             * or
+             * ['App\Model', 'getAllFeedItems', 'parameterName' => 'argument']
              */
             'items' => 'App\NewsItem@getFeedItems',
 
@@ -168,6 +204,11 @@ return [
             'url' => '/feed',
 
             'title' => 'All newsitems on mysite.com',
+
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
 
             /*
              * Custom view for the items.
@@ -202,12 +243,17 @@ return [
 
     'feeds' => [
         'news' => [
-            'items' => 'App\NewsItem@getFeedItems',
+            'items' => ['App\NewsItem', 'getFeedItems'],
 
             'url' => '/feed',
 
             'title' => 'All newsitems on mysite.com',
 
+            /*
+             * The format of the feed.  Acceptable values are 'rss', 'atom', or 'json'.
+             */
+            'format' => 'atom',
+            
             /*
              * Custom view for the items.
              *
@@ -240,23 +286,23 @@ As an alternative you can use this blade component:
 <x-feed-links />
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
 ## Testing
 
-``` bash
+```bash
 composer test
 ```
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security
+## Security Vulnerabilities
 
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 

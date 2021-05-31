@@ -1,0 +1,99 @@
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "Feed 1 JSON",
+    "home_page_url": "http://localhost",
+    "feed_url": "http://localhost/feedBaseUrl/feed1.json",
+    "language": "en-US",
+    "icon": "http://localhost/image.jpg",
+    "items": [{
+            "id": "http://localhost/1",
+            "title": "feedItemTitle",
+            "url": "https://localhost/news/testItem1",
+            "content_html": "feedItemSummary",
+            "summary": "feedItemSummary",
+            "date_published": "2015-12-31T23:59:00+01:00",
+            "date_modified": "2015-12-31T23:59:00+01:00",
+            "authors": [{ "name": "feedItemAuthor" }],
+            "attachments": [
+                {
+                    "url": "http://localhost/image1.jpg",
+                    "mime_type": "image/jpeg",
+                    "size_in_bytes": 31300
+                }
+            ],
+            "tags": [ "feedItemCategory" ]
+        },
+        {
+            "id": "http://localhost/2",
+            "title": "feedItemTitle",
+            "url": "https://localhost/news/testItem2",
+            "content_html": "feedItemSummary",
+            "summary": "feedItemSummary",
+            "date_published": "2015-12-31T23:58:00+01:00",
+            "date_modified": "2015-12-31T23:58:00+01:00",
+            "authors": [{ "name": "feedItemAuthor" }],
+            "attachments": [
+                {
+                    "url": "http://localhost/image1.jpg",
+                    "mime_type": "image/jpeg",
+                    "size_in_bytes": 31300
+                }
+            ],
+            "tags": [ "feedItemCategory" ]
+        },
+        {
+            "id": "http://localhost/3",
+            "title": "feedItemTitle",
+            "url": "https://localhost/news/testItem3",
+            "content_html": "feedItemSummary",
+            "summary": "feedItemSummary",
+            "date_published": "2015-12-31T23:57:00+01:00",
+            "date_modified": "2015-12-31T23:57:00+01:00",
+            "authors": [{ "name": "feedItemAuthor" }],
+            "attachments": [
+                {
+                    "url": "http://localhost/image1.jpg",
+                    "mime_type": "image/jpeg",
+                    "size_in_bytes": 31300
+                }
+            ],
+            "tags": [ "feedItemCategory" ]
+        },
+        {
+            "id": "http://localhost/4",
+            "title": "feedItemTitle",
+            "url": "https://localhost/news/testItem4",
+            "content_html": "feedItemSummary",
+            "summary": "feedItemSummary",
+            "date_published": "2015-12-31T23:56:00+01:00",
+            "date_modified": "2015-12-31T23:56:00+01:00",
+            "authors": [{ "name": "feedItemAuthor" }],
+            "attachments": [
+                {
+                    "url": "http://localhost/image1.jpg",
+                    "mime_type": "image/jpeg",
+                    "size_in_bytes": 31300
+                }
+            ],
+            "tags": [ "feedItemCategory" ]
+        },
+        {
+            "id": "http://localhost/5",
+            "title": "feedItemTitle",
+            "url": "https://localhost/news/testItem5",
+            "content_html": "feedItemSummary",
+            "summary": "feedItemSummary",
+            "date_published": "2015-12-31T23:55:00+01:00",
+            "date_modified": "2015-12-31T23:55:00+01:00",
+            "authors": [{ "name": "feedItemAuthor" }],
+            "attachments": [
+                {
+                    "url": "http://localhost/image1.jpg",
+                    "mime_type": "image/jpeg",
+                    "size_in_bytes": 31300
+                }
+            ],
+            "tags": [ "feedItemCategory" ]
+        }        
+    ]
+}

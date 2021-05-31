@@ -30,14 +30,14 @@
         }
     ],
     "require": {
-        "php" : "^7.4|^8.0",
+        "php" : "^8.0",
         "illuminate/support": "^7.0|^8.0",
         "illuminate/http": "^7.0|^8.0",
         "illuminate/contracts": "^7.0|^8.0",
-        "spatie/laravel-package-tools": "^1.5"
+        "spatie/laravel-package-tools": "^1.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.4",
         "orchestra/testbench": "^5.0|^6.0",
         "spatie/phpunit-snapshot-assertions": "^4.2",
         "spatie/test-time": "^1.2"
@@ -54,7 +54,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "extra": {
         "laravel": {

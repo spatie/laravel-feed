@@ -30,43 +30,64 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function getEnvironmentSetUp($app)
     {
         $feed = [
-            [
+            'feed1' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1',
                 'title' => 'Feed 1',
                 'description' => 'This is feed 1 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
-            [
+            'feed2' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed2',
                 'title' => 'Feed 2',
                 'description' => 'This is feed 2 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
-            [
+            'feed3' => [
                 'items' => ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'first'],
                 'url' => '/feed3',
                 'title' => 'Feed 3',
                 'description' => 'This is feed 3 from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
             ],
-            [
+            'feedcustom' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed-with-custom-view',
                 'title' => 'Feed with Custom View',
                 'description' => 'This is a feed that uses custom views from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::links',
+                'format' => 'atom',
             ],
-            [
+            'feedrss' => [
                 'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'url' => '/feed1.rss',
                 'title' => 'Feed 1 RSS',
                 'description' => 'This is feed 1 as RSS from the unit tests',
                 'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
                 'view' => 'feed::rss',
                 'type' => 'application/rss+xml',
+                'format' => 'rss',
+            ],
+            'feedjson' => [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed1.json',
+                'title' => 'Feed 1 JSON',
+                'description' => 'This is feed 1 as JSON from the unit tests',
+                'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'view' => 'feed::json',
+                'type' => 'application/feed+json',
+                'format' => 'json',
             ],
         ];
 
