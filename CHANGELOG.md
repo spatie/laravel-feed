@@ -25,7 +25,7 @@ All notable changes to `laravel-feed` will be documented in this file
 - config option `view` no longer defaults to `feed::feed` when it contains an empty value _(now defaults to `feed::atom`)._
 - generated rss and atom feeds now pass w3c validation (#152).
 
-This release contains Breaking Changes:
+This release contains breaking changes:
 - `FeedItem::author` has been replaced with `authorName` and `authorEmail` _(optional)_.
 - Several new configuration options are required (see above).
 - The value of the configuration option `view` must be an existing view _(empty values/non-existent views now throw an Exception)_.
