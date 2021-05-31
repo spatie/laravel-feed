@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
-## 4.0.0 - unreleased
+## 4.0.0 - 2021-05-31
 
 - adds support for PHP 8 only.
 - drops PHP 7 support.
