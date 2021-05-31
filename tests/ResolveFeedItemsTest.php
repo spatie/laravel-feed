@@ -25,7 +25,7 @@ class ResolveFeedItemsTest extends TestCase
     /** @test */
     public function it_resolves_a_resolver_class_and_method_tuple()
     {
-        $result = ResolveFeedItems::resolve(['\Spatie\Feed\Test\DummyRepository', 'getAll']);
+        $result = ResolveFeedItems::resolve([DummyRepository::class, 'getAll']);
 
         $this->assertCount(5, $result);
     }
@@ -33,7 +33,7 @@ class ResolveFeedItemsTest extends TestCase
     /** @test */
     public function it_resolves_a_resolver_class_and_method_tuple_with_parameters()
     {
-        $result = ResolveFeedItems::resolve(['Spatie\Feed\Test\DummyRepository', 'getAllWithArguments', 'filter' => 'first']);
+        $result = ResolveFeedItems::resolve([DummyRepository::class, 'getAllWithArguments', 'filter' => 'first']);
 
         $this->assertCount(1, $result);
     }
