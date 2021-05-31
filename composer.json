@@ -27,6 +27,11 @@
             "email": "sebastian@spatie.be",
             "homepage": "https://spatie.be",
             "role": "Developer"
+        },
+        {
+            "name": "Patrick Organ",
+            "homepage": "https://github.com/patinthehat",
+            "role": "Developer"
         }
     ],
     "require": {
