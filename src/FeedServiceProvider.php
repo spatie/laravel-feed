@@ -27,7 +27,10 @@ class FeedServiceProvider extends PackageServiceProvider
     public function packageRegistered()
     {
         $this->registerRouteMacro();
-
+    }
+    
+    public function packageBooted()
+    {
         if (! app()->runningUnitTests()) {
             ConfigurationValidator::validate();
         }
