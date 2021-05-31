@@ -9,22 +9,22 @@ class InvalidFeedItem extends Exception
 {
     public ?FeedItem $subject;
 
-    public static function notFeedable($subject): self
+    public static function notFeedable($subject): static
     {
         return (new static('Object does not implement `Spatie\Feed\Feedable`'))->withSubject($subject);
     }
 
-    public static function notAFeedItem($subject): self
+    public static function notAFeedItem($subject): static
     {
         return (new static('`toFeedItem` should return an instance of `Spatie\Feed\Feedable`'))->withSubject($subject);
     }
 
-    public static function missingField(FeedItem $subject, $field): self
+    public static function missingField(FeedItem $subject, $field): static
     {
         return (new static("Field `{$field}` is required"))->withSubject($subject);
     }
 
-    protected function withSubject($subject): self
+    protected function withSubject($subject): static
     {
         $this->subject = $subject;
 
