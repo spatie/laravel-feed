@@ -50,7 +50,7 @@ class ConfigurationValidatorTest extends TestCase
     {
         $exceptionCounter = 0;
 
-        $invalidItems = ['', null, [], ['test']];
+        $invalidItems = [[], ['test']];
         $validItems = ['Model@getAll', ['App\\Model', 'getItems'], ['App\\Model', 'getItems', 'param1']];
 
         $items = array_merge($invalidItems, $validItems);

@@ -28,6 +28,14 @@ class ConfigurationValidator
 
     protected static function validateFeedItemsResolver($resolver): bool
     {
+        if ($resolver === null) {
+            return true;
+        }
+
+        if ($resolver === '') {
+            return true;
+        }
+
         if (! is_string($resolver) && ! is_array($resolver)) {
             return false;
         }
