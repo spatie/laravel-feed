@@ -18,7 +18,6 @@ class ConfigurationValidatorTest extends TestCase
             try {
                 ConfigurationValidator::validate([
                     'feed1' => [
-                        'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                         'view' => 'feed::rss',
                         'format' => $format,
                     ],
@@ -38,7 +37,6 @@ class ConfigurationValidatorTest extends TestCase
 
         ConfigurationValidator::validate([
             'feed1' => [
-                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                 'view' => 'feed::rss',
                 'format' => 'test',
             ],
@@ -50,20 +48,14 @@ class ConfigurationValidatorTest extends TestCase
     {
         $exceptionCounter = 0;
 
-        $invalidItems = [[], ['test']];
+        $invalidItems = [[], null, '', ['test']];
         $validItems = ['Model@getAll', ['App\\Model', 'getItems'], ['App\\Model', 'getItems', 'param1']];
 
         $items = array_merge($invalidItems, $validItems);
 
         foreach ($items as $itemsValue) {
             try {
-                ConfigurationValidator::validate([
-                    'feed1' => [
-                        'items' => $itemsValue,
-                        'view' => 'feed::rss',
-                        'format' => 'rss',
-                    ],
-                ]);
+                ConfigurationValidator::validateResolver('feed1', $itemsValue);
             } catch (InvalidConfiguration $e) {
                 $exceptionCounter++;
             }
@@ -82,7 +74,6 @@ class ConfigurationValidatorTest extends TestCase
             try {
                 ConfigurationValidator::validate([
                     'feed1' => [
-                        'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
                         'view' => $view,
                         'format' => 'json',
                     ],
