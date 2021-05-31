@@ -14,7 +14,7 @@ class ConfigurationValidatorTest extends TestCase
         $exceptionCounter = 0;
         $formats = ['atom', 'json', 'rss', 'other'];
 
-        foreach($formats as $format) {
+        foreach ($formats as $format) {
             try {
                 ConfigurationValidator::validate([
                     'feed1' => [
@@ -23,7 +23,7 @@ class ConfigurationValidatorTest extends TestCase
                         'format' => $format,
                     ],
                 ]);
-            } catch(InvalidConfiguration $e) {
+            } catch (InvalidConfiguration $e) {
                 $exceptionCounter++;
             }
         }
@@ -55,7 +55,7 @@ class ConfigurationValidatorTest extends TestCase
 
         $items = array_merge($invalidItems, $validItems);
 
-        foreach($items as $itemsValue) {
+        foreach ($items as $itemsValue) {
             try {
                 ConfigurationValidator::validate([
                     'feed1' => [
@@ -78,7 +78,7 @@ class ConfigurationValidatorTest extends TestCase
         $exceptionCounter = 0;
         $views = ['', 'feed::missing', null, 'feed::rss'];
 
-        foreach($views as $view) {
+        foreach ($views as $view) {
             try {
                 ConfigurationValidator::validate([
                     'feed1' => [

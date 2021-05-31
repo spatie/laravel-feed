@@ -100,5 +100,4 @@ class Feed implements Responsable
             ? $updatedAt->toRssString()
             : $updatedAt->toRfc3339String();
     }
-
 }

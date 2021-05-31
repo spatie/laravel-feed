@@ -7,7 +7,6 @@ use Illuminate\View\View;
 
 class FeedLinks extends Component
 {
-
     public function render(): View
     {
         return view('feed::links');

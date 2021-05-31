@@ -34,5 +34,4 @@ class FeedContentType
             ? $mappedType
             : $type;
     }
-
 }

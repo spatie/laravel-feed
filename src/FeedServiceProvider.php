@@ -50,5 +50,4 @@ class FeedServiceProvider extends PackageServiceProvider
     {
         return collect(config('feed.feeds'));
     }
-
 }
