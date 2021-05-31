@@ -29,7 +29,7 @@
             ],
 @endif
             "tags": [ {!! implode(',', array_map(fn($c) => '"'.$c.'"', $item->category)) !!} ]
-        }@if($item !== array_last($items)),
+        }@if($item !== \Illuminate\Support\Arr::last($items)),
 @endif
         @endforeach
 
