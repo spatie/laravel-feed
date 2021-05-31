@@ -32,7 +32,7 @@ Register the routes the feeds will be displayed on using the `feeds`-macro.
 Route::feeds();
 ```
 
-This will register a route `/feed` in your application. If you want to use a different URL, you can pass a string as a first argument of the macro. The string will be used as a URL for your feed.
+Optionally, you can pass a string as a first argument of the macro. The string will be used as a a URL prefix for all configured feeds.
 
 Next, you must publish the config file:
 
