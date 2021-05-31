@@ -95,11 +95,10 @@ class Feed implements Responsable
             ->sortBy(fn ($feedItem) => $feedItem->updated)
             ->last()->updated;
 
-        if ($this->format === 'rss') {
-            return $updatedAt->toRssString();
-        }
 
-        return $updatedAt->toRfc3339String();
+        return $this->format === 'rss'
+            ? $updatedAt->toRssString()
+            : $updatedAt->toRfc3339String();
     }
 
 }

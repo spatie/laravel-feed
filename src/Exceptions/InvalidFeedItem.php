@@ -11,7 +11,7 @@ class InvalidFeedItem extends Exception
 
     public static function notFeedable($subject): self
     {
-        return (new static('Object doesn\'t implement `Spatie\Feed\Feedable`'))->withSubject($subject);
+        return (new static('Object does not implement `Spatie\Feed\Feedable`'))->withSubject($subject);
     }
 
     public static function notAFeedItem($subject): self
