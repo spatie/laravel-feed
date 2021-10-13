@@ -2,7 +2,7 @@
 
 namespace Spatie\Feed;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Exception;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 
@@ -14,7 +14,7 @@ class FeedItem
 
     protected string $title;
 
-    protected Carbon $updated;
+    protected CarbonInterface $updated;
 
     protected string $summary;
 
@@ -66,7 +66,7 @@ class FeedItem
         return $this;
     }
 
-    public function updated(Carbon $updated): self
+    public function updated(CarbonInterface $updated): self
     {
         $this->updated = $updated;
 
