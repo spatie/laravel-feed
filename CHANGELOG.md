@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.0.5 - 2021-10-14
+
+- fix FeedItem update() use with CarbonImmutable date (#178)
+
 ## 4.0.4 - 2021-05-31
 
 - improve config validation (#159)
