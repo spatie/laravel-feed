@@ -28,4 +28,24 @@ class FeedItemTest extends TestCase
 
         $this->expectNotToPerformAssertions();
     }
+
+    /** @test */
+    public function it_can_add_values_conditionally()
+    {
+        $item = FeedItem::create([
+            'authorName' => 'pretty ok author name',
+            'link' => 'https://spatie.be',
+        ])
+            ->title('A title')
+            ->when(true, fn(FeedItem $item) => $item->category('very good category'))
+            ->when(false, fn(FeedItem $item) => $item->authorName('very bad name'))
+            ->unless(false, fn(FeedItem $item) => $item->authorEmail('please-no-spam@example.com'))
+            ->unless(true, fn(FeedItem $item) => $item->link('https://badlink.com'));
+
+        $this->assertSame('A title', $item->title);
+        $this->assertSame(['very good category'], $item->category);
+        $this->assertSame('pretty ok author name', $item->authorName);
+        $this->assertSame('please-no-spam@example.com', $item->authorEmail);
+        $this->assertSame('https://spatie.be', $item->link);
+    }
 }

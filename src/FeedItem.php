@@ -4,10 +4,13 @@ namespace Spatie\Feed;
 
 use Carbon\CarbonInterface;
 use Exception;
+use Illuminate\Support\Traits\Conditionable;
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 
 class FeedItem
 {
+    use Conditionable;
+
     public ?Feed $feed = null;
 
     protected ?string $id = null;
