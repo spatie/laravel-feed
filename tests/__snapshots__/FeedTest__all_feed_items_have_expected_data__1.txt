@@ -5,7 +5,7 @@
                                 <title><![CDATA[Feed 1]]></title>
                                 <logo>http://localhost/image.jpg</logo>
                                 <subtitle>This is feed 1 from the unit tests</subtitle>
-                                                    <updated>2015-12-31T23:59:00+01:00</updated>
+                                                    <updated>2015-12-31T22:59:00+00:00</updated>
                         <entry>
             <title><![CDATA[feedItemTitle]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
@@ -20,7 +20,7 @@
             </summary>
                         <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category term="feedItemCategory" />
-                        <updated>2015-12-31T23:59:00+01:00</updated>
+                        <updated>2015-12-31T22:59:00+00:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -36,7 +36,7 @@
             </summary>
                         <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category term="feedItemCategory" />
-                        <updated>2015-12-31T23:58:00+01:00</updated>
+                        <updated>2015-12-31T22:58:00+00:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -52,7 +52,7 @@
             </summary>
                         <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category term="feedItemCategory" />
-                        <updated>2015-12-31T23:57:00+01:00</updated>
+                        <updated>2015-12-31T22:57:00+00:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -68,7 +68,7 @@
             </summary>
                         <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category term="feedItemCategory" />
-                        <updated>2015-12-31T23:56:00+01:00</updated>
+                        <updated>2015-12-31T22:56:00+00:00</updated>
         </entry>
             <entry>
             <title><![CDATA[feedItemTitle]]></title>
@@ -84,6 +84,6 @@
             </summary>
                         <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
                                     <category term="feedItemCategory" />
-                        <updated>2015-12-31T23:55:00+01:00</updated>
+                        <updated>2015-12-31T22:55:00+00:00</updated>
         </entry>
     </feed>

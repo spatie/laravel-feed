@@ -11,7 +11,7 @@
         </image>
         <description><![CDATA[This is feed 1 as RSS from the unit tests]]></description>
         <language>en-US</language>
-        <pubDate>Thu, 31 Dec 2015 23:59:00 +0100</pubDate>
+        <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
 
                     <item>
                 <title><![CDATA[feedItemTitle]]></title>
@@ -19,7 +19,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/1</guid>
-                <pubDate>Thu, 31 Dec 2015 23:59:00 +0100</pubDate>
+                <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -28,7 +28,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/2</guid>
-                <pubDate>Thu, 31 Dec 2015 23:58:00 +0100</pubDate>
+                <pubDate>Thu, 31 Dec 2015 22:58:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -37,7 +37,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/3</guid>
-                <pubDate>Thu, 31 Dec 2015 23:57:00 +0100</pubDate>
+                <pubDate>Thu, 31 Dec 2015 22:57:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -46,7 +46,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/4</guid>
-                <pubDate>Thu, 31 Dec 2015 23:56:00 +0100</pubDate>
+                <pubDate>Thu, 31 Dec 2015 22:56:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
@@ -55,7 +55,7 @@
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
                 <guid>http://localhost/5</guid>
-                <pubDate>Thu, 31 Dec 2015 23:55:00 +0100</pubDate>
+                <pubDate>Thu, 31 Dec 2015 22:55:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
             </channel>
