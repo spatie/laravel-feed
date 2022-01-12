@@ -99,7 +99,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $this->setUpRoutes($app);
     }
 
-
     private function renderBlade($app, string $template, array $data = []): string
     {
         $tempDirectory = dirname(__FILE__) . '/temp';
@@ -113,7 +112,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         return $app['view']->make(Str::before(basename($tempFile), '.blade.php'))->with($data);
     }
-
 
     protected function setUpRoutes($app): void
     {

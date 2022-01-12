@@ -28,7 +28,7 @@ class FeedServiceProvider extends PackageServiceProvider
     {
         $this->registerRouteMacro();
     }
-    
+
     public function packageBooted()
     {
         if (! app()->runningUnitTests()) {

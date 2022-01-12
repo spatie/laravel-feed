@@ -7,7 +7,6 @@ use Spatie\Feed\Helpers\ConfigurationValidator;
 
 class ConfigurationValidatorTest extends TestCase
 {
-
     /** @test */
     public function it_validates_feed_formats()
     {
