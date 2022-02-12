@@ -4,3 +4,4 @@
     <link rel="alternate" type="application/atom+xml" href="http://localhost/feedBaseUrl/feed-with-custom-view" title="Feed with Custom View">
     <link rel="alternate" type="application/rss+xml" href="http://localhost/feedBaseUrl/feed1.rss" title="Feed 1 RSS">
     <link rel="alternate" type="application/feed+json" href="http://localhost/feedBaseUrl/feed1.json" title="Feed 1 JSON">
+    <link rel="alternate" type="application/atom+xml" href="http://localhost/feedBaseUrl/feed-with-custom-content-type" title="Feed with Custom Content-type">

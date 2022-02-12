@@ -93,6 +93,7 @@ class FeedTest extends TestCase
             'feed1' => 'application/xml',
             'feed1.rss' => 'application/xml',
             'feed1.json' => 'application/json',
+            'feed-with-custom-content-type' => 'application/atom+xml',
         ];
 
         collect($feeds)->each(function (string $contentType, $feedName) {

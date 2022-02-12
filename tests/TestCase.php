@@ -90,6 +90,16 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 'type' => 'application/feed+json',
                 'format' => 'json',
             ],
+            'feedcustomcontenttype' => [
+                'items' => 'Spatie\Feed\Test\DummyRepository@getAll',
+                'url' => '/feed-with-custom-content-type',
+                'title' => 'Feed with Custom Content-type',
+                'description' => 'This is a feed that uses a custom content-type',
+                'language' => 'en-US',
+                'image' => 'http://localhost/image.jpg',
+                'format' => 'atom',
+                'contentType' => 'application/atom+xml'
+            ],
         ];
 
         $app['config']->set('feed.feeds', $feed);
