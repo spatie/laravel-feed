@@ -21,6 +21,7 @@ class FeedController
         $items = ResolveFeedItems::resolve($name, $feed['items']);
 
         return new Feed(
+            $name,
             $feed['title'],
             $items,
             request()->url(),

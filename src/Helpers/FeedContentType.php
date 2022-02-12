@@ -15,9 +15,9 @@ class FeedContentType
         'link' => 'application/atom+xml',
     ];
 
-    public static function forResponse(string $feedFormat): string
+    public static function forResponse(string $feedName, string $feedFormat): string
     {
-        $contentType = config('feed::contentType');
+        $contentType = config('feed.feeds.' . $feedName . '.contentType');
         $mappedType = self::$typeMap[$feedFormat]['response'] ?? self::$defaults['response'];
 
         return empty($contentType)
@@ -25,9 +25,9 @@ class FeedContentType
             : $contentType;
     }
 
-    public static function forLink(string $feedFormat): string
+    public static function forLink(string $feedName, string $feedFormat): string
     {
-        $type = config('feed::type');
+        $type = config('feed.feeds.' . $feedName . '.type');
         $mappedType = self::$typeMap[$feedFormat]['link'] ?? self::$defaults['link'];
 
         return empty($type)

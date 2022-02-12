@@ -13,6 +13,7 @@ class Feed implements Responsable
     protected Collection $feedItems;
 
     public function __construct(
+        protected string $name,
         protected string $title,
         protected Collection $items,
         protected string $url = '',
@@ -30,6 +31,7 @@ class Feed implements Responsable
     public function toResponse($request): Response
     {
         $meta = [
+            'name' => $this->name,
             'id' => url($this->url),
             'link' => url($this->url),
             'title' => $this->title,
@@ -45,7 +47,7 @@ class Feed implements Responsable
         ]);
 
         return new Response($contents, 200, [
-            'Content-Type' => FeedContentType::forResponse($this->format) . ';charset=UTF-8',
+            'Content-Type' => FeedContentType::forResponse($this->name, $this->format) . ';charset=UTF-8',
         ]);
     }
 

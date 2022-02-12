@@ -60,7 +60,7 @@ class FeedTest extends TestCase
     {
         TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00');
 
-        $feed = new Feed('title', collect([
+        $feed = new Feed('name', 'title', collect([
             [
                 'id' => 1,
                 'authorName' => 'John',

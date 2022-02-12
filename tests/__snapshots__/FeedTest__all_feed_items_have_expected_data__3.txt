@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
-                        <id>http://localhost/feedBaseUrl/feed3</id>
+                        <name>feed3</name>
+                                <id>http://localhost/feedBaseUrl/feed3</id>
                                 <link href="http://localhost/feedBaseUrl/feed3" rel="self"></link>
                                 <title><![CDATA[Feed 3]]></title>
                                 <logo>http://localhost/image.jpg</logo>
