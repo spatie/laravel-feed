@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.1.1 - 2022-03-20
+
+## What's Changed
+
+- update PSR-2 to PSR-12 by @iamfarhad in https://github.com/spatie/laravel-feed/pull/184
+- Remove some whitespace by @driesvints in https://github.com/spatie/laravel-feed/pull/186
+
+## New Contributors
+
+- @iamfarhad made their first contribution in https://github.com/spatie/laravel-feed/pull/184
+- @driesvints made their first contribution in https://github.com/spatie/laravel-feed/pull/186
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.1.0...4.1.1
+
 ## 4.1.0 - 2022-01-12
 
 - allow Laravel 9
