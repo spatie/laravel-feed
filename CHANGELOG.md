@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.1.3 - 2022-05-27
+
+## What's Changed
+
+- fix: add optional desription to json feed by @trovster in https://github.com/spatie/laravel-feed/pull/188
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.1.2...4.1.3
+
 ## 4.1.2 - 2022-05-27
 
 ## What's Changed
