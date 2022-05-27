@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.1.2 - 2022-05-27
+
+## What's Changed
+
+- fix: add top-level author to json feed by @trovster in https://github.com/spatie/laravel-feed/pull/189
+
+## New Contributors
+
+- @trovster made their first contribution in https://github.com/spatie/laravel-feed/pull/189
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.1.1...4.1.2
+
 ## 4.1.1 - 2022-03-20
 
 ## What's Changed
