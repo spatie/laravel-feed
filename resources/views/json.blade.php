@@ -1,6 +1,9 @@
 {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "{{ $meta['title'] }}",
+@if(!empty($meta['description']))
+    "description": "{{ $meta['description'] }}",
+@endif
     "home_page_url": "{{ config('app.url') }}",
     "feed_url": "{{ url($meta['link']) }}",
     "language": "{{ $meta['language'] }}",

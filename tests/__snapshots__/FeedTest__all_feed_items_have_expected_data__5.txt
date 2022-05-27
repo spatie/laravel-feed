@@ -1,6 +1,7 @@
 {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Feed 1 JSON",
+    "description": "This is feed 1 as JSON from the unit tests",
     "home_page_url": "http://localhost",
     "feed_url": "http://localhost/feedBaseUrl/feed1.json",
     "language": "en-US",
