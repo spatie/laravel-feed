@@ -5,6 +5,10 @@
     "feed_url": "http://localhost/feedBaseUrl/feed1.json",
     "language": "en-US",
     "icon": "http://localhost/image.jpg",
+    "authors": [{
+            "name": "feedItemAuthor"
+        }
+    ],
     "items": [{
             "id": "http://localhost/1",
             "title": "feedItemTitle",

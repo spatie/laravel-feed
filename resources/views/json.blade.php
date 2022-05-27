@@ -7,6 +7,12 @@
 @if(!empty($meta['image']))
     "icon": "{{ $meta['image'] }}",
 @endif
+    "authors": [@foreach($items->unique('authorName') as $item){
+            "name": "{{ $item->authorName }}"
+        }@if(! $loop->last),@endif
+@endforeach
+
+    ],
     "items": [@foreach($items as $item){
             "id": "{{ url($item->id) }}",
             "title": "{{ $item->title }}",
@@ -29,7 +35,7 @@
             ],
 @endif
             "tags": [ {!! implode(',', array_map(fn($c) => '"'.$c.'"', $item->category)) !!} ]
-        }@if($item !== $items->last()),
+        }@if(! $loop->last),
 @endif
         @endforeach
 
