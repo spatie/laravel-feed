@@ -12,7 +12,7 @@
     ],
     "items": [{
             "id": "http://localhost/1",
-            "title": "feedItemTitle",
+            "title": "feed<>]]>Item\"Title\"",
             "url": "https://localhost/news/testItem1",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
@@ -30,7 +30,7 @@
         },
         {
             "id": "http://localhost/2",
-            "title": "feedItemTitle",
+            "title": "feed<>]]>Item\"Title\"",
             "url": "https://localhost/news/testItem2",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
@@ -48,7 +48,7 @@
         },
         {
             "id": "http://localhost/3",
-            "title": "feedItemTitle",
+            "title": "feed<>]]>Item\"Title\"",
             "url": "https://localhost/news/testItem3",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
@@ -66,7 +66,7 @@
         },
         {
             "id": "http://localhost/4",
-            "title": "feedItemTitle",
+            "title": "feed<>]]>Item\"Title\"",
             "url": "https://localhost/news/testItem4",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",
@@ -84,7 +84,7 @@
         },
         {
             "id": "http://localhost/5",
-            "title": "feedItemTitle",
+            "title": "feed<>]]>Item\"Title\"",
             "url": "https://localhost/news/testItem5",
             "content_html": "feedItemSummary",
             "summary": "feedItemSummary",

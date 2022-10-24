@@ -7,7 +7,7 @@
         @if($key === 'link')
             <{{ $key }} href="{{ url($metaItem) }}" rel="self"></{{ $key }}>
         @elseif($key === 'title')
-            <{{ $key }}><![CDATA[{{ $metaItem }}]]></{{ $key }}>
+            <{{ $key }}>{!! \Spatie\Feed\Helpers\Cdata::out($metaItem) !!}</{{ $key }}>
         @elseif($key === 'description')
             <subtitle>{{ $metaItem }}</subtitle>
         @elseif($key === 'language')
@@ -23,18 +23,18 @@
     @endforeach
     @foreach($items as $item)
         <entry>
-            <title><![CDATA[{{ $item->title }}]]></title>
+            <title>{!! \Spatie\Feed\Helpers\Cdata::out($item->title) !!}</title>
             <link rel="alternate" href="{{ url($item->link) }}" />
             <id>{{ url($item->id) }}</id>
             <author>
-                <name><![CDATA[{{ $item->authorName }}]]></name>
+                <name>{!! \Spatie\Feed\Helpers\Cdata::out($item->authorName) !!}</name>
 @if(!empty($item->authorEmail))
-                <email><![CDATA[{{ $item->authorEmail }}]]></email>
+                <email>{!! \Spatie\Feed\Helpers\Cdata::out($item->authorEmail) !!}</email>
 
 @endif
             </author>
             <summary type="html">
-                <![CDATA[{!! $item->summary !!}]]>
+                {!! \Spatie\Feed\Helpers\Cdata::out($item->summary) !!}
             </summary>
             @if($item->__isset('enclosure'))
             <link href="{{ url($item->enclosure) }}" length="{{ $item->enclosureLength }}" type="{{ $item->enclosureType }}" />

@@ -16,7 +16,7 @@ class DummyItem implements Feedable
     {
         return new FeedItem([
             'id' => $this->id,
-            'title' => 'feedItemTitle',
+            'title' => 'feed<>]]>Item"Title"',
             'summary' => 'feedItemSummary',
             'enclosure' => 'http://localhost/image1.jpg',
             'enclosureLength' => 31300,

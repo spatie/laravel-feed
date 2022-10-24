@@ -14,7 +14,7 @@
         <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
 
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
@@ -23,7 +23,7 @@
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem2</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
@@ -32,7 +32,7 @@
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem3</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
@@ -41,7 +41,7 @@
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem4</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
@@ -50,7 +50,7 @@
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem5</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>

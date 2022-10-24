@@ -18,13 +18,13 @@
     ],
     "items": [@foreach($items as $item){
             "id": "{{ url($item->id) }}",
-            "title": "{{ $item->title }}",
+            "title": {!! json_encode($item->title) !!},
             "url": "{{ url($item->link) }}",
             "content_html": {!! json_encode($item->summary) !!},
             "summary": {!! json_encode($item->summary) !!},
             "date_published": "{{ $item->timestamp() }}",
             "date_modified": "{{ $item->timestamp() }}",
-            "authors": [{ "name": "{{ $item->authorName }}" }],
+            "authors": [{ "name": {!! json_encode($item->authorName) !!} }],
 @if($item->__isset('image'))
             "image": "{{ url($item->image) }}",
 @endif
