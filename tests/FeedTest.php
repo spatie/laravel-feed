@@ -6,6 +6,7 @@ use Spatie\Feed\Feed;
 use Spatie\TestTime\TestTime;
 
 use function PHPUnit\Framework\assertEquals;
+use function Spatie\Snapshots\assertMatchesSnapshot;
 
 beforeEach(function () {
     $this->feedNames = ['feed1', 'feed2', 'feed3', 'feed1.rss', 'feed1.json'];
@@ -21,20 +22,20 @@ test('all feed items have expected data', function () {
     collect($this->feedNames)->each(function (string $feedName) {
         $generatedFeedContent = $this->get("/feedBaseUrl/{$feedName}")->getContent();
 
-        $this->assertMatchesSnapshot($generatedFeedContent);
+        assertMatchesSnapshot($generatedFeedContent);
     });
 });
 
 test('it can render all feed links via a view', function () {
     $feedLinksHtml = $this->get('/test-route')->getContent();
 
-    $this->assertMatchesSnapshot($feedLinksHtml);
+    assertMatchesSnapshot($feedLinksHtml);
 });
 
 test('it can render all feed links via the blade component', function () {
     $feedLinksHtml = trim($this->get('/test-route-blade-component')->getContent());
 
-    $this->assertMatchesSnapshot($feedLinksHtml);
+    assertMatchesSnapshot($feedLinksHtml);
 });
 
 test('all feed items can have a custom view', function () {
@@ -71,7 +72,7 @@ test('it can accept an array', function () {
 
     $response = $feed->toResponse(Request::capture());
 
-    $this->assertMatchesSnapshot($response->content());
+    assertMatchesSnapshot($response->content());
 });
 
 test('it returns the correct content type', function () {
