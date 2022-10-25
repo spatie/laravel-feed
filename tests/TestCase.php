@@ -9,7 +9,6 @@ use Spatie\Feed\FeedServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-
     protected function setUp(): void
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
