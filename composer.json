@@ -45,7 +45,8 @@
         "phpunit/phpunit": "^9.5",
         "orchestra/testbench": "^6.23|^7.0",
         "spatie/phpunit-snapshot-assertions": "^4.2.7",
-        "spatie/test-time": "^1.2"
+        "spatie/test-time": "^1.2",
+        "pestphp/pest": "^1.22"
     },
     "autoload": {
         "psr-4": {
@@ -69,5 +70,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
