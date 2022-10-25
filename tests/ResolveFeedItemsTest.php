@@ -1,40 +1,30 @@
 <?php
 
-namespace Spatie\Feed\Test;
-
 use Spatie\Feed\Helpers\ResolveFeedItems;
+use Spatie\Feed\Test\DummyRepository;
 
-class ResolveFeedItemsTest extends TestCase
-{
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_string()
-    {
-        $result = ResolveFeedItems::resolve('feed1', '\Spatie\Feed\Test\DummyRepository@getAll');
+use function PHPUnit\Framework\assertCount;
 
-        $this->assertCount(5, $result);
-    }
+test('it resolves a resolver class and method string', function () {
+    $result = ResolveFeedItems::resolve('feed1', '\Spatie\Feed\Test\DummyRepository@getAll');
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_string_with_parameters()
-    {
-        $result = ResolveFeedItems::resolve('feed1', ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter' => 'first']);
+    assertCount(5, $result);
+});
 
-        $this->assertCount(1, $result);
-    }
+test('it resolves a resolver class and method string with parameters', function () {
+    $result = ResolveFeedItems::resolve('feed1', ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter' => 'first']);
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_tuple()
-    {
-        $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAll']);
+    assertCount(1, $result);
+});
 
-        $this->assertCount(5, $result);
-    }
+test('it resolves a resolver class and method tuple', function () {
+    $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAll']);
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_tuple_with_parameters()
-    {
-        $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAllWithArguments', 'filter' => 'first']);
+    assertCount(5, $result);
+});
 
-        $this->assertCount(1, $result);
-    }
-}
+test('it resolves a resolver class and method tuple with parameters', function () {
+    $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAllWithArguments', 'filter' => 'first']);
+
+    assertCount(1, $result);
+});
