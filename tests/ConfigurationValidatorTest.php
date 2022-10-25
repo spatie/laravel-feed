@@ -1,7 +1,5 @@
 <?php
 
-namespace Spatie\Feed\Test;
-
 use Spatie\Feed\Exceptions\InvalidConfiguration;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 

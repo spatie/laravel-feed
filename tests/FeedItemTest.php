@@ -1,7 +1,5 @@
 <?php
 
-namespace Spatie\Feed\Test;
-
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 use Spatie\Feed\FeedItem;
 
