@@ -6,11 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Spatie\Feed\FeedServiceProvider;
-use Spatie\Snapshots\MatchesSnapshots;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    use MatchesSnapshots;
 
     protected function setUp(): void
     {
