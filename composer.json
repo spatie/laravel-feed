@@ -46,7 +46,8 @@
         "orchestra/testbench": "^6.23|^7.0",
         "spatie/phpunit-snapshot-assertions": "^4.2.7",
         "spatie/test-time": "^1.2",
-        "pestphp/pest": "^1.22"
+        "pestphp/pest": "^1.22",
+        "spatie/pest-plugin-snapshots": "^1.1"
     },
     "autoload": {
         "psr-4": {
