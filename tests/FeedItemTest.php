@@ -1,31 +1,20 @@
 <?php
 
-namespace Spatie\Feed\Test;
-
 use Spatie\Feed\Exceptions\InvalidFeedItem;
 use Spatie\Feed\FeedItem;
 
-class FeedItemTest extends TestCase
-{
-    /** @test */
-    public function a_feed_is_invalid_if_a_field_is_missing()
-    {
-        $this->expectException(InvalidFeedItem::class);
+test('a feed is invalid if a field is missing', function () {
+    FeedItem::create()->validate();
+})->throws(InvalidFeedItem::class);
 
-        FeedItem::create()->validate();
-    }
+it('can be created without errors', function () {
+    FeedItem::create()
+        ->title('A title')
+        ->category('a category')
+        ->link('https://spatie.be')
+        ->authorName('an author')
+        ->authorEmail('author@test.test')
+        ->updated(now());
 
-    /** @test * */
-    public function it_can_be_created_without_errors()
-    {
-        FeedItem::create()
-            ->title('A title')
-            ->category('a category')
-            ->link('https://spatie.be')
-            ->authorName('an author')
-            ->authorEmail('author@test.test')
-            ->updated(now());
-
-        $this->expectNotToPerformAssertions();
-    }
-}
+    $this->expectNotToPerformAssertions();
+});

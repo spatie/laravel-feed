@@ -1,40 +1,28 @@
 <?php
 
-namespace Spatie\Feed\Test;
-
 use Spatie\Feed\Helpers\ResolveFeedItems;
+use Spatie\Feed\Test\DummyRepository;
 
-class ResolveFeedItemsTest extends TestCase
-{
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_string()
-    {
-        $result = ResolveFeedItems::resolve('feed1', '\Spatie\Feed\Test\DummyRepository@getAll');
+it('resolves a resolver class and method string', function () {
+    $result = ResolveFeedItems::resolve('feed1', '\Spatie\Feed\Test\DummyRepository@getAll');
 
-        $this->assertCount(5, $result);
-    }
+    expect($result)->toHaveCount(5);
+});
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_string_with_parameters()
-    {
-        $result = ResolveFeedItems::resolve('feed1', ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter' => 'first']);
+it('resolves a resolver class and method string with parameters', function () {
+    $result = ResolveFeedItems::resolve('feed1', ['Spatie\Feed\Test\DummyRepository@getAllWithArguments', 'filter' => 'first']);
 
-        $this->assertCount(1, $result);
-    }
+    expect($result)->toHaveCount(1);
+});
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_tuple()
-    {
-        $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAll']);
+it('resolves a resolver class and method tuple', function () {
+    $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAll']);
 
-        $this->assertCount(5, $result);
-    }
+    expect($result)->toHaveCount(5);
+});
 
-    /** @test */
-    public function it_resolves_a_resolver_class_and_method_tuple_with_parameters()
-    {
-        $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAllWithArguments', 'filter' => 'first']);
+it('resolves a resolver class and method tuple with parameters', function () {
+    $result = ResolveFeedItems::resolve('feed1', [DummyRepository::class, 'getAllWithArguments', 'filter' => 'first']);
 
-        $this->assertCount(1, $result);
-    }
-}
+    expect($result)->toHaveCount(1);
+});

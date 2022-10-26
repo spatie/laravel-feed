@@ -6,13 +6,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Spatie\Feed\FeedServiceProvider;
-use Spatie\Snapshots\MatchesSnapshots;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    use MatchesSnapshots;
-
-    public function setUp(): void
+    protected function setUp(): void
     {
         Carbon::setTestNow(Carbon::create(2016, 1, 1, 0, 0, 0)
             ->setTimezone('Europe/Brussels')
@@ -103,7 +100,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $tempDirectory = dirname(__FILE__) . '/temp';
 
-        if (! in_array($tempDirectory, $app['view']->getFinder()->getPaths())) {
+        if (!in_array($tempDirectory, $app['view']->getFinder()->getPaths())) {
             $app['view']->addLocation($tempDirectory);
         }
 
