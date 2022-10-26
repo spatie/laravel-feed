@@ -3,7 +3,7 @@
 use Spatie\Feed\Exceptions\InvalidConfiguration;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 
-test('it validates feed formats', function () {
+it('validates feed formats', function () {
     $exceptionCounter = 0;
     $formats = ['atom', 'json', 'rss', 'other'];
 
@@ -23,7 +23,7 @@ test('it validates feed formats', function () {
     expect($exceptionCounter)->toBe(1);
 });
 
-test('it throws an exception for invalid feed types', function () {
+it('throws an exception for invalid feed types', function () {
     ConfigurationValidator::validate([
         'feed1' => [
             'view' => 'feed::rss',
@@ -32,7 +32,7 @@ test('it throws an exception for invalid feed types', function () {
     ]);
 })->throws(InvalidConfiguration::class);
 
-test('it throws an exception for an invalid items value', function () {
+it('throws an exception for an invalid items value', function () {
     $exceptionCounter = 0;
 
     $invalidItems = [[], null, '', ['test']];
@@ -51,7 +51,7 @@ test('it throws an exception for an invalid items value', function () {
     expect($invalidItems)->toHaveCount($exceptionCounter);
 });
 
-test('it throws an exception for an invalid view', function () {
+it('throws an exception for an invalid view', function () {
     $exceptionCounter = 0;
     $views = ['', 'feed::missing', null, 'feed::rss'];
 

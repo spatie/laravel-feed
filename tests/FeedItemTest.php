@@ -7,7 +7,7 @@ test('a feed is invalid if a field is missing', function () {
     FeedItem::create()->validate();
 })->throws(InvalidFeedItem::class);
 
-test('it can be created without errors', function () {
+it('can be created without errors', function () {
     FeedItem::create()
         ->title('A title')
         ->category('a category')
