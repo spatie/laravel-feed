@@ -10,7 +10,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
         <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
 
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
@@ -19,7 +19,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
@@ -28,7 +28,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
@@ -37,7 +37,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>
@@ -46,7 +46,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                                     <category>feedItemCategory</category>
                             </item>
                     <item>
-                <title><![CDATA[feedItemTitle]]></title>
+                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor]]></author>

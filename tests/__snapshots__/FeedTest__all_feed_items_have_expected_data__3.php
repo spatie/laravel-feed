@@ -9,7 +9,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                                 <language>en-US</language>
                                 <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
                         <entry>
-            <title><![CDATA[feedItemTitle]]></title>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
@@ -25,7 +25,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                         <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
-            <title><![CDATA[feedItemTitle]]></title>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
@@ -41,7 +41,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                         <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
-            <title><![CDATA[feedItemTitle]]></title>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
@@ -57,7 +57,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                         <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
-            <title><![CDATA[feedItemTitle]]></title>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
@@ -73,7 +73,7 @@ return '<?xml version="1.0" encoding="UTF-8"?>
                         <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
         </entry>
             <entry>
-            <title><![CDATA[feedItemTitle]]></title>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
             <link rel="alternate" href="https://localhost/news/testItem1" />
             <id>http://localhost/1</id>
             <author>
