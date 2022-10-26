@@ -3,8 +3,6 @@
 use Spatie\Feed\Exceptions\InvalidConfiguration;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 
-use function PHPUnit\Framework\assertEquals;
-
 test('it validates feed formats', function () {
     $exceptionCounter = 0;
     $formats = ['atom', 'json', 'rss', 'other'];
@@ -21,7 +19,8 @@ test('it validates feed formats', function () {
             $exceptionCounter++;
         }
     }
-    assertEquals(1, $exceptionCounter);
+
+    expect($exceptionCounter)->toBe(1);
 });
 
 test('it throws an exception for invalid feed types', function () {
@@ -49,7 +48,7 @@ test('it throws an exception for an invalid items value', function () {
         }
     }
 
-    assertEquals(count($invalidItems), $exceptionCounter);
+    expect($invalidItems)->toHaveCount($exceptionCounter);
 });
 
 test('it throws an exception for an invalid view', function () {
@@ -69,5 +68,5 @@ test('it throws an exception for an invalid view', function () {
         }
     }
 
-    assertEquals(2, $exceptionCounter);
+    expect($exceptionCounter)->toBe(2);
 });

@@ -87,6 +87,8 @@ test('it returns the correct content type', function () {
 
         $response->assertStatus(200);
 
-        assertEquals(Str::before($response->headers->get('content-type'), ';'), $contentType);
+        expect(
+            str($response->headers->get('content-type'))->before(';')->value()
+        )->toBe($contentType);
     });
 });
