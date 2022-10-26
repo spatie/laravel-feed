@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.1.5 - 2022-10-26
+
+### What's Changed
+
+- Update README.md fix small typo by @eugenevdm in https://github.com/spatie/laravel-feed/pull/192
+- Don't escape entities inside CDATA by @akirk in https://github.com/spatie/laravel-feed/pull/193
+
+### New Contributors
+
+- @eugenevdm made their first contribution in https://github.com/spatie/laravel-feed/pull/192
+- @akirk made their first contribution in https://github.com/spatie/laravel-feed/pull/193
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.1.4...4.1.5
+
 ## 4.1.4 - 2022-05-27
 
 ## What's Changed
