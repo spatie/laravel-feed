@@ -1,8 +1,10 @@
 <?php
 
-use function Spatie\Snapshots\assertMatchesSnapshot;
 use Illuminate\Http\Request;
 use Spatie\Feed\Feed;
+
+use function Spatie\Snapshots\assertMatchesSnapshot;
+
 use Spatie\TestTime\TestTime;
 
 beforeEach(function () {

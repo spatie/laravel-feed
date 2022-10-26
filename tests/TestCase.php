@@ -100,7 +100,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $tempDirectory = dirname(__FILE__) . '/temp';
 
-        if (!in_array($tempDirectory, $app['view']->getFinder()->getPaths())) {
+        if (! in_array($tempDirectory, $app['view']->getFinder()->getPaths())) {
             $app['view']->addLocation($tempDirectory);
         }
 
