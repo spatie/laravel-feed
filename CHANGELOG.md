@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.2.0 - 2022-11-04
+
+### What's Changed
+
+- Refactor tests to PEST by @alexmanase in https://github.com/spatie/laravel-feed/pull/194
+- Add .stubs.php by @mabdullahsari in https://github.com/spatie/laravel-feed/pull/195
+
+### New Contributors
+
+- @alexmanase made their first contribution in https://github.com/spatie/laravel-feed/pull/194
+- @mabdullahsari made their first contribution in https://github.com/spatie/laravel-feed/pull/195
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.1.5...4.2.0
+
 ## 4.1.5 - 2022-10-26
 
 ### What's Changed
