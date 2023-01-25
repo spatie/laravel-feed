@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.2.1 - 2023-01-25
+
+### What's Changed
+
+- Add PHP 8.2 Support by @patinthehat in https://github.com/spatie/laravel-feed/pull/196
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.2.0...4.2.1
+
 ## 4.2.0 - 2022-11-04
 
 ### What's Changed
