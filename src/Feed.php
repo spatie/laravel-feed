@@ -20,7 +20,8 @@ class Feed implements Responsable
         protected string $description = '',
         protected string $language = '',
         protected string $image = '',
-        protected string $format = 'atom'
+        protected string $format = 'atom',
+        protected string $xsl = '',
     ) {
         $this->url = $url ?? request()->url();
 
@@ -42,6 +43,7 @@ class Feed implements Responsable
         $contents = view($this->view, [
             'meta' => $meta,
             'items' => $this->feedItems,
+            'xsl' => $this->xsl,
         ]);
 
         return new Response($contents, 200, [

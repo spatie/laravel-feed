@@ -25,10 +25,11 @@ class FeedController
             $items,
             request()->url(),
             $feed['view'] ?? 'feed::atom',
-            $feed['description'] ?? '',
+            $feed['description'] ?? ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt quam in sem accumsan, vel lobortis justo efficitur. Cras dapibus magna a ipsum laoreet pretium. Donec et fringilla magna, id commodo velit. Nunc luctus, turpis a maximus porttitor, elit mauris placerat enim, vel vulputate ipsum lorem nec ligula. Fusce quis blandit nibh. Vivamus ac interdum sem. Vestibulum odio lorem, consequat at tempor a, facilisis congue tellus. Mauris sit amet turpis tellus. ',
             $feed['language'] ?? 'en-US',
             $feed['image'] ?? '',
             $feed['format'] ?? 'atom',
+            $feed['xsl'] ?? '',
         );
     }
 }
