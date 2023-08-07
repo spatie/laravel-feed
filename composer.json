@@ -36,13 +36,13 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^8.0|^9.0|^10.0",
-        "illuminate/http": "^8.0|^9.0|^10.0",
-        "illuminate/contracts": "^8.0|^9.0|^10.0",
-        "spatie/laravel-package-tools": "^1.9"
+        "illuminate/support": "^9.28|^10.0",
+        "illuminate/http": "^9.28|^10.0",
+        "illuminate/contracts": "^9.28|^10.0",
+        "spatie/laravel-package-tools": "^1.15"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23|^7.0|^8.0",
+        "orchestra/testbench": "^7.0|^8.0",
         "spatie/test-time": "^1.2",
         "pestphp/pest": "^2.0",
         "spatie/pest-plugin-snapshots": "^2.0"
