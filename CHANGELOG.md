@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.3.0 - 2023-08-07
+
+### What's Changed
+
+- Styled feeds by @timvandijck in https://github.com/spatie/laravel-feed/pull/199
+
+### New Contributors
+
+- @timvandijck made their first contribution in https://github.com/spatie/laravel-feed/pull/199
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.2.1...4.3.0
+
 ## 4.2.1 - 2023-01-25
 
 ### What's Changed
