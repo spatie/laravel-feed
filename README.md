@@ -37,7 +37,7 @@ Optionally, you can pass a string as a first argument of the macro. The string w
 Next, you must publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="feed-config,assets"
+php artisan laravel-feed:install
 ```
 
 Here's what that looks like:

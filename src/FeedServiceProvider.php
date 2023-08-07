@@ -7,6 +7,7 @@ use Spatie\Feed\Components\FeedLinks;
 use Spatie\Feed\Helpers\ConfigurationValidator;
 use Spatie\Feed\Helpers\Path;
 use Spatie\Feed\Http\FeedController;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,6 +23,12 @@ class FeedServiceProvider extends PackageServiceProvider
                 $view->with('feeds', $this->feeds());
             })
             ->hasViewComponent('', FeedLinks::class)
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->publishAssets()
+                    ->publishConfigFile()
+                    ->askToStarRepoOnGitHub('spatie/laravel-feed');
+            })
             ->hasAssets();
     }
 
