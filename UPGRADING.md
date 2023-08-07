@@ -2,6 +2,13 @@
 
 This guide contains the steps to follow for upgrading `laravel-feed` versions.
 
+## Upgrading from v4 to v5
+When upgrading to v5 it's important to publish the assets when using Atom feeds. To do this run:
+
+```bash
+artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="feed-config","assets"
+```
+
 ## Upgrading from v3 to v4
 
 When upgrading from v3 to v4, there are a number of changes required; they primarily affect the configuration file, however
