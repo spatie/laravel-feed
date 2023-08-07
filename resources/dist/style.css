@@ -31,3 +31,7 @@ hr {
     line-height: 1rem;
     color: #666;
 }
+
+img {
+    max-width: 100%;
+}
