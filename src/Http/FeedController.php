@@ -29,6 +29,7 @@ class FeedController
             $feed['language'] ?? 'en-US',
             $feed['image'] ?? '',
             $feed['format'] ?? 'atom',
+            $feed['xsl'] ?? '',
         );
     }
 }

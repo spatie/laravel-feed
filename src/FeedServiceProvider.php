@@ -21,7 +21,8 @@ class FeedServiceProvider extends PackageServiceProvider
             ->hasViewComposer('feed::links', function ($view) {
                 $view->with('feeds', $this->feeds());
             })
-            ->hasViewComponent('', FeedLinks::class);
+            ->hasViewComponent('', FeedLinks::class)
+            ->hasAssets();
     }
 
     public function packageRegistered()

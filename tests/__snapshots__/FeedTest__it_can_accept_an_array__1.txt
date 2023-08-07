@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/vendor/feed/atom.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="">
                         <id>http://localhost</id>
                                 <link href="http://localhost" rel="self"></link>

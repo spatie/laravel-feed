@@ -1,0 +1,37 @@
+.layout-content {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+hr {
+    margin: 2rem 0;
+}
+
+.post {
+    margin-bottom: 2rem;
+}
+
+.post .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post .summary {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.post .published-info {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #666;
+}
+
+img {
+    max-width: 100%;
+}
