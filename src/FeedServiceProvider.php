@@ -23,7 +23,7 @@ class FeedServiceProvider extends PackageServiceProvider
                 $view->with('feeds', $this->feeds());
             })
             ->hasViewComponent('', FeedLinks::class)
-            ->hasInstallCommand(function(InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishAssets()
                     ->publishConfigFile()
