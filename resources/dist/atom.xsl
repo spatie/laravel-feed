@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="summary">
-                                <xsl:value-of select="atom:summary"/>
+                                <xsl:value-of select="atom:summary" disable-output-escaping="yes"/>
                             </div>
 
                             <div class="published-info">
