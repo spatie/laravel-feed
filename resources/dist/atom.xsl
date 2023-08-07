@@ -47,7 +47,7 @@
                                 d="M184 213A140 140 0 0 0 44 73 V 38a175 175 0 0 1 175 175z"
                                 fill="#FFF"/>
                         </svg>
-                        RSS Feed Preview
+                        RSS Feed
                     </h1>
                     <h2><xsl:value-of select="/atom:feed/atom:title"/></h2>
                     <p>
