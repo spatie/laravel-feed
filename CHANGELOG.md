@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.4.0 - 2024-03-01
+
+### What's Changed
+
+* ci: Use GITHUB_OUTPUT envvar instead of set-output command by @arunsathiya in https://github.com/spatie/laravel-feed/pull/202
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-feed/pull/205
+
+### New Contributors
+
+* @arunsathiya made their first contribution in https://github.com/spatie/laravel-feed/pull/202
+* @laravel-shift made their first contribution in https://github.com/spatie/laravel-feed/pull/205
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.3.0...4.4.0
+
 ## 4.3.0 - 2023-08-07
 
 ### What's Changed
