@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.4.1 - 2025-02-14
+
+### What's Changed
+
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-feed/pull/209
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.4.0...4.4.1
+
 ## 4.4.0 - 2024-03-01
 
 ### What's Changed
