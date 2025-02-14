@@ -44,7 +44,7 @@
     "require-dev": {
         "orchestra/testbench": "^8.0|^9.0|^10.0",
         "spatie/test-time": "^1.2",
-        "pestphp/pest": "^2.0",
+        "pestphp/pest": "^2.0|^3.0",
         "spatie/pest-plugin-snapshots": "^2.0"
     },
     "autoload": {
