@@ -1,9 +1,19 @@
-# Generate RSS feeds in a Laravel app
+<div align="left">
+    <a href="https://spatie.be/open-source?utm_source=github&utm_medium=banner&utm_campaign=laravel-feed">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://spatie.be/packages/header/laravel-feed/html/dark.webp">
+        <img alt="Logo for laravel-feed" src=" https://spatie.be/packages/header/laravel-feed/html/light.webp" height="190">
+      </picture>
+    </a>
+
+<h1>Generate RSS feeds in a Laravel app</h1>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![run-tests](https://github.com/spatie/laravel-feed/actions/workflows/run-tests.yml/badge.svg)](https://github.com/spatie/laravel-feed/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-feed.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-feed)
+    
+</div>
 
 This package provides an easy way to generate a feed for your Laravel application.  Supported formats are [RSS](http://www.whatisrss.com/), [Atom](https://en.wikipedia.org/wiki/Atom_(standard)), and [JSON](https://jsonfeed.org). There's almost no coding required on your part. Just follow the installation instructions, update your config file, and you're good to go.
 
