@@ -52,9 +52,9 @@ class FeedItem
         return new static($data);
     }
 
-    public function id(string $id): self
+    public function id(string | int $id): self
     {
-        $this->id = $id;
+        $this->id = (string) $id;
 
         return $this;
     }
