@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.4.2 - 2025-04-17
+
+### What's Changed
+
+* Update FeedItem to support integer ids for strong typesafety by @OccTherapist in https://github.com/spatie/laravel-feed/pull/210
+
+### New Contributors
+
+* @OccTherapist made their first contribution in https://github.com/spatie/laravel-feed/pull/210
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.4.1...4.4.2
+
 ## 4.4.1 - 2025-02-14
 
 ### What's Changed
