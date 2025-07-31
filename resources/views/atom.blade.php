@@ -12,7 +12,6 @@
             <{{ $key }}>{!! \Spatie\Feed\Helpers\Cdata::out($metaItem) !!}</{{ $key }}>
         @elseif($key === 'description')
             <subtitle>{{ $metaItem }}</subtitle>
-        @elseif($key === 'language')
         @elseif($key === 'image')
 @if(!empty($metaItem))
             <logo>{!! $metaItem !!}</logo>
