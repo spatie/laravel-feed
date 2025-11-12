@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.4.3 - 2025-11-12
+
+### What's Changed
+
+* Update issue template by @AlexVanderbist in https://github.com/spatie/laravel-feed/pull/213
+
+### New Contributors
+
+* @AlexVanderbist made their first contribution in https://github.com/spatie/laravel-feed/pull/213
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.4.2...4.4.3
+
 ## 4.4.2 - 2025-04-17
 
 ### What's Changed
