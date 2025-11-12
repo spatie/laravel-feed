@@ -24,7 +24,6 @@
                 <link>{{ url($item->link) }}</link>
                 <description>{!! \Spatie\Feed\Helpers\Cdata::out($item->summary) !!}</description>
                 <author>{!! \Spatie\Feed\Helpers\Cdata::out($item->authorName.(empty($item->authorEmail)?'':' <'.$item->authorEmail.'>')) !!}</author>
-                <guid>{{ url($item->id) }}</guid>
                 <pubDate>{{ $item->timestamp() }}</pubDate>
                 @foreach($item->category as $category)
                     <category>{{ $category }}</category>

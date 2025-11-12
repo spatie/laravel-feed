@@ -18,7 +18,6 @@
                 <link>https://localhost/news/testItem1</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <guid>http://localhost/1</guid>
                 <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
@@ -27,7 +26,6 @@
                 <link>https://localhost/news/testItem2</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <guid>http://localhost/2</guid>
                 <pubDate>Thu, 31 Dec 2015 22:58:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
@@ -36,7 +34,6 @@
                 <link>https://localhost/news/testItem3</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <guid>http://localhost/3</guid>
                 <pubDate>Thu, 31 Dec 2015 22:57:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
@@ -45,7 +42,6 @@
                 <link>https://localhost/news/testItem4</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <guid>http://localhost/4</guid>
                 <pubDate>Thu, 31 Dec 2015 22:56:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
@@ -54,7 +50,6 @@
                 <link>https://localhost/news/testItem5</link>
                 <description><![CDATA[feedItemSummary]]></description>
                 <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <guid>http://localhost/5</guid>
                 <pubDate>Thu, 31 Dec 2015 22:55:00 +0000</pubDate>
                                     <category>feedItemCategory</category>
                             </item>
