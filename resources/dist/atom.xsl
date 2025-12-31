@@ -15,11 +15,10 @@
             </head>
             <body>
                 <main class="layout-content">
-                    <h1 class="flex items-start">
+                    <h1 style="display: flex; align-items: flex-start;">
                         <!-- https://commons.wikimedia.org/wiki/File:Feed-icon.svg -->
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-                             class="mr-5"
-                             style="flex-shrink: 0; width: 1em; height: 1em;"
+                             style="flex-shrink: 0; width: 1em; height: 1em; margin-right:1.25rem;"
                              viewBox="0 0 256 256">
                             <defs>
                                 <linearGradient x1="0.085" y1="0.085" x2="0.915" y2="0.915"
