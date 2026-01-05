@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-feed` will be documented in this file
 
+## 4.4.4 - 2026-01-05
+
+### What's Changed
+
+* Fix: Replaced Tailwind classes with inline styles in XSL template by @codeldev in https://github.com/spatie/laravel-feed/pull/214
+
+### New Contributors
+
+* @codeldev made their first contribution in https://github.com/spatie/laravel-feed/pull/214
+
+**Full Changelog**: https://github.com/spatie/laravel-feed/compare/4.4.3...4.4.4
+
 ## 4.4.3 - 2025-11-12
 
 ### What's Changed
