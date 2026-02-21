@@ -1,59 +1,92 @@
 <?php
 
 return '<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-    <channel>
-        <title><![CDATA[Feed 1 RSS]]></title>
-        <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
-        <description><![CDATA[This is feed 1 as RSS from the unit tests]]></description>
-        <language>en-US</language>
-        <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor]]></author>
-                <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor]]></author>
-                <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor]]></author>
-                <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor]]></author>
-                <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor]]></author>
-                <guid>http://localhost/1</guid>
-                <pubDate>Fri, 01 Jan 2016 00:00:00 +0100</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-            </channel>
-</rss>
+<feed xmlns="http://www.w3.org/2005/Atom">
+                        <id>http://localhost/feedBaseUrl/feed3</id>
+                                <link href="http://localhost/feedBaseUrl/feed3"></link>
+                                <title><![CDATA[Feed 3]]></title>
+                                <description>This is feed 3 from the unit tests</description>
+                                <language>en-US</language>
+                                <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+                        <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[feedItemAuthor]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
+                        <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[feedItemAuthor]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
+                        <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[feedItemAuthor]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
+                        <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[feedItemAuthor]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
+                        <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name> <![CDATA[feedItemAuthor]]></name>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                          <enclosure url="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category type="html">
+                <![CDATA[feedItemCategory]]>
+            </category>
+                        <updated>Fri, 01 Jan 2016 00:00:00 +0100</updated>
+        </entry>
+    </feed>
 ';

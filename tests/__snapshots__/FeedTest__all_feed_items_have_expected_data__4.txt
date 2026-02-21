@@ -1,57 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <atom:link href="http://localhost/feedBaseUrl/feed1.rss" rel="self" type="application/rss+xml" />
-        <title><![CDATA[Feed 1 RSS]]></title>
-        <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
-        <image>
-            <url>http://localhost/image.jpg</url>
-            <title><![CDATA[Feed 1 RSS]]></title>
-            <link><![CDATA[http://localhost/feedBaseUrl/feed1.rss]]></link>
-        </image>
-        <description><![CDATA[This is feed 1 as RSS from the unit tests]]></description>
-        <language>en-US</language>
-        <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
+<?xml-stylesheet href="/vendor/feed/atom.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+                        <id>http://localhost/feedBaseUrl/feed3</id>
+                                <link href="http://localhost/feedBaseUrl/feed3" rel="self"></link>
+                                <title><![CDATA[Feed 3]]></title>
+                                <logo>http://localhost/image.jpg</logo>
+                                <subtitle>This is feed 3 from the unit tests</subtitle>
+                                                    <updated>2015-12-31T22:59:00+00:00</updated>
+                        <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem1" />
+            <id>http://localhost/1</id>
+            <author>
+                <name><![CDATA[feedItemAuthor]]></name>
+                <email><![CDATA[feedItemAuthor@test.test]]></email>
 
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem1</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <pubDate>Thu, 31 Dec 2015 22:59:00 +0000</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem2</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <pubDate>Thu, 31 Dec 2015 22:58:00 +0000</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem3</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <pubDate>Thu, 31 Dec 2015 22:57:00 +0000</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem4</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <pubDate>Thu, 31 Dec 2015 22:56:00 +0000</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-                    <item>
-                <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
-                <link>https://localhost/news/testItem5</link>
-                <description><![CDATA[feedItemSummary]]></description>
-                <author><![CDATA[feedItemAuthor <feedItemAuthor@test.test>]]></author>
-                <pubDate>Thu, 31 Dec 2015 22:55:00 +0000</pubDate>
-                                    <category>feedItemCategory</category>
-                            </item>
-            </channel>
-</rss>
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T22:59:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem2" />
+            <id>http://localhost/2</id>
+            <author>
+                <name><![CDATA[feedItemAuthor]]></name>
+                <email><![CDATA[feedItemAuthor@test.test]]></email>
+
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T22:58:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem3" />
+            <id>http://localhost/3</id>
+            <author>
+                <name><![CDATA[feedItemAuthor]]></name>
+                <email><![CDATA[feedItemAuthor@test.test]]></email>
+
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T22:57:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem4" />
+            <id>http://localhost/4</id>
+            <author>
+                <name><![CDATA[feedItemAuthor]]></name>
+                <email><![CDATA[feedItemAuthor@test.test]]></email>
+
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T22:56:00+00:00</updated>
+        </entry>
+            <entry>
+            <title><![CDATA[feed<>]]&gt;Item"Title"]]></title>
+            <link rel="alternate" href="https://localhost/news/testItem5" />
+            <id>http://localhost/5</id>
+            <author>
+                <name><![CDATA[feedItemAuthor]]></name>
+                <email><![CDATA[feedItemAuthor@test.test]]></email>
+
+            </author>
+            <summary type="html">
+                <![CDATA[feedItemSummary]]>
+            </summary>
+                        <link href="http://localhost/image1.jpg" length="31300" type="image/jpeg" />
+                                    <category term="feedItemCategory" />
+                        <updated>2015-12-31T22:55:00+00:00</updated>
+        </entry>
+    </feed>
