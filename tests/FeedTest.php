@@ -21,7 +21,7 @@ test('all feed items have expected data', function () {
     collect($this->feedNames)->each(function (string $feedName) {
         $generatedFeedContent = $this->get("/feedBaseUrl/{$feedName}")->getContent();
 
-        assertMatchesSnapshot($generatedFeedContent);
+        test()->assertMatchesSnapshot($generatedFeedContent, null, $feedName);
     });
 });
 
