@@ -21,7 +21,9 @@ test('all feed items have expected data', function () {
     collect($this->feedNames)->each(function (string $feedName) {
         $generatedFeedContent = $this->get("/feedBaseUrl/{$feedName}")->getContent();
 
-        test()->assertMatchesSnapshot($generatedFeedContent, null, $feedName);
+        expect($generatedFeedContent)->toBe(file_get_contents(
+            __DIR__ . "/__snapshots__/FeedTest__all_feed_items_have_expected_data__s-{$feedName}.txt"
+        ));
     });
 });
 
@@ -46,7 +48,7 @@ test('all feed items can have a custom view', function () {
 });
 
 it('can accept an array', function () {
-    TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00');
+    TestTime::freeze('Y-m-d H:i:s', '2020-01-01 00:00:00', 'Europe/Brussels');
 
     $feed = new Feed('title', collect([
         [
